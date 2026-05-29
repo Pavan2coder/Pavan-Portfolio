@@ -96,10 +96,6 @@ npm start
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Contributing
-
-Contributions, issues, and feature requests are welcome!
-
 ## Author
 
 **Pavan**
