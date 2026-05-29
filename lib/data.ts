@@ -1,11 +1,11 @@
 export const profile = {
-  name: "Pavan",
-  role: "AI Engineer • ML Developer",
+  name: "ATHAVA SRI PAVAN",
+  role: "AI Engineer • ML Developer • Full Stack Developer",
   tagline: "Building Intelligent Systems",
-  location: "India",
-  email: "pavan@example.com",
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/in/",
+  location: "Hyderabad, India",
+  email: "sripavan472006@gmail.com",
+  github: "https://github.com/Pavan2coder",
+  linkedin: "https://linkedin.com/in/a-sripavan-772b8b344",
   twitter: "https://x.com/",
   resume: "/resume.pdf",
 };
@@ -13,146 +13,163 @@ export const profile = {
 export const navItems = [
   { id: "home", label: "Home", code: "00" },
   { id: "about", label: "About", code: "01" },
-  { id: "skills", label: "Skills", code: "02" },
-  { id: "projects", label: "Projects", code: "03" },
-  { id: "experience", label: "Experience", code: "04" },
-  { id: "assistant", label: "J.A.R.V.I.S", code: "05" },
-  { id: "terminal", label: "Terminal", code: "06" },
-  { id: "contact", label: "Contact", code: "07" },
+  { id: "ai-core", label: "AI Core", code: "02" },
+  { id: "skills", label: "Skills", code: "03" },
+  { id: "projects", label: "Projects", code: "04" },
+  { id: "experience", label: "Experience", code: "05" },
+  { id: "achievements", label: "Achievements", code: "06" },
+  { id: "terminal", label: "Terminal", code: "07" },
+  { id: "contact", label: "Contact", code: "08" },
 ];
 
 export const aboutFacts = [
-  { label: "ROLE", value: "AI Engineer" },
-  { label: "FOCUS", value: "LLMs, Agents, ML Systems" },
-  { label: "STACK", value: "Python • PyTorch • LangChain" },
-  { label: "STATUS", value: "Available for Collaboration" },
+  { label: "ROLE", value: "AI Engineer • Full Stack Developer" },
+  { label: "EDUCATION", value: "B.Tech CSE — MLR Institute" },
+  { label: "STACK", value: "MERN • Python • Flutter • AI/ML" },
+  { label: "STATUS", value: "Building Intelligent Systems" },
 ];
 
 export const skillGroups = [
   {
-    title: "AI / ML",
+    title: "Languages",
     items: [
-      { name: "Python", level: 95 },
-      { name: "PyTorch", level: 88 },
-      { name: "TensorFlow", level: 82 },
-      { name: "LangChain", level: 90 },
-      { name: "Hugging Face", level: 86 },
+      { name: "JavaScript", level: 90 },
+      { name: "Python", level: 88 },
+      { name: "Dart", level: 85 },
+      { name: "C/C++", level: 80 },
+      { name: "Java", level: 78 },
     ],
   },
   {
-    title: "Engineering",
+    title: "Frontend & Backend",
     items: [
-      { name: "FastAPI", level: 90 },
-      { name: "Next.js", level: 88 },
-      { name: "TypeScript", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "Docker", level: 78 },
+      { name: "React.js", level: 92 },
+      { name: "Node.js", level: 90 },
+      { name: "Express.js", level: 88 },
+      { name: "FastAPI", level: 85 },
+      { name: "Tailwind CSS", level: 90 },
     ],
   },
   {
-    title: "Mobile / Data",
+    title: "AI/ML & Mobile",
     items: [
-      { name: "Flutter", level: 84 },
-      { name: "Pandas", level: 92 },
-      { name: "NumPy", level: 90 },
-      { name: "Vector DBs", level: 80 },
-      { name: "AWS", level: 75 },
+      { name: "Scikit-learn", level: 85 },
+      { name: "Predictive Modelling", level: 82 },
+      { name: "Flutter", level: 88 },
+      { name: "Firebase", level: 85 },
+      { name: "MongoDB", level: 90 },
     ],
   },
 ];
 
 export const projects = [
   {
-    id: "neural-vault",
-    title: "Neural Vault",
+    id: "mlrit-portal",
+    title: "MLRIT Student Portal — Digital Counseling Book",
     description:
-      "A retrieval-augmented document intelligence platform with multi-agent reasoning, semantic search, and source-cited answers.",
-    tags: ["LangChain", "FastAPI", "Postgres", "pgvector"],
+      "Full-stack mobile-responsive platform digitizing student counseling and academic tracking workflows at MLRIT with role-based access and counselor dashboard.",
+    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Vercel"],
     status: "DEPLOYED",
     link: "#",
   },
   {
-    id: "synapse-studio",
-    title: "Synapse Studio",
+    id: "campus-companion",
+    title: "Campus Companion",
     description:
-      "Visual orchestration studio for chaining LLM agents, tools, and evaluators with real-time tracing.",
-    tags: ["Next.js", "Python", "WebSockets"],
+      "Comprehensive academic and campus management platform centralizing student and faculty services. Frontend Developer & API Contributor.",
+    tags: ["MERN Stack", "REST APIs", "Responsive UI"],
     status: "ACTIVE",
     link: "#",
   },
   {
-    id: "vision-iq",
-    title: "Vision IQ",
+    id: "traffic-intelligence",
+    title: "AI-Powered Urban Traffic Intelligence Platform",
     description:
-      "Real-time computer vision pipeline for object detection, scene understanding, and edge inference.",
-    tags: ["PyTorch", "ONNX", "OpenCV"],
-    status: "RESEARCH",
+      "ML-powered traffic prediction and route optimization platform using predictive intelligence and Dijkstra's algorithm with congestion prediction and live dashboard.",
+    tags: ["Python", "FastAPI", "Streamlit", "Scikit-learn"],
+    status: "AI CORE ACTIVE",
     link: "#",
   },
   {
-    id: "auto-ops",
-    title: "AutoOps Agent",
+    id: "aerosense",
+    title: "AeroSense — Air Quality Monitoring App",
     description:
-      "Autonomous DevOps assistant that diagnoses incidents, drafts runbooks, and proposes safe remediations.",
-    tags: ["Agents", "Kubernetes", "GitOps"],
-    status: "BETA",
+      "Real-time AQI monitoring platform with live pollution data and responsive UI for environmental awareness.",
+    tags: ["HTML5", "CSS3", "JavaScript", "REST APIs"],
+    status: "ONLINE",
     link: "#",
   },
   {
-    id: "echo-mind",
-    title: "EchoMind",
+    id: "catering-app",
+    title: "Catering App",
     description:
-      "Conversational mobile companion with on-device speech recognition and personalized memory.",
-    tags: ["Flutter", "Whisper", "Llama"],
+      "Cross-platform catering and bulk food ordering application with Firebase backend and live order updates.",
+    tags: ["Flutter", "Dart", "Firebase"],
     status: "DEPLOYED",
-    link: "#",
-  },
-  {
-    id: "quantum-flow",
-    title: "QuantumFlow",
-    description:
-      "Streaming ML feature pipeline with sub-second latency and adaptive drift detection.",
-    tags: ["Kafka", "Flink", "MLOps"],
-    status: "ACTIVE",
     link: "#",
   },
 ];
 
 export const experience = [
   {
-    company: "Stark Industries (Concept)",
-    role: "AI Engineer",
+    company: "MLRIT College Website — Centre for Innovation & Entrepreneurship",
+    role: "Web Intern",
     period: "2024 — Present",
     bullets: [
-      "Architected multi-agent LLM systems serving 50k+ requests/day with sub-200ms p95.",
-      "Built RAG pipelines with hybrid search reducing hallucinations by 38%.",
-      "Productionized fine-tuned models with cost-aware routing across providers.",
+      "Developed and maintained official institutional web modules and responsive UI systems.",
+      "Collaborated with CIE team on innovation projects and technical initiatives.",
+      "Implemented modern web development practices and accessibility standards.",
     ],
   },
   {
-    company: "Independent Research",
-    role: "ML Developer",
-    period: "2023 — 2024",
+    company: "Centre for Innovation & Entrepreneurship (CIE)",
+    role: "Technical Member",
+    period: "2023 — Present",
     bullets: [
-      "Published open-source vision-language tooling adopted by 1.2k+ projects.",
-      "Designed evaluation frameworks for agentic systems benchmarked on 12 tasks.",
+      "Contributed to innovation projects, web development initiatives, and technical collaboration programs.",
+      "Participated in hackathons and innovation challenges representing the institution.",
+      "Collaborated on building scalable web applications and AI-driven solutions.",
     ],
   },
   {
     company: "MLR Institute of Technology",
-    role: "Researcher / Student",
-    period: "2021 — 2024",
+    role: "Student Mentor",
+    period: "2023 — Present",
     bullets: [
-      "Led campus AI club; ran workshops on transformers, embeddings, and agents.",
-      "Best Project Award for an end-to-end conversational diagnosis assistant.",
+      "Mentoring junior students in programming, web development, and project building.",
+      "Conducted workshops on MERN stack, Flutter, and AI/ML fundamentals.",
+      "Guided students through real-world project development and deployment.",
     ],
   },
 ];
 
 export const systemBootLines = [
-  "INITIALIZING AI SYSTEM...",
+  "INITIALIZING PAVAN AI SYSTEMS...",
   "CONNECTING NEURAL MODULES...",
   "LOADING PORTFOLIO DATABASE...",
   "AUTHENTICATION SUCCESSFUL...",
-  "WELCOME BACK, PAVAN.",
+  "WELCOME BACK, ATHAVA SRI PAVAN.",
+];
+
+export const achievements = [
+  {
+    title: "Google Gen AI Exchange",
+    description: "Participant in Google Gen AI Exchange Program",
+    icon: "🎓",
+  },
+  {
+    title: "Google Gen AI 2.0",
+    description: "Participant in Google Gen AI 2.0 Program",
+    icon: "🚀",
+  },
+  {
+    title: "Innovation Challenge",
+    description: "Innovation Challenge Hackathon Certificate",
+    icon: "🏆",
+  },
+  {
+    title: "Fusion 360 Certified",
+    description: "Autodesk Fusion 360 Certification",
+    icon: "⚙️",
+  },
 ];

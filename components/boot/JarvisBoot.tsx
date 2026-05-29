@@ -12,9 +12,14 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
   const [lineIndex, setLineIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [finishing, setFinishing] = useState(false);
-  const { beep } = useSound();
+  const { beep, playBootSequence } = useSound();
 
   const lines = systemBootLines;
+
+  // Play boot sequence sound on mount
+  useEffect(() => {
+    playBootSequence();
+  }, [playBootSequence]);
 
   useEffect(() => {
     const total = lines.length;
@@ -159,7 +164,7 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
           <div className="pointer-events-none absolute top-5 left-5 right-5 flex justify-between font-display text-[10px] uppercase tracking-[0.3em] text-text-muted">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow-sm animate-pulse" />
-              J.A.R.V.I.S — JUST A RATHER VERY INTELLIGENT SYSTEM
+              NEURAL AI CORE — INTELLIGENT OPERATING SYSTEM
             </div>
             <div className="hidden sm:flex gap-4">
               <span>SECURE / 256-AES</span>

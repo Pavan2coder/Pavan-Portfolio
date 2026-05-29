@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useRef } from "react";
+import { useSound } from "@/hooks/useSound";
 
 export function GlowCard({
   className,
@@ -14,6 +15,7 @@ export function GlowCard({
   const y = useMotionValue(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const bg = useMotionTemplate`radial-gradient(380px circle at ${x}px ${y}px, rgba(0,255,255,0.18), transparent 60%)`;
+  const { playHover } = useSound();
 
   return (
     <motion.div
@@ -24,6 +26,7 @@ export function GlowCard({
         x.set(e.clientX - r.left);
         y.set(e.clientY - r.top);
       }}
+      onMouseEnter={() => playHover()}
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 220, damping: 22 }}
       className={cn(

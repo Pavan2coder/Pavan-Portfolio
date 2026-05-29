@@ -18,7 +18,7 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "Pavan — AI Engineer • J.A.R.V.I.S Portfolio",
+  title: "Pavan — AI Engineer • Neural AI Portfolio",
   description:
     "An AI operating system style portfolio. Pavan — AI Engineer & ML Developer building intelligent systems.",
   metadataBase: new URL("https://pavan.dev"),

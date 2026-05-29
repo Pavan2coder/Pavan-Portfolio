@@ -14,6 +14,7 @@
 
 * {
   box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html,
@@ -24,14 +25,15 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   background-image:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 124, 240, 0.18), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(0, 255, 255, 0.08), transparent 60%),
-    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0, 124, 240, 0.12), transparent 60%),
-    linear-gradient(180deg, #050816, #03060f 100%);
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 124, 240, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(0, 255, 255, 0.06), transparent 60%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0, 124, 240, 0.08), transparent 60%),
+    linear-gradient(180deg, #050816, #020510 100%);
   min-height: 100vh;
 }
 
@@ -76,17 +78,19 @@ body {
   }
   .hud-panel {
     background:
-      linear-gradient(180deg, rgba(8, 16, 36, 0.72), rgba(5, 8, 22, 0.6));
-    border: 1px solid rgba(0, 255, 255, 0.18);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+      linear-gradient(180deg, rgba(8, 16, 36, 0.4), rgba(5, 8, 22, 0.3));
+    border: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
   }
   .hud-panel-strong {
     background:
-      linear-gradient(180deg, rgba(10, 22, 48, 0.85), rgba(5, 10, 26, 0.75));
-    border: 1px solid rgba(0, 255, 255, 0.28);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+      linear-gradient(180deg, rgba(10, 22, 48, 0.5), rgba(5, 10, 26, 0.4));
+    border: none;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.15);
   }
   .scanline::before {
     content: "";
@@ -164,15 +168,22 @@ body {
 /* holographic glass card used by ScrollStack */
 .holo-card {
   background:
-    linear-gradient(180deg, rgba(8, 16, 36, 0.72), rgba(5, 8, 22, 0.55));
-  border: 1px solid rgba(0, 255, 255, 0.22);
-  border-radius: 18px;
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+    linear-gradient(180deg, rgba(8, 16, 36, 0.4), rgba(5, 8, 22, 0.3));
+  border: none;
+  border-radius: 24px;
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
   box-shadow:
-    0 0 0 1px rgba(0, 255, 255, 0.05),
-    0 30px 80px -20px rgba(0, 124, 240, 0.35),
-    inset 0 0 40px rgba(0, 124, 240, 0.08);
+    0 20px 60px rgba(0, 255, 255, 0.2),
+    inset 0 0 40px rgba(0, 124, 240, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.holo-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 30px 80px rgba(0, 255, 255, 0.3),
+    inset 0 0 60px rgba(0, 124, 240, 0.15);
 }
 
 /* radar / scanner expanding rings used in hero HUD */

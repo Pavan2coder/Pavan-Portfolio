@@ -1,84 +1,102 @@
 "use client";
-import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { HUDFrame } from "@/components/hud/HUDFrame";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { AnimatedSectionHeader } from "@/components/ui/AnimatedSectionHeader";
+import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { aboutFacts } from "@/lib/data";
 
 export function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="about" className="relative py-24 sm:py-32">
+    <section ref={ref} id="about" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
-        <SectionHeader code="01" title="About / Operator Profile" kicker="DOSSIER" />
+        <AnimatedSectionHeader code="01" title="About / Operator Profile" kicker="DOSSIER" />
 
-        <div className="grid lg:grid-cols-12 gap-6">
-          <HUDFrame label="BIO" code="01-A" className="lg:col-span-7">
-            <div className="space-y-4 text-text leading-relaxed">
-              <p>
-                I&apos;m <span className="text-primary font-medium">Pavan</span> — an AI
-                Engineer obsessed with building intelligent systems that feel
-                inevitable. I work where{" "}
-                <span className="text-accent">research meets production</span>:
-                shipping LLM agents, RAG pipelines, ML services, and the boring
-                infrastructure that keeps them honest.
-              </p>
-              <p className="text-text-muted">
-                I&apos;ve trained models, evaluated them, broken them, and put them
-                behind APIs that scale. I care about{" "}
-                <span className="text-text">latency</span>,{" "}
-                <span className="text-text">cost</span>, and{" "}
-                <span className="text-text">truthfulness</span> — in that order —
-                and I think great AI products are 30% modeling and 70%
-                engineering.
-              </p>
-              <p className="text-text-muted">
-                Outside of code, I read papers, ship side projects, and treat my
-                terminal like a cockpit.
-              </p>
+        <div className="mt-12 grid lg:grid-cols-12 gap-6">
+          <AnimatedCard delay={0} className="lg:col-span-7">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-lg uppercase tracking-wider text-primary">BIO</h3>
+                <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted">A</span>
+              </div>
+              <div className="space-y-4 text-text leading-relaxed">
+                <p>
+                  I&apos;m <span className="text-primary font-medium">Athava Sri Pavan</span> — a 
+                  Computer Science Engineering student at{" "}
+                  <span className="text-accent">MLR Institute of Technology, Hyderabad</span>, 
+                  specializing in AI, machine learning, and full-stack development.
+                </p>
+                <p className="text-text-muted">
+                  I build modern web and mobile applications using the{" "}
+                  <span className="text-text">MERN stack</span>,{" "}
+                  <span className="text-text">Python</span>,{" "}
+                  <span className="text-text">Flutter</span>, and AI technologies. 
+                  I&apos;ve worked on real-world institutional platforms, machine learning systems, 
+                  and collaborative student innovation projects.
+                </p>
+                <p className="text-text-muted">
+                  I actively contribute to the{" "}
+                  <span className="text-primary">Centre for Innovation and Entrepreneurship (CIE)</span>, 
+                  participate in AI hackathons, and mentor students in programming and development.
+                </p>
+              </div>
             </div>
-          </HUDFrame>
+          </AnimatedCard>
 
-          <HUDFrame label="META" code="01-B" className="lg:col-span-5">
-            <ul className="space-y-3">
-              {aboutFacts.map((f, i) => (
-                <motion.li
-                  key={f.label}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="flex items-baseline gap-3"
-                >
-                  <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted w-20 shrink-0">
-                    {f.label}
-                  </span>
-                  <span className="h-px flex-1 bg-primary/15" />
-                  <span className="text-text">{f.value}</span>
-                </motion.li>
-              ))}
-            </ul>
+          <AnimatedCard delay={0.15} className="lg:col-span-5">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-display text-lg uppercase tracking-wider text-primary">META</h3>
+                <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted">B</span>
+              </div>
+              <ul className="space-y-3">
+                {aboutFacts.map((f, i) => (
+                  <motion.li
+                    key={f.label}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.3 + i * 0.05 }}
+                    className="flex items-baseline gap-3"
+                  >
+                    <span className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted w-20 shrink-0">
+                      {f.label}
+                    </span>
+                    <span className="h-px flex-1 bg-primary/15" />
+                    <span className="text-text">{f.value}</span>
+                  </motion.li>
+                ))}
+              </ul>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              <Mini code="AGI" v="researching" />
-              <Mini code="STAGE" v="production" />
-              <Mini code="MODE" v="building" />
-              <Mini code="VIBE" v="cinematic" />
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <Mini code="YEAR" v="2nd Year" delay={0.5} isInView={isInView} />
+                <Mini code="STAGE" v="Student" delay={0.55} isInView={isInView} />
+                <Mini code="MODE" v="Building" delay={0.6} isInView={isInView} />
+                <Mini code="VIBE" v="Futuristic" delay={0.65} isInView={isInView} />
+              </div>
             </div>
-          </HUDFrame>
+          </AnimatedCard>
         </div>
       </div>
     </section>
   );
 }
 
-function Mini({ code, v }: { code: string; v: string }) {
+function Mini({ code, v, delay, isInView }: { code: string; v: string; delay: number; isInView: boolean }) {
   return (
-    <div className="hud-panel rounded-md px-3 py-2">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.3, delay }}
+      className="hud-panel rounded-md px-3 py-2"
+    >
       <div className="text-[9px] font-display uppercase tracking-[0.3em] text-text-muted">
         {code}
       </div>
       <div className="text-sm text-primary font-display uppercase tracking-[0.2em]">
         {v}
       </div>
-    </div>
+    </motion.div>
   );
 }

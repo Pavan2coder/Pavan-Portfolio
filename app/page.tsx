@@ -3,26 +3,23 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { JarvisBoot } from "@/components/boot/JarvisBoot";
-import { GridBackground } from "@/components/hud/GridBackground";
 import { ParticleField } from "@/components/hud/ParticleField";
 import { ScanlineOverlay } from "@/components/hud/ScanlineOverlay";
 import { MouseGlow } from "@/components/hud/MouseGlow";
 import { StatusBar } from "@/components/hud/StatusBar";
-import { NeuralNetworkLines } from "@/components/hud/NeuralNetworkLines";
 
 import { Navigation } from "@/components/layout/Navigation";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import { SoundToggle } from "@/components/layout/SoundToggle";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { TargetCursor } from "@/components/ui/TargetCursor";
 
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { AICoreSection } from "@/components/sections/AICore";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
-import { Showcase } from "@/components/sections/Showcase";
 import { Experience } from "@/components/sections/Experience";
-import { AIAssistant } from "@/components/assistant/AIAssistant";
+import { Achievements } from "@/components/sections/Achievements";
 import { Terminal } from "@/components/terminal/Terminal";
 import { Contact } from "@/components/sections/Contact";
 
@@ -48,12 +45,11 @@ export default function Page() {
       <TargetCursor />
 
       {/* background layers — always mounted */}
-      <GridBackground />
       <ParticleField />
-      <NeuralNetworkLines />
       <MouseGlow />
       <ScanlineOverlay />
 
+      {/* Boot sequence only - NO GLITCH SCREEN */}
       <AnimatePresence>
         {!booted && (
           <JarvisBoot key="boot" onComplete={() => setBooted(true)} />
@@ -71,16 +67,15 @@ export default function Page() {
           >
             <ScrollProgress />
             <Navigation />
-            <SoundToggle />
             <StatusBar />
 
             <Hero />
             <About />
+            <AICoreSection />
             <Skills />
             <Projects />
-            <Showcase />
             <Experience />
-            <AIAssistant />
+            <Achievements />
             <Terminal />
             <Contact />
           </motion.main>

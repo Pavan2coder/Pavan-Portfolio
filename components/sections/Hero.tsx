@@ -1,16 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import { profile } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { TypingEffect } from "@/components/animations/TypingEffect";
 import { RadarScanner } from "@/components/hud/RadarScanner";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-
-const AICore = dynamic(
-  () => import("@/components/3d/AICore").then((m) => m.AICore),
-  { ssr: false, loading: () => <div className="absolute inset-0" /> }
-);
 
 export function Hero() {
   return (
@@ -18,18 +12,8 @@ export function Hero() {
       id="home"
       className="relative min-h-screen pt-28 pb-24 sm:pt-32 sm:pb-32 overflow-hidden"
     >
-      {/* 3D core — spreads across the whole hero as an ambient background */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-      >
-        <AICore className="absolute inset-0" />
-        {/* soft fade so text on the left stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/70 to-transparent lg:from-bg/95 lg:via-bg/40" />
-      </motion.div>
+      {/* Clean gradient background - NO AI SPHERE */}
+      <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg/95 to-bg" />
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -81,9 +65,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="mt-5 max-w-xl text-text-muted leading-relaxed"
             >
-              I design and ship intelligent systems — LLM agents, RAG pipelines, and
-              ML services — engineered for production. Welcome to my operating
-              system.
+              B.Tech Computer Science Engineering student passionate about AI, machine learning, 
+              full-stack development, and futuristic digital experiences. Building intelligent systems, 
+              scalable web applications, and immersive AI-driven products.
             </motion.p>
 
             <motion.div
@@ -97,9 +81,9 @@ export function Hero() {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => document.getElementById("assistant")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("ai-core")?.scrollIntoView({ behavior: "smooth" })}
               >
-                BOOT J.A.R.V.I.S
+                ACTIVATE AI CORE
               </Button>
               <div className="flex items-center gap-2 ml-1">
                 <IconLink href={profile.github} label="GitHub">
@@ -122,10 +106,10 @@ export function Hero() {
               className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl"
             >
               {[
-                { k: "MODELS", v: "23+" },
-                { k: "DEPLOYS", v: "47+" },
-                { k: "AGENTS", v: "12" },
-                { k: "UPTIME", v: "99.9%" },
+                { k: "PROJECTS", v: "5+" },
+                { k: "TECH STACK", v: "15+" },
+                { k: "EXPERIENCE", v: "2 YRS" },
+                { k: "STATUS", v: "ACTIVE" },
               ].map((s) => (
                 <div key={s.k} className="hud-panel rounded-md px-3 py-3">
                   <div className="text-[10px] font-display uppercase tracking-[0.3em] text-text-muted">

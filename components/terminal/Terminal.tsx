@@ -15,38 +15,41 @@ const COMMANDS: Record<string, () => string> = {
     [
       "available commands:",
       "  whoami         — operator identity",
+      "  role           — current role",
+      "  education      — academic info",
       "  skills         — primary stack",
       "  projects       — list deployed ops",
       "  experience     — show mission log",
-      "  current_status — system status",
+      "  status         — system status",
       "  contact        — open uplink info",
       "  socials        — links",
       "  date           — local time",
       "  clear          — clear terminal",
     ].join("\n"),
-  whoami: () => `${profile.name} — AI Engineer`,
+  whoami: () => `Athava Sri Pavan`,
+  role: () => `AI Engineer | ML Developer | Full Stack Developer`,
+  education: () => `B.Tech CSE — MLR Institute of Technology, Hyderabad\n2nd Year Student`,
   skills: () =>
-    "Python, LangChain, PyTorch, TensorFlow, FastAPI, Next.js, TypeScript, Flutter, ML/AI, Three.js",
+    "Python, MERN Stack (MongoDB, Express, React, Node.js), Flutter, Dart, AI/ML, Scikit-learn, FastAPI, Streamlit, Firebase, Tailwind CSS",
   projects: () =>
     [
-      "» neural-vault     [DEPLOYED]  RAG document intelligence",
-      "» synapse-studio   [ACTIVE]    visual agent orchestration",
-      "» vision-iq        [RESEARCH]  real-time CV pipeline",
-      "» auto-ops         [BETA]      autonomous devops agent",
-      "» echo-mind        [DEPLOYED]  on-device mobile companion",
-      "» quantum-flow     [ACTIVE]    streaming ML features",
+      "» mlrit-portal           [DEPLOYED]  Student counseling platform",
+      "» campus-companion       [ACTIVE]    Campus management system",
+      "» traffic-intelligence   [AI ACTIVE] ML traffic prediction",
+      "» aerosense             [ONLINE]    Air quality monitoring",
+      "» catering-app          [DEPLOYED]  Flutter food ordering app",
     ].join("\n"),
   experience: () =>
     [
-      "2024 — present  Stark Industries (Concept)   AI Engineer",
-      "2023 — 2024     Independent Research          ML Developer",
-      "2021 — 2024     MLR Institute of Technology   Researcher",
+      "2024 — present  MLRIT CIE                     Web Intern",
+      "2023 — present  Centre for Innovation         Technical Member",
+      "2023 — present  MLR Institute of Technology   Student Mentor",
     ].join("\n"),
-  current_status: () => "Building intelligent systems...",
+  status: () => "Building intelligent systems...",
   contact: () =>
     `email:    ${profile.email}\ngithub:   ${profile.github}\nlinkedin: ${profile.linkedin}`,
   socials: () =>
-    `github:   ${profile.github}\nlinkedin: ${profile.linkedin}\nx:        ${profile.twitter}`,
+    `github:   ${profile.github}\nlinkedin: ${profile.linkedin}`,
   date: () => new Date().toString(),
   ls: () =>
     "about/   skills/   projects/   experience/   assistant/   contact/",
@@ -59,7 +62,7 @@ const BOOT_LINES: Line[] = [
   { type: "system", text: "type 'help' to view available commands" },
 ];
 
-const AUTO_DEMO = ["whoami", "skills", "current_status"];
+const AUTO_DEMO = ["whoami", "role", "status"];
 
 export function Terminal() {
   const [lines, setLines] = useState<Line[]>(BOOT_LINES);
@@ -225,7 +228,7 @@ export function Terminal() {
 
           {/* quick chips */}
           <div className="mt-3 flex flex-wrap gap-2">
-            {["help", "whoami", "skills", "projects", "current_status", "clear"].map((c) => (
+            {["help", "whoami", "role", "skills", "projects", "status", "clear"].map((c) => (
               <button
                 key={c}
                 onClick={() => {

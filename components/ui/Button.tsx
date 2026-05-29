@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, type HTMLMotionProps } from "framer-motion";
 import { forwardRef } from "react";
+import { useSound } from "@/hooks/useSound";
 
 type Variant = "primary" | "ghost" | "outline";
 
@@ -20,15 +21,25 @@ const styles: Record<Variant, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, Props>(function Button(
-  { className, variant = "primary", glow, children, ...rest },
+  { className, variant = "primary", glow, children, onMouseEnter, onClick, ...rest },
   ref
 ) {
+  const { playHover, playClick } = useSound();
+
   return (
     <motion.button
       ref={ref}
       whileHover={{ y: -2 }}
       whileTap={{ y: 0, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 320, damping: 20 }}
+      onMouseEnter={(e) => {
+        playHover();
+        onMouseEnter?.(e);
+      }}
+      onClick={(e) => {
+        playClick();
+        onClick?.(e);
+      }}
       className={cn(
         "relative inline-flex items-center justify-center gap-2 rounded-md border px-4 py-2 text-xs sm:text-sm font-display uppercase tracking-[0.18em] transition-colors backdrop-blur",
         styles[variant],
