@@ -10,6 +10,7 @@
   --accent: #5eead4;
   --text: #eceaf6;
   --text-muted: #9b9ab5;
+  --radius: 0.7rem;
 }
 
 * {

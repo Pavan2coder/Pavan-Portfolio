@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,13 +16,16 @@ const config: Config = {
           DEFAULT: "#a78bfa",
           50: "#ede9fe",
           glow: "#a78bfa",
+          foreground: "#0a0a14",
         },
         secondary: {
           DEFAULT: "#2dd4bf",
           glow: "#2dd4bf",
+          foreground: "#0a0a14",
         },
         accent: {
           DEFAULT: "#5eead4",
+          foreground: "#0a0a14",
         },
         text: {
           DEFAULT: "#eceaf6",
@@ -30,6 +34,33 @@ const config: Config = {
         },
         panel: "rgba(255, 255, 255, 0.04)",
         border: "rgba(255, 255, 255, 0.08)",
+
+        // shadcn/ui semantic tokens (mapped to the violet/teal dark theme)
+        background: "#08080f",
+        foreground: "#eceaf6",
+        card: {
+          DEFAULT: "#101020",
+          foreground: "#eceaf6",
+        },
+        popover: {
+          DEFAULT: "#101020",
+          foreground: "#eceaf6",
+        },
+        muted: {
+          DEFAULT: "#1a1a2b",
+          foreground: "#9b9ab5",
+        },
+        destructive: {
+          DEFAULT: "#ef4444",
+          foreground: "#fef2f2",
+        },
+        input: "rgba(255, 255, 255, 0.12)",
+        ring: "#a78bfa",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         orbitron: ["var(--font-orbitron)", "sans-serif"],
@@ -57,6 +88,8 @@ const config: Config = {
         "radar-sweep": "radarSweep 4s linear infinite",
         blink: "blink 1s steps(2, start) infinite",
         "fade-up": "fadeUp 0.7s ease-out both",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         spinReverse: {
@@ -105,6 +138,14 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       backgroundImage: {
         "grid-cyan":
@@ -114,7 +155,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;
