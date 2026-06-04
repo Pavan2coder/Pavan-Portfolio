@@ -39,7 +39,7 @@ export function MouseGlow() {
       className="pointer-events-none fixed left-0 top-0 z-0 h-[500px] w-[500px] rounded-full opacity-50 mix-blend-screen"
       style={{
         background:
-          "radial-gradient(closest-side, rgba(0,255,255,0.18), rgba(0,124,240,0.12) 35%, transparent 70%)",
+          "radial-gradient(closest-side, rgba(167,139,250,0.18), rgba(45,212,191,0.12) 35%, transparent 70%)",
         filter: "blur(20px)",
       }}
     />

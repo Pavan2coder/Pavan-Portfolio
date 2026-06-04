@@ -24,7 +24,7 @@ export function Projects() {
     <section ref={ref} id="projects" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
         <AnimatedSectionHeader
-          code="04"
+          code="03"
           title="Projects / Deployed Operations"
           kicker="MISSIONS"
         />
@@ -45,7 +45,7 @@ export function Projects() {
                   <div className="md:col-span-3">
                     <div className="flex items-center gap-3 text-[10px] font-display uppercase tracking-[0.32em] text-text-muted">
                       <span className="text-primary">/OP·{String(i + 1).padStart(2, "0")}</span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_#00ffff] animate-pulse" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_#a78bfa] animate-pulse" />
                     </div>
                     <div
                       className={`mt-3 inline-flex px-2.5 py-1 rounded-sm border text-[10px] font-display tracking-[0.25em] ${

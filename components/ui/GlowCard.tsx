@@ -14,7 +14,7 @@ export function GlowCard({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const ref = useRef<HTMLDivElement | null>(null);
-  const bg = useMotionTemplate`radial-gradient(380px circle at ${x}px ${y}px, rgba(0,255,255,0.18), transparent 60%)`;
+  const bg = useMotionTemplate`radial-gradient(380px circle at ${x}px ${y}px, rgba(167,139,250,0.18), transparent 60%)`;
   const { playHover } = useSound();
 
   return (

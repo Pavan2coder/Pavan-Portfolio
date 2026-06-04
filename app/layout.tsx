@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Orbitron, Rajdhani } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const orbitron = Orbitron({
+// display font (headings) — mapped onto --font-orbitron so .font-display picks it up
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-orbitron",
   display: "swap",
 });
 
-const rajdhani = Rajdhani({
+// body font — mapped onto --font-rajdhani
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-rajdhani",
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050816",
+  themeColor: "#08080f",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -45,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${rajdhani.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="bg-bg text-text antialiased min-h-screen">
         <Providers>{children}</Providers>
       </body>

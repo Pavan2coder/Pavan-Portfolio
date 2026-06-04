@@ -158,12 +158,12 @@ export function Terminal() {
     <section id="terminal" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
         <SectionHeader
-          code="06"
+          code="05"
           title="Terminal / Command Interface"
           kicker="CONSOLE"
         />
 
-        <HUDFrame label="TTY / 01" code="06-A" glow>
+        <HUDFrame label="TTY / 01" code="05-A" glow>
           {/* window chrome */}
           <div className="flex items-center justify-between mb-3 border-b border-primary/15 pb-2">
             <div className="flex items-center gap-1.5">

@@ -14,12 +14,10 @@ export const navItems = [
   { id: "home", label: "Home", code: "00" },
   { id: "about", label: "About", code: "01" },
   { id: "ai-core", label: "AI Core", code: "02" },
-  { id: "skills", label: "Skills", code: "03" },
-  { id: "projects", label: "Projects", code: "04" },
-  { id: "experience", label: "Experience", code: "05" },
-  { id: "achievements", label: "Achievements", code: "06" },
-  { id: "terminal", label: "Terminal", code: "07" },
-  { id: "contact", label: "Contact", code: "08" },
+  { id: "projects", label: "Projects", code: "03" },
+  { id: "experience", label: "Experience", code: "04" },
+  { id: "terminal", label: "Terminal", code: "05" },
+  { id: "contact", label: "Contact", code: "06" },
 ];
 
 export const aboutFacts = [
@@ -144,7 +142,7 @@ export const experience = [
 ];
 
 export const systemBootLines = [
-  "INITIALIZING PAVAN AI SYSTEMS...",
+  "INITIALIZING PAVAN PORTFOLIO...",
   "CONNECTING NEURAL MODULES...",
   "LOADING PORTFOLIO DATABASE...",
   "AUTHENTICATION SUCCESSFUL...",

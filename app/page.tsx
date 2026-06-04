@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { JarvisBoot } from "@/components/boot/JarvisBoot";
 import { ParticleField } from "@/components/hud/ParticleField";
-import { ScanlineOverlay } from "@/components/hud/ScanlineOverlay";
 import { MouseGlow } from "@/components/hud/MouseGlow";
 import { StatusBar } from "@/components/hud/StatusBar";
 
@@ -16,10 +15,8 @@ import { TargetCursor } from "@/components/ui/TargetCursor";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { AICoreSection } from "@/components/sections/AICore";
-import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
-import { Achievements } from "@/components/sections/Achievements";
 import { Terminal } from "@/components/terminal/Terminal";
 import { Contact } from "@/components/sections/Contact";
 
@@ -47,7 +44,6 @@ export default function Page() {
       {/* background layers — always mounted */}
       <ParticleField />
       <MouseGlow />
-      <ScanlineOverlay />
 
       {/* Boot sequence only - NO GLITCH SCREEN */}
       <AnimatePresence>
@@ -72,10 +68,8 @@ export default function Page() {
             <Hero />
             <About />
             <AICoreSection />
-            <Skills />
             <Projects />
             <Experience />
-            <Achievements />
             <Terminal />
             <Contact />
           </motion.main>

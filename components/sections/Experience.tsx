@@ -13,7 +13,7 @@ export function Experience() {
     <section ref={ref} id="experience" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
         <AnimatedSectionHeader
-          code="05"
+          code="04"
           title="Experience / Mission Log"
           kicker="TIMELINE"
         />
@@ -31,8 +31,8 @@ export function Experience() {
                 <div className="relative grid md:grid-cols-12 gap-6">
                   <div className="md:col-span-3">
                     <div className="flex items-center gap-2 text-[10px] font-display uppercase tracking-[0.32em] text-text-muted">
-                      <span className="text-primary">/05·{String.fromCharCode(65 + i)}</span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_#00ffff] animate-pulse" />
+                      <span className="text-primary">/04·{String.fromCharCode(65 + i)}</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_#a78bfa] animate-pulse" />
                     </div>
                     <div className="mt-3 text-[11px] font-display uppercase tracking-[0.25em] text-primary glow-text">
                       {e.period}

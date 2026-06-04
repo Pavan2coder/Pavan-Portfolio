@@ -74,7 +74,7 @@ export function TargetCursor({
       gsap.to(ring, {
         width: size,
         height: size,
-        borderColor: "rgba(0,255,255,0.95)",
+        borderColor: "rgba(167,139,250,0.95)",
         duration: 0.35,
         ease: "power3.out",
       });
@@ -88,7 +88,7 @@ export function TargetCursor({
       gsap.to(ring, {
         width: 44,
         height: 44,
-        borderColor: "rgba(0,255,255,0.7)",
+        borderColor: "rgba(167,139,250,0.7)",
         duration: 0.4,
         ease: "power3.out",
       });
@@ -149,7 +149,7 @@ export function TargetCursor({
         className="pointer-events-none fixed left-0 top-0 z-[9999] -translate-x-1/2 -translate-y-1/2 will-change-transform hidden md:block"
         style={{ transform: "translate3d(0,0,0)" }}
       >
-        <div className="h-1.5 w-1.5 rounded-full bg-[#7df9ff] shadow-[0_0_10px_#00ffff]" />
+        <div className="h-1.5 w-1.5 rounded-full bg-[#c4b5fd] shadow-[0_0_10px_#a78bfa]" />
       </div>
 
       {/* bracket ring — magnetic / locking */}
@@ -164,10 +164,10 @@ export function TargetCursor({
           style={{
             width: 44,
             height: 44,
-            border: "1px solid rgba(0,255,255,0.7)",
+            border: "1px solid rgba(167,139,250,0.7)",
             borderRadius: 6,
             boxShadow:
-              "0 0 14px rgba(0,255,255,0.35), inset 0 0 14px rgba(0,124,240,0.15)",
+              "0 0 14px rgba(167,139,250,0.35), inset 0 0 14px rgba(45,212,191,0.15)",
           }}
         >
           {/* corner brackets */}
@@ -184,9 +184,9 @@ export function TargetCursor({
 function Corner({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`absolute h-2.5 w-2.5 border-[#00ffff] ${className}`}
+      className={`absolute h-2.5 w-2.5 border-[#a78bfa] ${className}`}
       style={{
-        boxShadow: "0 0 6px rgba(0,255,255,0.85)",
+        boxShadow: "0 0 6px rgba(167,139,250,0.85)",
       }}
     />
   );

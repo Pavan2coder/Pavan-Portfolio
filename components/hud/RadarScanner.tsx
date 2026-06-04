@@ -32,14 +32,14 @@ export function RadarScanner({
           className="absolute left-1/2 top-1/2 h-1/2 w-1/2 -translate-y-full origin-bottom-left"
           style={{
             background:
-              "conic-gradient(from 0deg, rgba(0,255,255,0.0) 0deg, rgba(0,255,255,0.35) 30deg, rgba(0,255,255,0) 60deg)",
+              "conic-gradient(from 0deg, rgba(167,139,250,0.0) 0deg, rgba(167,139,250,0.35) 30deg, rgba(167,139,250,0) 60deg)",
             transform: "translate(-50%, -100%)",
           }}
         />
       </div>
 
       {/* center pulse */}
-      <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_18px_rgba(0,255,255,0.85)] animate-pulse" />
+      <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_18px_rgba(167,139,250,0.85)] animate-pulse" />
 
       {/* dots */}
       <div className="absolute left-[64%] top-[28%] h-1 w-1 rounded-full bg-accent shadow-glow-sm" />

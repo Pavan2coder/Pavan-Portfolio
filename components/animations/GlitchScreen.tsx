@@ -228,7 +228,7 @@ export function GlitchScreen({
                 repeat: Infinity,
                 repeatDelay: 0.15,
               }}
-              className="absolute inset-0 text-cyan-500 mix-blend-screen"
+              className="absolute inset-0 text-amber-500 mix-blend-screen"
               style={{
                 fontSize: "clamp(4rem, 20vw, 16rem)",
                 fontFamily: "monospace",

@@ -21,9 +21,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // Output configuration for Vercel
-  output: 'standalone',
-  
   // Headers for security and performance
   async headers() {
     return [

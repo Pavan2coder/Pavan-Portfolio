@@ -87,7 +87,7 @@ export function NeuralNetworkLines({
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d < maxDist) {
             const alpha = (1 - d / maxDist) * 0.22;
-            ctx.strokeStyle = `rgba(0, 255, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(167, 139, 250, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -100,7 +100,7 @@ export function NeuralNetworkLines({
       // nodes
       for (const n of nodes) {
         ctx.fillStyle = "rgba(125, 249, 255, 0.85)";
-        ctx.shadowColor = "rgba(0, 255, 255, 0.7)";
+        ctx.shadowColor = "rgba(167, 139, 250, 0.7)";
         ctx.shadowBlur = 8;
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);

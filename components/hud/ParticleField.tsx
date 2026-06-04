@@ -11,7 +11,7 @@ type Particle = {
   life: number;
 };
 
-export function ParticleField({ density = 0.00025 }: { density?: number }) {
+export function ParticleField({ density = 0.00009 }: { density?: number }) {
   const ref = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export function ParticleField({ density = 0.00025 }: { density?: number }) {
       const ctx2 = canvas.getContext("2d");
       ctx2?.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const target = Math.max(200, Math.min(800, Math.floor(w * h * density)));
+      const target = Math.max(40, Math.min(160, Math.floor(w * h * density)));
       particles = Array.from({ length: target }, () => spawn(w, h));
     }
 
@@ -43,10 +43,11 @@ export function ParticleField({ density = 0.00025 }: { density?: number }) {
       return {
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        r: Math.random() * 2 + 0.5,
-        hue: 180 + Math.random() * 30,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.4 + 0.3,
+        // violet ~262, teal ~172
+        hue: Math.random() > 0.5 ? 258 + Math.random() * 12 : 168 + Math.random() * 12,
         life: Math.random() * 1,
       };
     }
@@ -63,12 +64,12 @@ export function ParticleField({ density = 0.00025 }: { density?: number }) {
         if (p.x < 0 || p.x > w || p.y < 0 || p.y > h) {
           Object.assign(p, spawn(w, h));
         }
-        const alpha = 0.4 + Math.abs(Math.sin(p.life * 2)) * 0.5;
+        const alpha = (0.12 + Math.abs(Math.sin(p.life * 2)) * 0.22);
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx!.fillStyle = `hsla(${p.hue}, 100%, 70%, ${alpha})`;
-        ctx!.shadowBlur = 16;
-        ctx!.shadowColor = `hsla(${p.hue}, 100%, 70%, ${alpha * 0.8})`;
+        ctx!.fillStyle = `hsla(${p.hue}, 70%, 75%, ${alpha})`;
+        ctx!.shadowBlur = 6;
+        ctx!.shadowColor = `hsla(${p.hue}, 70%, 75%, ${alpha * 0.5})`;
         ctx!.fill();
       }
       ctx!.shadowBlur = 0;

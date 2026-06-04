@@ -22,18 +22,17 @@ export function HUDFrame({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "corner-frame relative hud-panel rounded-md p-5 sm:p-6",
+        "relative hud-panel rounded-2xl p-6 sm:p-7",
         glow && "shadow-glow",
         className
       )}
     >
       {(label || code) && (
-        <div className="mb-4 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.3em] text-text-muted font-display">
+        <div className="mb-5 flex items-center justify-between gap-4 text-[11px] tracking-[0.18em] text-text-muted">
           <span className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary shadow-glow-sm" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
             {label}
           </span>
-          {code && <span className="text-primary/70">{code}</span>}
         </div>
       )}
       {children}

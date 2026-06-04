@@ -40,7 +40,7 @@ export function Skills() {
                           initial={{ width: 0 }}
                           animate={isInView ? { width: `${s.level}%` } : {}}
                           transition={{ duration: 0.9, delay: gi * 0.15 + 0.5 + 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-secondary shadow-[0_0_8px_#00ffff]"
+                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-secondary shadow-[0_0_8px_#a78bfa]"
                         />
                       </div>
                     </li>

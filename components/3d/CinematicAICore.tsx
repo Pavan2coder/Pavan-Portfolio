@@ -236,8 +236,8 @@ function CoreSphere() {
     <group>
       <Sphere ref={innerRef as any} args={[0.7, 48, 48]}>
         <meshStandardMaterial
-          color={"#7df9ff"}
-          emissive={"#00ffff"}
+          color={"#5eead4"}
+          emissive={"#a78bfa"}
           emissiveIntensity={2.4}
           transparent
           opacity={0.92}
@@ -248,8 +248,8 @@ function CoreSphere() {
 
       <Icosahedron ref={midRef} args={[1.15, 2]}>
         <meshStandardMaterial
-          color={new THREE.Color("#0ff")}
-          emissive={new THREE.Color("#00ffff")}
+          color={new THREE.Color("#a78bfa")}
+          emissive={new THREE.Color("#a78bfa")}
           emissiveIntensity={1.1}
           metalness={0.7}
           roughness={0.18}
@@ -259,11 +259,11 @@ function CoreSphere() {
       </Icosahedron>
 
       <Icosahedron ref={wireRef} args={[1.65, 1]}>
-        <meshBasicMaterial color={"#00ffff"} wireframe transparent opacity={0.55} />
+        <meshBasicMaterial color={"#a78bfa"} wireframe transparent opacity={0.55} />
       </Icosahedron>
 
       <Icosahedron ref={wire2Ref} args={[1.95, 2]}>
-        <meshBasicMaterial color={"#7df9ff"} wireframe transparent opacity={0.18} />
+        <meshBasicMaterial color={"#5eead4"} wireframe transparent opacity={0.18} />
       </Icosahedron>
     </group>
   );
@@ -289,16 +289,16 @@ function OrbitRings() {
   return (
     <group>
       <Torus ref={a} args={[2.3, 0.012, 16, 140]} rotation={[Math.PI / 2.5, 0, 0]}>
-        <meshBasicMaterial color={"#00ffff"} transparent opacity={0.7} />
+        <meshBasicMaterial color={"#a78bfa"} transparent opacity={0.7} />
       </Torus>
       <Torus ref={b} args={[2.75, 0.008, 16, 140]} rotation={[Math.PI / 3, 0.4, 0]}>
-        <meshBasicMaterial color={"#7df9ff"} transparent opacity={0.55} />
+        <meshBasicMaterial color={"#5eead4"} transparent opacity={0.55} />
       </Torus>
       <Torus ref={c} args={[3.2, 0.006, 16, 140]} rotation={[0.6, 1.1, 0]}>
-        <meshBasicMaterial color={"#007cf0"} transparent opacity={0.55} />
+        <meshBasicMaterial color={"#2dd4bf"} transparent opacity={0.55} />
       </Torus>
       <Torus ref={d} args={[3.65, 0.005, 16, 140]} rotation={[1.2, 0.2, 0.6]}>
-        <meshBasicMaterial color={"#7df9ff"} transparent opacity={0.35} />
+        <meshBasicMaterial color={"#5eead4"} transparent opacity={0.35} />
       </Torus>
     </group>
   );
@@ -346,7 +346,7 @@ function OrbitParticles({ count = 300 }: { count?: number }) {
         phase: Math.random() * Math.PI * 2,
         tilt: Math.random() * Math.PI,
         size: 0.015 + Math.random() * 0.04,
-        color: Math.random() > 0.6 ? "#7df9ff" : Math.random() > 0.3 ? "#00ffff" : "#007cf0",
+        color: Math.random() > 0.6 ? "#5eead4" : Math.random() > 0.3 ? "#a78bfa" : "#2dd4bf",
         opacity: 0.4 + Math.random() * 0.6,
       })),
     [count]
@@ -396,9 +396,9 @@ function Scene({ onSkillClick }: { onSkillClick?: (skill: string) => void }) {
     <>
       {/* Lighting */}
       <ambientLight intensity={0.55} />
-      <pointLight position={[3, 3, 3]} intensity={1.6} color={"#00ffff"} />
-      <pointLight position={[-3, -2, -2]} intensity={1.3} color={"#007cf0"} />
-      <pointLight position={[0, 4, -2]} intensity={0.9} color={"#7df9ff"} />
+      <pointLight position={[3, 3, 3]} intensity={1.6} color={"#a78bfa"} />
+      <pointLight position={[-3, -2, -2]} intensity={1.3} color={"#2dd4bf"} />
+      <pointLight position={[0, 4, -2]} intensity={0.9} color={"#5eead4"} />
 
       {/* OrbitControls for full interaction */}
       <OrbitControls

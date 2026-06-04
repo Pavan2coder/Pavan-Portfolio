@@ -9,27 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#050816",
-        "bg-soft": "#0a1124",
+        bg: "#08080f",
+        "bg-soft": "#101020",
         primary: {
-          DEFAULT: "#00ffff",
-          50: "#e6ffff",
-          glow: "#00ffff",
+          DEFAULT: "#a78bfa",
+          50: "#ede9fe",
+          glow: "#a78bfa",
         },
         secondary: {
-          DEFAULT: "#007cf0",
-          glow: "#007cf0",
+          DEFAULT: "#2dd4bf",
+          glow: "#2dd4bf",
         },
         accent: {
-          DEFAULT: "#7df9ff",
+          DEFAULT: "#5eead4",
         },
         text: {
-          DEFAULT: "#e6f1ff",
-          muted: "#7a8bb3",
-          dim: "#3d4f7a",
+          DEFAULT: "#eceaf6",
+          muted: "#9b9ab5",
+          dim: "#54546e",
         },
-        panel: "rgba(8, 16, 36, 0.6)",
-        border: "rgba(0, 255, 255, 0.18)",
+        panel: "rgba(255, 255, 255, 0.04)",
+        border: "rgba(255, 255, 255, 0.08)",
       },
       fontFamily: {
         orbitron: ["var(--font-orbitron)", "sans-serif"],
@@ -37,10 +37,10 @@ const config: Config = {
         mono: ["ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        glow: "0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 124, 240, 0.2)",
-        "glow-sm": "0 0 10px rgba(0, 255, 255, 0.35)",
-        "glow-lg": "0 0 60px rgba(0, 255, 255, 0.35), 0 0 100px rgba(0, 124, 240, 0.25)",
-        "inner-glow": "inset 0 0 20px rgba(0, 255, 255, 0.15)",
+        glow: "0 18px 50px -12px rgba(167, 139, 250, 0.35)",
+        "glow-sm": "0 0 12px rgba(167, 139, 250, 0.28)",
+        "glow-lg": "0 30px 80px -20px rgba(45, 212, 191, 0.3), 0 18px 50px -12px rgba(167, 139, 250, 0.28)",
+        "inner-glow": "inset 0 1px 0 rgba(255, 255, 255, 0.06)",
       },
       backdropBlur: {
         xs: "2px",
@@ -66,11 +66,11 @@ const config: Config = {
         pulseGlow: {
           "0%,100%": {
             boxShadow:
-              "0 0 20px rgba(0,255,255,0.35), 0 0 40px rgba(0,124,240,0.2)",
+              "0 18px 50px -12px rgba(167,139,250,0.3)",
           },
           "50%": {
             boxShadow:
-              "0 0 40px rgba(0,255,255,0.55), 0 0 80px rgba(0,124,240,0.35)",
+              "0 22px 60px -10px rgba(45,212,191,0.4)",
           },
         },
         scan: {
@@ -108,9 +108,9 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-cyan":
-          "linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px)",
+          "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
         "radial-fade":
-          "radial-gradient(ellipse at center, rgba(0,124,240,0.18), transparent 60%)",
+          "radial-gradient(ellipse at center, rgba(167,139,250,0.16), transparent 60%)",
       },
     },
   },

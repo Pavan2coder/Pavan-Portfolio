@@ -50,9 +50,9 @@ export function AnimatedCard({ children, delay = 0, className = "" }: AnimatedCa
         />
         <defs>
           <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00ffff" stopOpacity="0.6" />
-            <stop offset="50%" stopColor="#007cf0" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#00ffff" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.6" />
+            <stop offset="50%" stopColor="#2dd4bf" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.4" />
           </linearGradient>
         </defs>
       </svg>

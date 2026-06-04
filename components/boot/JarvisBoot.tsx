@@ -112,7 +112,7 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
                         className={cn(
                           "h-2 w-[2px] rounded-sm",
                           t.active
-                            ? "bg-primary shadow-[0_0_8px_#00ffff]"
+                            ? "bg-primary shadow-[0_0_8px_#a78bfa]"
                             : "bg-text-dim/50"
                         )}
                       />
@@ -126,10 +126,10 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
                 <div className="hud-panel rounded-md px-4 py-3 font-mono text-[11px] sm:text-xs">
                   <div className="flex items-center gap-2 border-b border-primary/15 pb-2 mb-2">
                     <div className="h-2 w-2 rounded-full bg-primary shadow-glow-sm" />
-                    <span className="font-display uppercase tracking-[0.3em] text-[10px] text-text-muted">
-                      jarvis.boot
+                    <span className="font-display tracking-[0.2em] text-[10px] text-text-muted">
+                      pavan.portfolio
                     </span>
-                    <span className="ml-auto text-text-muted">v4.7.1m</span>
+                    <span className="ml-auto text-text-muted">loading</span>
                   </div>
                   <div className="space-y-1.5">
                     {lines.slice(0, lineIndex).map((l, i) => (
@@ -148,7 +148,7 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
                   </span>
                   <div className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-text-dim/20">
                     <motion.div
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-secondary shadow-[0_0_10px_#00ffff]"
+                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-secondary shadow-[0_0_10px_#a78bfa]"
                       style={{ width: `${progress * 100}%` }}
                     />
                   </div>
@@ -161,19 +161,14 @@ export function JarvisBoot({ onComplete }: { onComplete: () => void }) {
           </div>
 
           {/* corner stats */}
-          <div className="pointer-events-none absolute top-5 left-5 right-5 flex justify-between font-display text-[10px] uppercase tracking-[0.3em] text-text-muted">
+          <div className="pointer-events-none absolute top-6 left-6 right-6 flex justify-between text-[11px] tracking-[0.2em] text-text-muted">
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow-sm animate-pulse" />
-              NEURAL AI CORE — INTELLIGENT OPERATING SYSTEM
-            </div>
-            <div className="hidden sm:flex gap-4">
-              <span>SECURE / 256-AES</span>
-              <span>NODE / 07-A</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              Pavan — Portfolio
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex justify-between font-display text-[10px] uppercase tracking-[0.3em] text-text-muted">
-            <span>STARK INDUSTRIES // PORTFOLIO MAINFRAME</span>
-            <span className="hidden sm:inline">© PAVAN — ALL SYSTEMS NOMINAL</span>
+          <div className="pointer-events-none absolute bottom-6 left-6 right-6 flex justify-center text-[11px] tracking-[0.2em] text-text-dim">
+            <span>Welcome</span>
           </div>
         </motion.div>
       ) : null}
@@ -231,8 +226,8 @@ function BootCore({ progress }: { progress: number }) {
       <svg viewBox="0 0 200 200" className="absolute inset-0 animate-spin-slow">
         <defs>
           <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7df9ff" />
-            <stop offset="100%" stopColor="#007cf0" />
+            <stop offset="0%" stopColor="#c4b5fd" />
+            <stop offset="100%" stopColor="#2dd4bf" />
           </linearGradient>
         </defs>
         <circle
@@ -249,7 +244,7 @@ function BootCore({ progress }: { progress: number }) {
           cy="100"
           r="78"
           fill="none"
-          stroke="#00ffff"
+          stroke="#a78bfa"
           strokeOpacity="0.25"
           strokeWidth="0.6"
         />
@@ -262,7 +257,7 @@ function BootCore({ progress }: { progress: number }) {
           cy="100"
           r="62"
           fill="none"
-          stroke="#00ffff"
+          stroke="#a78bfa"
           strokeOpacity="0.6"
           strokeWidth="1"
           strokeDasharray="20 6 6 6"
@@ -276,7 +271,7 @@ function BootCore({ progress }: { progress: number }) {
           cy="100"
           r="46"
           fill="none"
-          stroke="rgba(0,255,255,0.12)"
+          stroke="rgba(167,139,250,0.12)"
           strokeWidth="3"
         />
         <circle
@@ -299,19 +294,13 @@ function BootCore({ progress }: { progress: number }) {
           className="absolute inset-0"
           style={{
             background:
-              "conic-gradient(from 0deg, rgba(0,255,255,0) 0deg, rgba(0,255,255,0.45) 40deg, rgba(0,255,255,0) 80deg)",
+              "conic-gradient(from 0deg, rgba(167,139,250,0) 0deg, rgba(167,139,250,0.45) 40deg, rgba(167,139,250,0) 80deg)",
             animation: "radarSweep 2.6s linear infinite",
           }}
         />
-        <div className="relative font-display text-primary glow-text">
-          <div className="text-center text-[10px] uppercase tracking-[0.4em] text-text-muted">
-            CORE
-          </div>
-          <div className="text-center text-2xl sm:text-3xl font-bold mt-1">
-            J A R V I S
-          </div>
-          <div className="text-center text-[10px] uppercase tracking-[0.4em] text-text-muted mt-1">
-            v 4 . 7
+        <div className="relative font-display text-primary">
+          <div className="text-center text-5xl sm:text-6xl font-semibold tracking-tight text-gradient-cyan">
+            P
           </div>
         </div>
       </div>

@@ -57,9 +57,9 @@ export function Navigation() {
                 <div className="h-3 w-3 rounded-full bg-bg" />
                 <div className="absolute inset-0 rounded-full border border-primary/50 animate-spin-slow" />
               </div>
-              <div className="font-display tracking-[0.3em] text-xs sm:text-sm">
-                <span className="text-primary">{profile.name.toUpperCase()}</span>
-                <span className="text-text-muted">.OS</span>
+              <div className="font-display tracking-tight text-base sm:text-lg font-semibold">
+                <span className="text-text">Pavan</span>
+                <span className="text-primary">.</span>
               </div>
             </a>
 
