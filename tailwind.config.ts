@@ -65,6 +65,7 @@ const config: Config = {
       fontFamily: {
         orbitron: ["var(--font-orbitron)", "sans-serif"],
         rajdhani: ["var(--font-rajdhani)", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
         mono: ["ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Sora, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -16,6 +16,15 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-rajdhani",
+  display: "swap",
+});
+
+// editorial italic serif — used only for the hero accent word
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic", "normal"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -47,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${sora.variable} ${inter.variable}`}>
+    <html lang="en" className={`dark ${sora.variable} ${inter.variable} ${instrumentSerif.variable}`}>
       <body className="bg-bg text-text antialiased min-h-screen">
         <Providers>{children}</Providers>
       </body>
