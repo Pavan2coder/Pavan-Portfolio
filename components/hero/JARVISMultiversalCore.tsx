@@ -10,18 +10,30 @@ import * as THREE from "three";
  * Tony Stark JARVIS meets Interstellar
  */
 
-// Infinite Neural Grid - Massive interconnected neural pathways
+// Infinite Neural Grid - Massive interconnected neural pathways with mouse parallax
 function InfiniteNeuralGrid() {
   const gridRef = useRef<THREE.Group>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // Listen to mouse movement
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   useFrame((state) => {
     if (!gridRef.current) return;
     const t = state.clock.getElapsedTime();
-    const p = state.pointer;
 
-    // Cinematic rotation with mouse parallax
-    gridRef.current.rotation.x = Math.sin(t * 0.02) * 0.15 - p.y * 0.2;
-    gridRef.current.rotation.y = t * 0.01 + p.x * 0.3;
+    // Smooth cinematic rotation with enhanced mouse parallax
+    gridRef.current.rotation.x = Math.sin(t * 0.02) * 0.15 + mousePos.y * 0.25;
+    gridRef.current.rotation.y = t * 0.01 + mousePos.x * 0.35;
     gridRef.current.rotation.z = Math.cos(t * 0.015) * 0.08;
   });
 
