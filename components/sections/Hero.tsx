@@ -5,7 +5,7 @@ import { AuroraParticleHeadline } from "@/components/hero/AuroraParticleHeadline
 import dynamic from "next/dynamic";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
-const QuantumHologramCore = dynamic(() => import("@/components/hero/QuantumHologramCore"), {
+const JARVISMultiversalCore = dynamic(() => import("@/components/hero/JARVISMultiversalCore"), {
   ssr: false,
 });
 
@@ -17,15 +17,17 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-28"
     >
-      {/* quantum hologram core — right side */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.1, delay: 0.5, ease }}
-        className="absolute right-[3%] top-[44%] z-10 hidden aspect-square w-[clamp(300px,32vw,520px)] -translate-y-1/2 lg:block"
-      >
-        <QuantumHologramCore />
-      </motion.div>
+      {/* JARVIS Multiversal Core - complete cinematic AI environment */}
+      <JARVISMultiversalCore />
+
+      {/* Additional atmospheric overlay */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        {/* Deep space gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000510]/90 via-bg/70 to-bg" />
+        
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-bg/60" />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1500px] px-5 sm:px-8 lg:px-12">
         {/* availability pill */}
