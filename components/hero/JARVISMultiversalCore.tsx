@@ -602,6 +602,405 @@ function HolographicSystemDiagnostics() {
   );
 }
 
+// Living Neural Nodes - Glowing connection points with random activation
+function LivingNeuralNodes({ count = 200 }: { count?: number }) {
+  const nodesRef = useRef<THREE.Points>(null);
+
+  const [positions, colors, activationTimes] = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
+    const times = new Float32Array(count);
+
+    for (let i = 0; i < count; i++) {
+      // Distribute along neural grid intersections
+      const gridX = -20 + Math.floor(Math.random() * 20) * 2;
+      const gridY = -20 + Math.floor(Math.random() * 20) * 2;
+      const gridZ = -10 - Math.random() * 90;
+
+      pos[i * 3] = gridX;
+      pos[i * 3 + 1] = gridY;
+      pos[i * 3 + 2] = gridZ;
+
+      // Color: Cyan or Violet
+      if (Math.random() > 0.5) {
+        col[i * 3] = 0;
+        col[i * 3 + 1] = 1;
+        col[i * 3 + 2] = 1; // Cyan
+      } else {
+        col[i * 3] = 0.53;
+        col[i * 3 + 1] = 0.27;
+        col[i * 3 + 2] = 1; // Violet
+      }
+
+      times[i] = Math.random() * Math.PI * 2;
+    }
+
+    return [pos, col, times];
+  }, [count]);
+
+  useFrame((state) => {
+    if (!nodesRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    const sizes = nodesRef.current.geometry.attributes.size?.array as Float32Array;
+    if (!sizes) return;
+
+    for (let i = 0; i < count; i++) {
+      // Random activation pulses
+      const activation = Math.sin(t * 2 + activationTimes[i]) * 0.5 + 0.5;
+      const pulse = activation > 0.8 ? 1 + (activation - 0.8) * 3 : 1;
+      sizes[i] = 0.08 * pulse;
+    }
+
+    nodesRef.current.geometry.attributes.size!.needsUpdate = true;
+  });
+
+  const sizeArray = useMemo(() => {
+    const sizes = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+      sizes[i] = 0.08;
+    }
+    return sizes;
+  }, [count]);
+
+  return (
+    <points ref={nodesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={count}
+          array={positions}
+          itemSize={3}
+        />
+        <bufferAttribute
+          attach="attributes-color"
+          count={count}
+          array={colors}
+          itemSize={3}
+        />
+        <bufferAttribute
+          attach="attributes-size"
+          count={count}
+          array={sizeArray}
+          itemSize={1}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.08}
+        vertexColors
+        transparent
+        opacity={0.8}
+        sizeAttenuation
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+}
+
+// Flowing Energy Pulses - Animated energy traveling through neural lines
+function FlowingEnergyPulses() {
+  const pulsesRef = useRef<THREE.Group>(null);
+
+  const energyPaths = useMemo(() => {
+    return Array.from({ length: 30 }, (_, i) => {
+      const isHorizontal = Math.random() > 0.5;
+      const points = [];
+
+      if (isHorizontal) {
+        const y = -15 + Math.floor(Math.random() * 15) * 2;
+        const z = -10 - Math.random() * 80;
+        for (let j = 0; j < 50; j++) {
+          const x = -20 + (j / 50) * 40;
+          points.push(new THREE.Vector3(x, y, z));
+        }
+      } else {
+        const x = -15 + Math.floor(Math.random() * 15) * 2;
+        const z = -10 - Math.random() * 80;
+        for (let j = 0; j < 50; j++) {
+          const y = -20 + (j / 50) * 40;
+          points.push(new THREE.Vector3(x, y, z));
+        }
+      }
+
+      return {
+        points,
+        speed: 0.5 + Math.random() * 1.5,
+        offset: Math.random() * Math.PI * 2,
+      };
+    });
+  }, []);
+
+  useFrame((state) => {
+    if (!pulsesRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    pulsesRef.current.children.forEach((pulse, i) => {
+      const data = energyPaths[i];
+      if (!data) return;
+
+      // Energy pulse traveling along path
+      const progress = ((t * data.speed + data.offset) % (Math.PI * 2)) / (Math.PI * 2);
+      const pointIndex = Math.floor(progress * 49);
+      const point = data.points[pointIndex];
+      
+      if (point) {
+        pulse.position.copy(point);
+      }
+
+      // Pulsing glow
+      const intensity = Math.sin(t * 3 + data.offset) * 0.3 + 0.7;
+      const mesh = pulse.children[0] as THREE.Mesh;
+      if (mesh && mesh.material && 'opacity' in mesh.material) {
+        (mesh.material as THREE.MeshBasicMaterial).opacity = intensity;
+      }
+    });
+  });
+
+  return (
+    <group ref={pulsesRef}>
+      {energyPaths.map((path, i) => (
+        <group key={i}>
+          <mesh>
+            <sphereGeometry args={[0.12, 8, 8]} />
+            <meshBasicMaterial
+              color={i % 2 === 0 ? "#00ffff" : "#8844ff"}
+              transparent
+              opacity={0.8}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  );
+}
+
+// Dynamic AI Connections - Random neural pathways lighting up
+function DynamicAIConnections() {
+  const connectionsRef = useRef<THREE.Group>(null);
+
+  const pathData = useMemo(() => {
+    return Array.from({ length: 25 }, (_, i) => {
+      const startX = -15 + Math.random() * 30;
+      const startY = -15 + Math.random() * 30;
+      const endX = -15 + Math.random() * 30;
+      const endY = -15 + Math.random() * 30;
+      const z = -15 - Math.random() * 70;
+
+      return {
+        start: new THREE.Vector3(startX, startY, z),
+        end: new THREE.Vector3(endX, endY, z),
+        activationTime: Math.random() * 10,
+        duration: 2 + Math.random() * 3,
+      };
+    });
+  }, []);
+
+  useFrame((state) => {
+    if (!connectionsRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    connectionsRef.current.children.forEach((connection, i) => {
+      const data = pathData[i];
+      if (!data) return;
+
+      // Cyclical activation
+      const cycleTime = (t + data.activationTime) % (data.duration + 3);
+      const isActive = cycleTime < data.duration;
+      const intensity = isActive 
+        ? Math.sin((cycleTime / data.duration) * Math.PI) 
+        : 0;
+
+      const line = connection as THREE.Line;
+      if (line.material && 'opacity' in line.material) {
+        (line.material as THREE.LineBasicMaterial).opacity = intensity * 0.6;
+      }
+    });
+  });
+
+  return (
+    <group ref={connectionsRef}>
+      {pathData.map((data, i) => {
+        const points = [data.start, data.end];
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+        return (
+          <primitive key={i} object={new THREE.Line(
+            geometry,
+            new THREE.LineBasicMaterial({
+              color: i % 2 === 0 ? "#00ffff" : "#8844ff",
+              transparent: true,
+              opacity: 0,
+              blending: THREE.AdditiveBlending,
+              linewidth: 2,
+            })
+          )} />
+        );
+      })}
+    </group>
+  );
+}
+
+// Cinematic Scan Waves - Large soft scanning waves
+function CinematicScanWaves() {
+  const wavesRef = useRef<THREE.Group>(null);
+
+  const waves = useMemo(() => {
+    return Array.from({ length: 3 }, (_, i) => ({
+      startDelay: i * 4,
+      speed: 0.15,
+      direction: i % 2 === 0 ? 1 : -1,
+    }));
+  }, []);
+
+  useFrame((state) => {
+    if (!wavesRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    wavesRef.current.children.forEach((wave, i) => {
+      const data = waves[i];
+      if (!data) return;
+
+      // Vertical scanning motion
+      const cycleTime = (t + data.startDelay) % 10;
+      const progress = cycleTime / 10;
+      const y = -20 + progress * 40 * data.direction;
+      
+      wave.position.y = y;
+
+      // Fade in/out at edges
+      const opacity = Math.sin(progress * Math.PI) * 0.08;
+      const mesh = wave as THREE.Mesh;
+      if (mesh.material && 'opacity' in mesh.material) {
+        (mesh.material as THREE.MeshBasicMaterial).opacity = opacity;
+      }
+    });
+  });
+
+  return (
+    <group ref={wavesRef}>
+      {waves.map((wave, i) => (
+        <mesh key={i} position={[0, -20, -30]}>
+          <planeGeometry args={[80, 2, 40, 1]} />
+          <meshBasicMaterial
+            color={i % 2 === 0 ? "#00ffff" : "#8844ff"}
+            transparent
+            opacity={0.08}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+// Atmospheric Glow - Volumetric cyan/violet fog with bloom
+function AtmosphericGlow() {
+  const glowRef = useRef<THREE.Group>(null);
+
+  useFrame((state) => {
+    if (!glowRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    glowRef.current.children.forEach((glow, i) => {
+      const pulse = 0.03 + Math.sin(t * 0.2 + i * 0.8) * 0.02;
+      const mesh = glow as THREE.Mesh;
+      if (mesh.material && 'opacity' in mesh.material) {
+        (mesh.material as THREE.MeshBasicMaterial).opacity = pulse;
+      }
+
+      // Slow rotation
+      mesh.rotation.z = t * 0.003 + i * 0.5;
+    });
+  });
+
+  const glowLayers = useMemo(() => {
+    return Array.from({ length: 6 }, (_, i) => ({
+      z: -20 - i * 15,
+      size: 60 + i * 20,
+      color: i % 2 === 0 ? "#00ffff" : "#8844ff",
+    }));
+  }, []);
+
+  return (
+    <group ref={glowRef}>
+      {glowLayers.map((layer, i) => (
+        <mesh key={i} position={[0, 0, layer.z]}>
+          <planeGeometry args={[layer.size, layer.size, 1, 1]} />
+          <meshBasicMaterial
+            color={layer.color}
+            transparent
+            opacity={0.05}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+// Multi-Layer Neural Depth - Enhanced 3D layered grids
+function MultiLayerNeuralDepth() {
+  const depthRef = useRef<THREE.Group>(null);
+
+  useFrame((state) => {
+    if (!depthRef.current) return;
+    const t = state.clock.getElapsedTime();
+    const p = state.pointer;
+
+    // Slow parallax with mouse
+    depthRef.current.children.forEach((layer, i) => {
+      const parallaxAmount = 0.1 * (i + 1);
+      layer.position.x = p.x * parallaxAmount;
+      layer.position.y = -p.y * parallaxAmount;
+    });
+  });
+
+  const depthLayers = useMemo(() => {
+    return Array.from({ length: 8 }, (_, i) => ({
+      z: -25 - i * 12,
+      opacity: 0.1 - i * 0.01,
+      scale: 1 + i * 0.3,
+    }));
+  }, []);
+
+  return (
+    <group ref={depthRef}>
+      {depthLayers.map((layer, i) => (
+        <group key={i} position={[0, 0, layer.z]} scale={layer.scale}>
+          {/* Simple grid structure for depth */}
+          {[-1, 0, 1].map((x) => (
+            <mesh key={`v-${x}`} position={[x * 8, 0, 0]}>
+              <planeGeometry args={[0.02, 30]} />
+              <meshBasicMaterial
+                color="#00aaff"
+                transparent
+                opacity={layer.opacity}
+                side={THREE.DoubleSide}
+                blending={THREE.AdditiveBlending}
+              />
+            </mesh>
+          ))}
+          {[-1, 0, 1].map((y) => (
+            <mesh key={`h-${y}`} position={[0, y * 8, 0]}>
+              <planeGeometry args={[30, 0.02]} />
+              <meshBasicMaterial
+                color="#00aaff"
+                transparent
+                opacity={layer.opacity}
+                side={THREE.DoubleSide}
+                blending={THREE.AdditiveBlending}
+              />
+            </mesh>
+          ))}
+        </group>
+      ))}
+    </group>
+  );
+}
+
 // Main JARVIS Scene
 function JARVISScene() {
   return (
@@ -616,6 +1015,16 @@ function JARVISScene() {
       <InfiniteNeuralGrid />
       <DimensionalAIStructures />
       <NeuralConnectionWeb />
+
+      {/* Living neural enhancements */}
+      <LivingNeuralNodes />
+      <FlowingEnergyPulses />
+      <DynamicAIConnections />
+      <MultiLayerNeuralDepth />
+
+      {/* Cinematic effects */}
+      <CinematicScanWaves />
+      <AtmosphericGlow />
 
       {/* Living atmosphere */}
       <NeuralConsciousnessParticles />
