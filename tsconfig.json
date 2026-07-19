@@ -19,5 +19,19 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "app/providers.tsx",
+    "components/3d",
+    "components/hud",
+    "components/boot",
+    "components/hero",
+    "components/terminal",
+    "components/animations",
+    "components/nexus",
+    "components/sections",
+    "components/system",
+    "components/layout",
+    "components/ui"
+  ]
 }
