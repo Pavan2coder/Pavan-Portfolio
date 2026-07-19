@@ -1,80 +1,87 @@
 "use client";
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
-import { JarvisBoot } from "@/components/boot/JarvisBoot";
-import { ParticleField } from "@/components/hud/ParticleField";
-import { MouseGlow } from "@/components/hud/MouseGlow";
-import { StatusBar } from "@/components/hud/StatusBar";
+import { useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
-import { Navigation } from "@/components/layout/Navigation";
-import { ScrollProgress } from "@/components/layout/ScrollProgress";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { TargetCursor } from "@/components/ui/TargetCursor";
+import { AuroraBackground } from "@/components/aurora/AuroraBackground";
+import { ClickSpark } from "@/components/aurora/bits/ClickSpark";
+import { CustomCursor } from "@/components/aurora/bits/CustomCursor";
+import { Preloader } from "@/components/aurora/bits/Preloader";
+import { Nav } from "@/components/aurora/Nav";
+import { Footer } from "@/components/aurora/Footer";
+import TextPressure from "@/components/aurora/bits/TextPressure";
+import { Hero } from "@/components/aurora/sections/Hero";
+import { About } from "@/components/aurora/sections/About";
+import { Skills } from "@/components/aurora/sections/Skills";
+import { Projects } from "@/components/aurora/sections/Projects";
+import { Experience } from "@/components/aurora/sections/Experience";
+import { Contact } from "@/components/aurora/sections/Contact";
 
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { AICoreSection } from "@/components/sections/AICore";
-import { Projects } from "@/components/sections/Projects";
-import { Experience } from "@/components/sections/Experience";
-import { Terminal } from "@/components/terminal/Terminal";
-import { Contact } from "@/components/sections/Contact";
-
+/**
+ * AURORA — modern premium portfolio for Athava Sri Pavan.
+ * Intro preloader · custom cursor · aurora ground · scroll reveals.
+ */
 export default function Page() {
-  const [booted, setBooted] = useState(false);
+  const [ready, setReady] = useState(false);
 
-  // lock scroll while booting
-  useEffect(() => {
-    if (!booted) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [booted]);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <>
-      {/* smooth scroll + custom cursor — global */}
-      <SmoothScroll />
-      <TargetCursor />
+      <Preloader onDone={() => setReady(true)} />
+      <AuroraBackground />
+      <ClickSpark />
+      <CustomCursor />
 
-      {/* background layers — always mounted */}
-      <ParticleField />
-      <MouseGlow />
+      {/* scroll progress bar */}
+      <motion.div
+        style={{ scaleX: progress }}
+        className="fixed inset-x-0 top-0 z-[70] h-0.5 origin-left bg-gradient-to-r from-brand via-brand-2 to-brand-3"
+      />
 
-      {/* Boot sequence only - NO GLITCH SCREEN */}
-      <AnimatePresence>
-        {!booted && (
-          <JarvisBoot key="boot" onComplete={() => setBooted(true)} />
-        )}
-      </AnimatePresence>
+      <Nav />
 
-      <AnimatePresence>
-        {booted && (
-          <motion.main
-            key="main"
-            initial={{ opacity: 0, y: 16, scale: 0.995 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
-          >
-            <ScrollProgress />
-            <Navigation />
-            <StatusBar />
+      <motion.main
+        className="relative z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: ready ? 1 : 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
 
-            <Hero />
-            <About />
-            <AICoreSection />
-            <Projects />
-            <Experience />
-            <Terminal />
-            <Contact />
-          </motion.main>
-        )}
-      </AnimatePresence>
+        {/* interactive variable-font signature — move your cursor across it */}
+        <section className="relative overflow-hidden border-t border-hairline py-16 md:py-20">
+          <div className="mx-auto max-w-wide px-5 sm:px-8">
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <span className="label text-brand">// move your cursor across my name</span>
+            </div>
+            <div style={{ position: "relative", height: "clamp(70px, 15vw, 200px)" }}>
+              <TextPressure
+                text="PAVAN"
+                flex
+                width
+                weight
+                italic={false}
+                alpha={false}
+                minFontSize={28}
+                textColor="#eefaf0"
+              />
+            </div>
+          </div>
+        </section>
+      </motion.main>
+
+      <Footer />
     </>
   );
 }
