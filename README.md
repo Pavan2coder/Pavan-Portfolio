@@ -154,9 +154,8 @@ colors: {
 - Safari (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## License
-
-MIT License - feel free to use this project for your own portfolio.
+## 
+- feel free to use this project for your own portfolio.
 
 ## Credits
 
@@ -172,4 +171,4 @@ Inspired by JARVIS from Iron Man.
 
 ---
 
-Made with ❤️ using Next.js and Three.js
+Made with  using Next.js and Three.js
