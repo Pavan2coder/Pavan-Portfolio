@@ -9,3 +9,8 @@ tsconfig.tsbuildinfo
 
 .vercel
 .env*
+
+# dev artifacts (screenshots, playwright shoot scripts, local agent files)
+.frames
+.claude
+scratchpad
