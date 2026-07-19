@@ -4,134 +4,64 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import * as THREE from "three";
 
 /**
- * Tesseract Dimensional Background
- * Inspired by Interstellar tesseract scene
- * Creates infinite recursive dimensional depth
- * NO floating objects - pure atmospheric environment
+ * JARVIS Multiversal Core Environment
+ * Cinematic futuristic AI consciousness background
+ * Living neural universe with infinite depth
+ * NO centered objects - pure atmospheric intelligence system
  */
 
-// Dimensional Grid Lines - Recursive geometric corridors
-function DimensionalGrid() {
+// Infinite Neural Grid - Massive interconnected neural pathways
+function InfiniteNeuralGrid() {
   const gridRef = useRef<THREE.Group>(null);
+
+  const gridStructure = useMemo(() => {
+    return Array.from({ length: 20 }, (_, i) => ({
+      z: -60 + i * 6,
+      scale: 0.5 + i * 0.15,
+      opacity: 0.25 - i * 0.01,
+      rotation: i * 0.1,
+    }));
+  }, []);
 
   useFrame((state) => {
     if (!gridRef.current) return;
     const t = state.clock.getElapsedTime();
     const p = state.pointer;
 
-    // Slow rotation with mouse parallax
-    gridRef.current.rotation.y = Math.sin(t * 0.05) * 0.3 + p.x * 0.1;
-    gridRef.current.rotation.x = Math.cos(t * 0.07) * 0.2 - p.y * 0.1;
-    gridRef.current.rotation.z = Math.sin(t * 0.03) * 0.1;
+    gridRef.current.rotation.x = Math.sin(t * 0.03) * 0.1 - p.y * 0.08;
+    gridRef.current.rotation.y = t * 0.02 + p.x * 0.1;
   });
-
-  // Create multiple grid layers for depth
-  const gridLayers = useMemo(() => {
-    return Array.from({ length: 12 }, (_, i) => ({
-      z: -20 + i * 3,
-      scale: 1 + i * 0.3,
-      opacity: 0.08 - i * 0.005,
-      color: i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#4488ff" : "#8844ff",
-    }));
-  }, []);
 
   return (
     <group ref={gridRef}>
-      {gridLayers.map((layer, i) => (
-        <GridLayer key={i} {...layer} />
-      ))}
-    </group>
-  );
-}
-
-// Individual grid layer
-function GridLayer({
-  z,
-  scale,
-  opacity,
-  color,
-}: {
-  z: number;
-  scale: number;
-  opacity: number;
-  color: string;
-}) {
-  const layerRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (!layerRef.current) return;
-    const t = state.clock.getElapsedTime();
-
-    // Subtle breathing animation
-    const breathe = 1 + Math.sin(t * 0.5 + z * 0.1) * 0.02;
-    layerRef.current.scale.setScalar(scale * breathe);
-  });
-
-  return (
-    <group ref={layerRef} position={[0, 0, z]}>
-      {/* Horizontal lines */}
-      {[-3, -2, -1, 0, 1, 2, 3].map((y) => (
-        <mesh key={`h-${y}`} position={[0, y * 2, 0]}>
-          <planeGeometry args={[20, 0.02]} />
-          <meshBasicMaterial
-            color={color}
-            transparent
-            opacity={opacity}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-      ))}
-
-      {/* Vertical lines */}
-      {[-3, -2, -1, 0, 1, 2, 3].map((x) => (
-        <mesh key={`v-${x}`} position={[x * 2, 0, 0]}>
-          <planeGeometry args={[0.02, 20]} />
-          <meshBasicMaterial
-            color={color}
-            transparent
-            opacity={opacity}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-// Dimensional Corridors - Space folding effect
-function DimensionalCorridors() {
-  const corridorsRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (!corridorsRef.current) return;
-    const t = state.clock.getElapsedTime();
-
-    corridorsRef.current.rotation.y = t * 0.03;
-    corridorsRef.current.rotation.z = Math.sin(t * 0.02) * 0.1;
-  });
-
-  const corridors = useMemo(() => {
-    return Array.from({ length: 4 }, (_, i) => ({
-      rotation: (Math.PI * 2 * i) / 4,
-      offset: i * 5,
-    }));
-  }, []);
-
-  return (
-    <group ref={corridorsRef}>
-      {corridors.map((corridor, i) => (
-        <group key={i} rotation={[0, corridor.rotation, 0]}>
-          {Array.from({ length: 8 }, (_, j) => {
-            const z = -30 + j * 4;
-            const scale = 1 + j * 0.2;
+      {gridStructure.map((layer, i) => (
+        <group key={i} position={[0, 0, layer.z]} rotation={[0, layer.rotation, 0]}>
+          {/* Horizontal neural pathways */}
+          {Array.from({ length: 16 }, (_, j) => {
+            const y = -15 + j * 2;
             return (
-              <mesh key={j} position={[0, 0, z]} scale={[scale, scale, 1]}>
-                <planeGeometry args={[0.015, 12]} />
+              <mesh key={`h-${j}`} position={[0, y, 0]} scale={layer.scale}>
+                <planeGeometry args={[40, 0.03]} />
                 <meshBasicMaterial
-                  color="#00aaff"
+                  color={j % 3 === 0 ? "#00ffff" : j % 3 === 1 ? "#0088ff" : "#8844ff"}
                   transparent
-                  opacity={0.15 - j * 0.015}
-                  side={THREE.DoubleSide}
+                  opacity={layer.opacity}
+                  blending={THREE.AdditiveBlending}
+                />
+              </mesh>
+            );
+          })}
+          {/* Vertical neural pathways */}
+          {Array.from({ length: 16 }, (_, j) => {
+            const x = -15 + j * 2;
+            return (
+              <mesh key={`v-${j}`} position={[x, 0, 0]} scale={layer.scale}>
+                <planeGeometry args={[0.03, 40]} />
+                <meshBasicMaterial
+                  color={j % 3 === 0 ? "#00ffff" : j % 3 === 1 ? "#0088ff" : "#8844ff"}
+                  transparent
+                  opacity={layer.opacity}
+                  blending={THREE.AdditiveBlending}
                 />
               </mesh>
             );
@@ -142,50 +72,120 @@ function DimensionalCorridors() {
   );
 }
 
-// Recursive Depth Boxes - Tesseract-like structures
-function RecursiveDepthBoxes() {
-  const boxesRef = useRef<THREE.Group>(null);
+// Flowing AI Circuitry - Neural pathways with energy flow
+function FlowingAICircuitry() {
+  const circuitRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
-    if (!boxesRef.current) return;
-    const t = state.clock.getElapsedTime();
+  const circuits = useMemo(() => {
+    return Array.from({ length: 30 }, (_, i) => {
+      const points = [];
+      const startX = (Math.random() - 0.5) * 30;
+      const startY = (Math.random() - 0.5) * 25;
+      const startZ = -10 - Math.random() * 40;
 
-    boxesRef.current.rotation.x = Math.sin(t * 0.04) * 0.2;
-    boxesRef.current.rotation.y = t * 0.02;
-  });
+      for (let j = 0; j < 40; j++) {
+        const t = j / 40;
+        const x = startX + Math.sin(t * Math.PI * 4) * 3;
+        const y = startY + Math.cos(t * Math.PI * 3) * 2;
+        const z = startZ + t * 20;
+        points.push(new THREE.Vector3(x, y, z));
+      }
 
-  const boxes = useMemo(() => {
-    return Array.from({ length: 6 }, (_, i) => ({
-      z: -15 - i * 8,
-      size: 4 + i * 2,
-      opacity: 0.1 - i * 0.012,
-    }));
+      return {
+        points,
+        speed: 0.2 + Math.random() * 0.4,
+        offset: Math.random() * Math.PI * 2,
+        color: i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#0088ff" : "#8844ff",
+      };
+    });
   }, []);
 
+  useFrame((state) => {
+    if (!circuitRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    circuitRef.current.children.forEach((circuit, i) => {
+      const data = circuits[i];
+      if (!data) return;
+
+      const pulse = 0.15 + Math.sin(t * data.speed + data.offset) * 0.1;
+      const mesh = circuit as THREE.Mesh;
+      if (mesh.material && 'opacity' in mesh.material) {
+        (mesh.material as THREE.MeshBasicMaterial).opacity = pulse;
+      }
+    });
+  });
+
   return (
-    <group ref={boxesRef}>
-      {boxes.map((box, i) => (
-        <mesh key={i} position={[0, 0, box.z]}>
-          <boxGeometry args={[box.size, box.size, box.size]} />
-          <meshBasicMaterial
-            color="#2266ff"
-            wireframe
-            transparent
-            opacity={box.opacity}
-          />
-        </mesh>
-      ))}
+    <group ref={circuitRef}>
+      {circuits.map((circuit, i) => {
+        const curve = new THREE.CatmullRomCurve3(circuit.points);
+        const tubeGeometry = new THREE.TubeGeometry(curve, 80, 0.01, 8, false);
+
+        return (
+          <mesh key={i} geometry={tubeGeometry}>
+            <meshBasicMaterial
+              color={circuit.color}
+              transparent
+              opacity={0.2}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+        );
+      })}
     </group>
   );
 }
 
-// Floating Dimensional Lines - Subtle geometric traces
-function FloatingDimensionalLines({ count = 30 }: { count?: number }) {
-  const linesRef = useRef<THREE.Group>(null);
+// Holographic AI Data Rain - Intelligent text streams
+function HolographicAIDataRain() {
+  const rainRef = useRef<THREE.Group>(null);
 
-  const lineData = useMemo(() => {
-    return Array.from({ length: count }, () => {
-      const radius = 8 + Math.random() * 15;
+  const dataStreams = useMemo(() => {
+    const symbols = [
+      "AI_PROC", "NEURAL_", "QUANTUM", ">>>DATA", "MATRIX_", 
+      "COMPUTE", "ANALYZE", "PREDICT", "OPTIMIZE", "COMPILE",
+      "EXECUTE", "SYSTEM_", "STATUS:", "OUTPUT:", "INPUT__"
+    ];
+
+    return Array.from({ length: 60 }, (_, i) => ({
+      text: symbols[i % symbols.length],
+      x: (Math.random() - 0.5) * 35,
+      y: 15 + Math.random() * 10,
+      z: -5 - Math.random() * 45,
+      speed: 0.8 + Math.random() * 1.2,
+      width: 0.8 + Math.random() * 0.4,
+    }));
+  }, []);
+
+  useFrame((state) => {
+    if (!rainRef.current) return;
+    const t = state.clock.getElapsedTime();
+
+    rainRef.current.children.forEach((stream, i) => {
+      const data = dataStreams[i];
+      if (!data) return;
+
+      stream.position.y = data.y - (t * data.speed) % 40;
+      
+      if (stream.position.y < -15) {
+        stream.position.y = 15;
+      }
+
+      const flicker = 0.2 + Math.sin(t * 8 + i) * 0.05;
+      const mesh = stream.children[0] as THREE.Mesh;
+      if (mesh && mesh.material && 'opacity' in mesh.material) {
+        (mesh.material as THREE.MeshBasicMaterial).opacity = flicker;
+      }
+    });
+  });
+
+  return (
+    <group ref={rainRef}>
+      {dataStreams.map((stream, i) => (
+        <group key={i} position={[stream.x, stream.y, stream.z]}>
+          <mesh>
+            radius = 8 + Math.random() * 15;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.random() * Math.PI;
 
