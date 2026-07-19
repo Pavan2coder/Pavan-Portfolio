@@ -1,54 +1,76 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter, Instrument_Serif } from "next/font/google";
+import {
+  Chakra_Petch,
+  Plus_Jakarta_Sans,
+  JetBrains_Mono,
+  Roboto_Flex,
+} from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
+import { profile } from "@/lib/data";
 
-// display font (headings) — mapped onto --font-orbitron so .font-display picks it up
-const sora = Sora({
+/* Display / headings — sharp, squared, techy/HUD terminal character */
+const chakra = Chakra_Petch({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-orbitron",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
-// body font — mapped onto --font-rajdhani
-const inter = Inter({
+/* Variable font for the interactive TextPressure band (wght + wdth axes) */
+const robotoFlex = Roboto_Flex({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-pressure",
+  display: "swap",
+});
+
+/* Body / UI — clean geometric sans */
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-rajdhani",
+  variable: "--font-sans",
   display: "swap",
 });
 
-// editorial italic serif — used only for the hero accent word
-const instrumentSerif = Instrument_Serif({
+/* Small mono labels / readouts */
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["italic", "normal"],
-  variable: "--font-serif",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Pavan — AI Engineer • Neural AI Portfolio",
+  title: `${profile.name} — ${profile.role}`,
   description:
-    "An AI operating system style portfolio. Pavan — AI Engineer & ML Developer building intelligent systems.",
-  metadataBase: new URL("https://pavan.dev"),
+    "Athava Sri Pavan — AI & Full-Stack Engineer. B.Tech CSE student building ML-powered platforms, MERN web apps, and Flutter mobile apps.",
+  metadataBase: new URL("https://pavan-ai-portfolio-beta.vercel.app"),
+  keywords: [
+    "Athava Sri Pavan",
+    "AI Engineer",
+    "Machine Learning",
+    "Full Stack Developer",
+    "MERN",
+    "Flutter",
+    "Portfolio",
+  ],
   openGraph: {
-    title: "Pavan — AI Engineer",
-    description: "JARVIS-inspired portfolio of an AI engineer.",
+    title: `${profile.name} — ${profile.role}`,
+    description: profile.tagline,
     type: "website",
-  },
-  icons: {
-    icon: "/favicon.svg",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08080f",
+  themeColor: "#06080d",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
+
+/* No-FOUC: dark is the default ground; only flip to light if stored. */
+const themeInit = `
+(function(){try{var t=localStorage.getItem('aurora-theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+`;
 
 export default function RootLayout({
   children,
@@ -56,10 +78,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${sora.variable} ${inter.variable} ${instrumentSerif.variable}`}>
-      <body className="bg-bg text-text antialiased min-h-screen">
-        <Providers>{children}</Providers>
-      </body>
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${chakra.variable} ${jakarta.variable} ${jetbrainsMono.variable} ${robotoFlex.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
+      <body className="min-h-screen text-text antialiased">{children}</body>
     </html>
   );
 }
