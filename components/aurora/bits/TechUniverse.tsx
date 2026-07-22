@@ -126,7 +126,7 @@ export function TechUniverse() {
       }
       ctx!.globalAlpha = 1;
 
-      // orbit ellipses
+      // orbit ellipses — track the drag/auto-spin (each ring at its own rate)
       ctx!.save();
       ctx!.translate(cx, cy);
       for (let o = 0; o < 3; o++) {
@@ -135,10 +135,12 @@ export function TechUniverse() {
         ctx!.strokeStyle =
           o % 2 === 0 ? "rgba(34,211,238,0.16)" : "rgba(77,124,255,0.14)";
         ctx!.lineWidth = 1;
+        ctx!.save();
+        ctx!.rotate(0.35 * (o + 1) + a * (0.6 - o * 0.14));
         ctx!.beginPath();
-        ctx!.rotate(0.35);
         ctx!.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
         ctx!.stroke();
+        ctx!.restore();
       }
       ctx!.restore();
 
