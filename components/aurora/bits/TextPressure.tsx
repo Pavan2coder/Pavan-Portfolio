@@ -95,7 +95,8 @@ export default function TextPressure({
     const { width: containerW, height: containerH } =
       containerRef.current.getBoundingClientRect();
 
-    let newFontSize = containerW / (chars.length / 2);
+    // leave headroom so wide (stretched) glyphs stay inside the container
+    let newFontSize = containerW / (chars.length / 1.35);
     newFontSize = Math.max(newFontSize, minFontSize);
 
     setFontSize(newFontSize);
@@ -134,7 +135,7 @@ export default function TextPressure({
           const charCenter = { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 };
           const d = dist(mouseRef.current, charCenter);
 
-          const wdth = width ? Math.floor(getAttr(d, maxDist, 5, 200)) : 100;
+          const wdth = width ? Math.floor(getAttr(d, maxDist, 5, 130)) : 100;
           const wght = weight ? Math.floor(getAttr(d, maxDist, 100, 900)) : 400;
           const italVal = italic ? getAttr(d, maxDist, 0, 1).toFixed(2) : "0";
           const alphaVal = alpha ? getAttr(d, maxDist, 0, 1).toFixed(2) : "1";
