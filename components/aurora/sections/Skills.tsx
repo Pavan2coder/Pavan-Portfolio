@@ -49,7 +49,7 @@ export function Skills() {
 
       {/* scroll-velocity marquee */}
       <div className="relative mt-14 border-y border-hairline py-7">
-        <ScrollVelocity items={techMarquee} baseVelocity={2.5} />
+        <ScrollVelocity items={techMarquee} baseVelocity={1.2} />
       </div>
 
       {/* rotating tech universe */}
