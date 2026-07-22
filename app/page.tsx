@@ -61,7 +61,7 @@ export default function Page() {
 
         {/* interactive variable-font signature — move your cursor across it */}
         <section className="relative overflow-hidden border-t border-hairline py-16 md:py-20">
-          <div className="mx-auto max-w-wide px-5 sm:px-8">
+          <div className="mx-auto max-w-6xl px-8 sm:px-14">
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="label text-brand">// move your cursor across my name</span>
             </div>
