@@ -21,7 +21,7 @@ export function About() {
                 {"// move your cursor across to decode"}
               </span>
               <ScrambleReveal
-                radius={130}
+                radius={200}
                 className="text-lg font-medium tracking-tight md:text-xl"
               >
                 {profile.tagline}
