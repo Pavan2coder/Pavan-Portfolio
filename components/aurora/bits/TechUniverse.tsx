@@ -21,7 +21,7 @@ import type { IconType } from "react-icons";
 const TECHS: { Icon: IconType; color: string; ring: number }[] = [
   { Icon: FaReact, color: "#61DAFB", ring: 0 },
   { Icon: FaNodeJs, color: "#83CD29", ring: 0 },
-  { Icon: FaPython, color: "#7cc0ff", ring: 0 },
+  { Icon: FaPython, color: "#a3e635", ring: 0 },
   { Icon: SiJavascript, color: "#F7DF1E", ring: 0 },
   { Icon: SiFlutter, color: "#47C5FB", ring: 1 },
   { Icon: SiMongodb, color: "#47A248", ring: 1 },
@@ -133,7 +133,7 @@ export function TechUniverse() {
         const rx = R * (1.55 + o * 0.5);
         const ry = rx * 0.34;
         ctx!.strokeStyle =
-          o % 2 === 0 ? "rgba(34,211,238,0.16)" : "rgba(77,124,255,0.14)";
+          o % 2 === 0 ? "rgba(45,212,191,0.14)" : "rgba(52,211,153,0.12)";
         ctx!.lineWidth = 1;
         ctx!.save();
         ctx!.rotate(0.35 * (o + 1) + a * (0.6 - o * 0.14));
@@ -146,9 +146,9 @@ export function TechUniverse() {
 
       // core glow
       const g = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 1.1);
-      g.addColorStop(0, "rgba(232,240,255,0.9)");
-      g.addColorStop(0.25, "rgba(77,124,255,0.38)");
-      g.addColorStop(0.5, "rgba(34,211,238,0.12)");
+      g.addColorStop(0, "rgba(235,255,245,0.9)");
+      g.addColorStop(0.25, "rgba(52,211,153,0.34)");
+      g.addColorStop(0.5, "rgba(45,212,191,0.12)");
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = g;
       ctx!.beginPath();
@@ -163,7 +163,7 @@ export function TechUniverse() {
         const A = proj[i];
         const B = proj[j];
         const depth = (A.z + B.z) / 2;
-        ctx!.strokeStyle = `rgba(180,205,240,${0.05 + ((depth + 1) / 2) * 0.22})`;
+        ctx!.strokeStyle = `rgba(180,235,210,${0.05 + ((depth + 1) / 2) * 0.22})`;
         ctx!.lineWidth = 1;
         ctx!.beginPath();
         ctx!.moveTo(cx + A.x * R, cy + A.y * R);
@@ -173,7 +173,7 @@ export function TechUniverse() {
       // points
       for (const P of proj) {
         const dz = (P.z + 1) / 2;
-        ctx!.fillStyle = `rgba(${P.z > 0 ? "77,124,255" : "34,211,238"},${0.3 + dz * 0.6})`;
+        ctx!.fillStyle = `rgba(${P.z > 0 ? "52,211,153" : "45,212,191"},${0.3 + dz * 0.6})`;
         ctx!.beginPath();
         ctx!.arc(cx + P.x * R, cy + P.y * R, 0.8 + dz * 1.6, 0, Math.PI * 2);
         ctx!.fill();
@@ -324,7 +324,7 @@ function Hud() {
   return (
     <div
       className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 border-t border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-text-faint backdrop-blur-sm sm:text-[11px]"
-      style={{ background: "rgba(8,11,16,0.55)" }}
+      style={{ background: "rgba(8,14,11,0.55)" }}
     >
       <div className="flex items-center gap-3 sm:gap-5">
         <span className="inline-flex items-center gap-1.5 text-brand">
