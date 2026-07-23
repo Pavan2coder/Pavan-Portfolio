@@ -4,48 +4,49 @@
 
 /* =====================================================================
    AURORA — modern premium portfolio for Athava Sri Pavan
-   Deep near-black ground, living violet→cyan aurora, spotlight cards,
-   big confident typography. Dark-first; a clean light theme is optional.
+   Deep near-black ground, living emerald→teal→lime aurora, spotlight
+   cards, big confident typography. Softer/cleaner premium treatment.
+   Dark-first; a clean light theme is optional.
    ===================================================================== */
 
 :root,
 :root[data-theme="dark"] {
   /* surfaces */
-  --bg: #06080d;
-  --bg-2: #0a0e17;
-  --bg-3: #10141f;
-  --card: rgba(255, 255, 255, 0.024);
-  --card-2: rgba(255, 255, 255, 0.045);
+  --bg: #060b09;
+  --bg-2: #0a120e;
+  --bg-3: #101a15;
+  --card: rgba(255, 255, 255, 0.02);
+  --card-2: rgba(255, 255, 255, 0.038);
 
-  /* structure — faint blue-cool tint */
-  --border: rgba(150, 175, 220, 0.12);
-  --border-strong: rgba(150, 175, 220, 0.22);
-  --hairline: rgba(150, 175, 220, 0.08);
+  /* structure — faint green-cool tint, lighter for a cleaner read */
+  --border: rgba(150, 210, 185, 0.1);
+  --border-strong: rgba(150, 210, 185, 0.18);
+  --hairline: rgba(150, 210, 185, 0.06);
 
   /* type */
-  --text: #eef2fb;
-  --text-muted: #98a1bd;
-  --text-faint: #565f79;
+  --text: #eafaf3;
+  --text-muted: #93b0a4;
+  --text-faint: #566b61;
 
-  /* brand — cyber: electric blue → cyan → sky */
-  --brand: #4d7cff;
-  --brand-2: #22d3ee;
-  --brand-3: #7cc0ff;
-  --brand-soft: rgba(77, 124, 255, 0.14);
-  --brand-line: rgba(77, 124, 255, 0.45);
+  /* brand — emerald → teal → lime */
+  --brand: #34d399;
+  --brand-2: #2dd4bf;
+  --brand-3: #a3e635;
+  --brand-soft: rgba(52, 211, 153, 0.12);
+  --brand-line: rgba(52, 211, 153, 0.35);
 
-  /* aurora blobs */
-  --aura-1: rgba(77, 124, 255, 0.42);
-  --aura-2: rgba(34, 211, 238, 0.36);
-  --aura-3: rgba(124, 192, 255, 0.30);
+  /* aurora blobs — softened */
+  --aura-1: rgba(52, 211, 153, 0.3);
+  --aura-2: rgba(45, 212, 191, 0.26);
+  --aura-3: rgba(163, 230, 53, 0.2);
 
-  /* glow + elevation */
-  --glow: 0 0 60px rgba(77, 124, 255, 0.24);
+  /* glow + elevation — gentler bloom */
+  --glow: 0 0 50px rgba(52, 211, 153, 0.16);
   --e1: 0 1px 2px rgba(0, 0, 0, 0.5);
   --e2: 0 20px 50px -24px rgba(0, 0, 0, 0.8);
   --e3: 0 44px 100px -40px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--border);
 
-  --noise-opacity: 0.04;
+  --noise-opacity: 0.03;
   --grain-blend: screen;
 
   /* motion */
@@ -60,30 +61,30 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f6f7fb;
-  --bg-2: #eef1f8;
+  --bg: #f3f8f5;
+  --bg-2: #ebf2ee;
   --bg-3: #ffffff;
-  --card: rgba(18, 22, 45, 0.03);
-  --card-2: rgba(18, 22, 45, 0.055);
-  --border: rgba(30, 40, 90, 0.12);
-  --border-strong: rgba(30, 40, 90, 0.22);
-  --hairline: rgba(30, 40, 90, 0.1);
-  --text: #0d1120;
-  --text-muted: #4a5169;
-  --text-faint: #8992ac;
-  --brand: #2563eb;
-  --brand-2: #0891b2;
-  --brand-3: #3b82f6;
-  --brand-soft: rgba(37, 99, 235, 0.1);
-  --brand-line: rgba(37, 99, 235, 0.35);
-  --aura-1: rgba(59, 130, 246, 0.22);
-  --aura-2: rgba(8, 145, 178, 0.18);
-  --aura-3: rgba(96, 165, 250, 0.16);
-  --glow: 0 0 50px rgba(37, 99, 235, 0.16);
-  --e1: 0 1px 2px rgba(20, 30, 60, 0.06);
-  --e2: 0 20px 44px -24px rgba(20, 30, 60, 0.3);
-  --e3: 0 40px 90px -40px rgba(20, 30, 60, 0.34), 0 0 0 1px var(--border);
-  --noise-opacity: 0.02;
+  --card: rgba(18, 45, 32, 0.028);
+  --card-2: rgba(18, 45, 32, 0.05);
+  --border: rgba(20, 70, 55, 0.1);
+  --border-strong: rgba(20, 70, 55, 0.2);
+  --hairline: rgba(20, 70, 55, 0.09);
+  --text: #0c1712;
+  --text-muted: #476155;
+  --text-faint: #839990;
+  --brand: #059669;
+  --brand-2: #0d9488;
+  --brand-3: #4d7c0f;
+  --brand-soft: rgba(5, 150, 105, 0.09);
+  --brand-line: rgba(5, 150, 105, 0.3);
+  --aura-1: rgba(16, 185, 129, 0.18);
+  --aura-2: rgba(13, 148, 136, 0.15);
+  --aura-3: rgba(132, 204, 22, 0.14);
+  --glow: 0 0 46px rgba(5, 150, 105, 0.12);
+  --e1: 0 1px 2px rgba(15, 40, 30, 0.06);
+  --e2: 0 20px 44px -24px rgba(15, 40, 30, 0.26);
+  --e3: 0 40px 90px -40px rgba(15, 40, 30, 0.3), 0 0 0 1px var(--border);
+  --noise-opacity: 0.015;
   --grain-blend: multiply;
 }
 
@@ -116,7 +117,7 @@ body {
 
 ::selection {
   background: var(--brand);
-  color: #ffffff;
+  color: #04160f;
 }
 
 /* scrollbar */
@@ -232,9 +233,9 @@ body {
 
   /* grid backdrop */
   .grid-bg {
-    background-image: linear-gradient(rgba(160, 170, 220, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(160, 170, 220, 0.05) 1px, transparent 1px);
-    background-size: 56px 56px;
+    background-image: linear-gradient(rgba(150, 210, 185, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(150, 210, 185, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
 
   /* masks */
@@ -251,8 +252,8 @@ body {
   .scanlines {
     background-image: repeating-linear-gradient(
       0deg,
-      rgba(90, 130, 255, 0.035) 0px,
-      rgba(90, 130, 255, 0.035) 1px,
+      rgba(80, 210, 160, 0.025) 0px,
+      rgba(80, 210, 160, 0.025) 1px,
       transparent 1px,
       transparent 3px
     );
@@ -286,8 +287,8 @@ body {
   }
   .btn-primary {
     background: linear-gradient(115deg, var(--brand), var(--brand-2));
-    color: #ffffff;
-    font-weight: 600;
+    color: #04160f;
+    font-weight: 700;
     box-shadow: 0 10px 30px -10px var(--brand-line);
   }
   .btn-primary:hover {
@@ -320,10 +321,10 @@ body {
     transform: translate(0, 0) scale(1);
   }
   33% {
-    transform: translate(6%, -4%) scale(1.08);
+    transform: translate(4%, -3%) scale(1.05);
   }
   66% {
-    transform: translate(-5%, 5%) scale(0.96);
+    transform: translate(-3.5%, 3.5%) scale(0.98);
   }
 }
 @keyframes float-y {
@@ -415,12 +416,12 @@ body {
     transparent 200deg,
     transparent 360deg
   );
-  animation: spin-conic 6s linear infinite;
+  animation: spin-conic 9s linear infinite;
   opacity: 0;
-  transition: opacity 0.5s var(--ease-out);
+  transition: opacity 0.6s var(--ease-out);
 }
 .conic-border:hover::before {
-  opacity: 0.9;
+  opacity: 0.6;
 }
 .conic-border::after {
   content: "";
@@ -440,7 +441,7 @@ body {
 }
 
 .animate-aurora {
-  animation: aurora-drift 22s ease-in-out infinite;
+  animation: aurora-drift 30s ease-in-out infinite;
 }
 .animate-float {
   animation: float-y 6s ease-in-out infinite;
