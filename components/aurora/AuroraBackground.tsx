@@ -1,9 +1,12 @@
 "use client";
 
+import { AuroraFlow } from "./bits/AuroraFlow";
+
 /**
- * Fixed, full-viewport ambient layer for the WHOLE site: three slow-drifting
- * aurora blobs over a faint grid + scanlines + film grain. Clean and calm —
- * the interactive particle network was removed on request.
+ * Fixed, full-viewport ambient layer for the WHOLE site: a luminous emerald
+ * flow-field (AuroraFlow) drifting over three slow aurora blobs, a faint grid,
+ * scanlines + film grain. The flow field is the signature "wow" backdrop and
+ * bends around the cursor.
  */
 export function AuroraBackground() {
   return (
@@ -37,6 +40,9 @@ export function AuroraBackground() {
         }}
       />
 
+      {/* signature: luminous emerald flow-field, above the blobs */}
+      <AuroraFlow className="absolute inset-0 h-full w-full opacity-90" />
+
       {/* CRT scanlines */}
       <div className="scanlines absolute inset-0 opacity-40" />
 
@@ -45,7 +51,7 @@ export function AuroraBackground() {
         className="scan-sweep absolute inset-x-0 top-0 h-24"
         style={{
           background:
-            "linear-gradient(180deg, transparent, rgba(77,124,255,0.06), transparent)",
+            "linear-gradient(180deg, transparent, rgba(52,211,153,0.05), transparent)",
         }}
       />
 
@@ -54,7 +60,7 @@ export function AuroraBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(6,8,13,0.35) 0%, transparent 20%, transparent 80%, rgba(6,8,13,0.6) 100%)",
+            "linear-gradient(180deg, rgba(6,11,9,0.35) 0%, transparent 20%, transparent 80%, rgba(6,11,9,0.6) 100%)",
         }}
       />
 
