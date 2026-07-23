@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
  * pauses when off-screen and respects reduced-motion.
  */
 export function Particles({
-  density = 0.00016,
+  density = 0.00013,
   className,
 }: {
   density?: number;
@@ -40,7 +40,7 @@ export function Particles({
     let frameN = 0;
 
     function seed() {
-      const count = Math.min(180, Math.floor(width * height * density));
+      const count = Math.min(140, Math.floor(width * height * density));
       dots = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -72,8 +72,9 @@ export function Particles({
     }
 
     const LINK = 150;
-    const brand = "198, 255, 61";
-    const cyan = "34, 227, 208";
+    // emerald palette, softened for a calm ambient network
+    const brand = "52, 211, 153";
+    const cyan = "45, 212, 191";
 
     function frame() {
       if (!running) return;
