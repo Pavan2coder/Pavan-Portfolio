@@ -126,14 +126,14 @@ export function TechUniverse() {
       }
       ctx!.globalAlpha = 1;
 
-      // orbit ellipses — track the drag/auto-spin (each ring at its own rate)
+      // orbit ellipses
       ctx!.save();
       ctx!.translate(cx, cy);
       for (let o = 0; o < 3; o++) {
         const rx = R * (1.55 + o * 0.5);
         const ry = rx * 0.34;
         ctx!.strokeStyle =
-          o % 2 === 0 ? "rgba(45,212,191,0.14)" : "rgba(52,211,153,0.12)";
+          o % 2 === 0 ? "rgba(0,255,157,0.3)" : "rgba(0,242,254,0.25)";
         ctx!.lineWidth = 1;
         ctx!.save();
         ctx!.rotate(0.35 * (o + 1) + a * (0.6 - o * 0.14));
@@ -146,9 +146,9 @@ export function TechUniverse() {
 
       // core glow
       const g = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 1.1);
-      g.addColorStop(0, "rgba(235,255,245,0.9)");
-      g.addColorStop(0.25, "rgba(52,211,153,0.34)");
-      g.addColorStop(0.5, "rgba(45,212,191,0.12)");
+      g.addColorStop(0, "rgba(240,253,250,0.95)");
+      g.addColorStop(0.25, "rgba(0,255,157,0.45)");
+      g.addColorStop(0.5, "rgba(0,242,254,0.25)");
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = g;
       ctx!.beginPath();
