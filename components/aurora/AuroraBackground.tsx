@@ -13,56 +13,61 @@ export function AuroraBackground() {
       aria-hidden
       className="grain pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* base wash */}
+      {/* Base ground wash */}
       <div className="absolute inset-0 bg-bg" />
 
-      {/* faint grid */}
-      <div className="grid-bg mask-fade-edges absolute inset-0 opacity-60" />
+      {/* 3D grid plane illusion */}
+      <div 
+        className="grid-bg mask-fade-edges absolute inset-0 opacity-75"
+        style={{
+          perspective: "1000px",
+          transformStyle: "preserve-3d",
+        }}
+      />
 
-      {/* aurora blobs */}
+      {/* Aurora blobs — Neon Mint, Turquoise Cyan, Electric Violet */}
       <div
-        className="animate-aurora absolute -left-[10%] -top-[15%] h-[55vw] w-[55vw] rounded-full blur-[110px]"
+        className="animate-aurora absolute -left-[12%] -top-[18%] h-[60vw] w-[60vw] rounded-full blur-[140px]"
         style={{ background: "radial-gradient(circle, var(--aura-1), transparent 65%)" }}
       />
       <div
-        className="animate-aurora absolute -right-[12%] top-[8%] h-[48vw] w-[48vw] rounded-full blur-[120px]"
+        className="animate-aurora absolute -right-[15%] top-[10%] h-[55vw] w-[55vw] rounded-full blur-[150px]"
         style={{
           background: "radial-gradient(circle, var(--aura-2), transparent 65%)",
-          animationDelay: "-7s",
+          animationDelay: "-6s",
         }}
       />
       <div
-        className="animate-aurora absolute bottom-[-20%] left-[25%] h-[50vw] w-[50vw] rounded-full blur-[130px]"
+        className="animate-aurora absolute bottom-[-22%] left-[20%] h-[58vw] w-[58vw] rounded-full blur-[160px]"
         style={{
           background: "radial-gradient(circle, var(--aura-3), transparent 65%)",
-          animationDelay: "-14s",
+          animationDelay: "-12s",
         }}
       />
 
-      {/* signature: luminous emerald flow-field, above the blobs */}
-      <AuroraFlow className="absolute inset-0 h-full w-full opacity-90" />
+      {/* Signature: 3D Constellation Laser Lattice & Interactive Particles */}
+      <AuroraFlow className="absolute inset-0 h-full w-full opacity-95" />
 
       {/* CRT scanlines */}
-      <div className="scanlines absolute inset-0 opacity-40" />
+      <div className="scanlines absolute inset-0 opacity-25" />
 
-      {/* slow scan sweep */}
+      {/* Slow cyber scan sweep */}
       <div
-        className="scan-sweep absolute inset-x-0 top-0 h-24"
+        className="scan-sweep absolute inset-x-0 top-0 h-36"
         style={{
           background:
-            "linear-gradient(180deg, transparent, rgba(52,211,153,0.05), transparent)",
+            "linear-gradient(180deg, transparent, rgba(99,102,241,0.12), rgba(0,245,212,0.1), transparent)",
         }}
       />
 
-      {/* soft vignette to seat content (kept above blobs, BELOW the network) */}
+      {/* Soft vignette to seat content */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(6,11,9,0.35) 0%, transparent 20%, transparent 80%, rgba(6,11,9,0.6) 100%)",
+            "linear-gradient(180deg, rgba(8,9,20,0.35) 0%, transparent 20%, transparent 80%, rgba(8,9,20,0.7) 100%)",
         }}
       />
-
     </div>
   );
 }
