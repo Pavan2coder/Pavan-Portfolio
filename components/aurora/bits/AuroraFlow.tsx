@@ -151,15 +151,15 @@ export function AuroraFlow({ className }: { className?: string }) {
 
     function onMove(e: PointerEvent) {
       const rect = canvas!.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+      mouse.targetX = e.clientX - rect.left;
+      mouse.targetY = e.clientY - rect.top;
       mouse.active = true;
     }
+
     function onLeave() {
       mouse.active = false;
     }
 
-    // pause when the tab / element is off-screen
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !running && !reduce) {
