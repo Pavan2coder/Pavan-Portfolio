@@ -26,43 +26,7 @@ export function AuroraFlow({ className }: { className?: string }) {
     let running = true;
     let t = 0;
 
-    // emerald · teal · lime
-    const palette = ["52, 211, 153", "45, 212, 191", "163, 230, 53"];
-    const mouse = { x: -9999, y: -9999, active: false };
-
-    // each particle keeps a short trail (recent positions) so it draws as a
-    // luminous streak, not a single-frame dot
-    const TRAIL = 20;
-    type P = {
-      x: number;
-      y: number;
-      xs: number[];
-      ys: number[];
-      c: string;
-      life: number;
-      max: number;
-    };
-    let ps: P[] = [];
-
-    const rand = (a: number, b: number) => a + Math.random() * (b - a);
-
-    function reset(p: P) {
-      p.x = Math.random() * width;
-      p.y = Math.random() * height;
-      p.xs = [p.x];
-      p.ys = [p.y];
-      p.c = palette[(Math.random() * palette.length) | 0];
-      p.life = 0;
-      p.max = rand(160, 420);
-      return p;
-    }
-
-    function seed() {
-      const count = Math.min(300, Math.floor(width * height * 0.00014));
-      ps = Array.from({ length: count }, () =>
-        reset({ x: 0, y: 0, xs: [], ys: [], c: "", life: 0, max: 0 }),
-      );
-    }
+    const mouse = { x: -9999, y: -9999, targetX: -9999, targetY: -9999, active: false };
 
     function resize() {
       const parent = canvas!.parentElement;
