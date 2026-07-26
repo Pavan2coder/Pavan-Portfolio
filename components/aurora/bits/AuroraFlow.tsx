@@ -170,7 +170,7 @@ export function AuroraFlow({ className }: { className?: string }) {
           cancelAnimationFrame(raf);
         }
       },
-      { threshold: 0 },
+      { threshold: 0 }
     );
     io.observe(canvas);
 
@@ -181,7 +181,6 @@ export function AuroraFlow({ className }: { className?: string }) {
       window.addEventListener("pointermove", onMove);
       window.addEventListener("pointerout", onLeave);
     } else {
-      // draw a few static frames for a soft still image
       running = false;
       for (let i = 0; i < 90; i++) step();
     }
