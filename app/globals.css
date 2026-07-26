@@ -11,42 +11,42 @@
 
 :root,
 :root[data-theme="dark"] {
-  /* surfaces */
-  --bg: #060b09;
-  --bg-2: #0a120e;
-  --bg-3: #101a15;
-  --card: rgba(255, 255, 255, 0.02);
-  --card-2: rgba(255, 255, 255, 0.038);
+  /* surfaces — Deep Velvet Obsidian & Liquid Midnight */
+  --bg: #080914;
+  --bg-2: #0e1024;
+  --bg-3: #141733;
+  --card: rgba(18, 20, 42, 0.75);
+  --card-2: rgba(26, 29, 60, 0.88);
 
-  /* structure — faint green-cool tint, lighter for a cleaner read */
-  --border: rgba(150, 210, 185, 0.1);
-  --border-strong: rgba(150, 210, 185, 0.18);
-  --hairline: rgba(150, 210, 185, 0.06);
+  /* structure — glowing iridescent indigo & cyan borders */
+  --border: rgba(99, 102, 241, 0.28);
+  --border-strong: rgba(0, 245, 212, 0.45);
+  --hairline: rgba(99, 102, 241, 0.14);
 
   /* type */
-  --text: #eafaf3;
-  --text-muted: #93b0a4;
-  --text-faint: #566b61;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
 
-  /* brand — emerald → teal → lime */
-  --brand: #34d399;
-  --brand-2: #2dd4bf;
-  --brand-3: #a3e635;
-  --brand-soft: rgba(52, 211, 153, 0.12);
-  --brand-line: rgba(52, 211, 153, 0.35);
+  /* brand — Electric Indigo → Holographic Mint Cyan → Liquid Amber Gold */
+  --brand: #6366f1;
+  --brand-2: #00f5d4;
+  --brand-3: #ffaa00;
+  --brand-soft: rgba(99, 102, 241, 0.18);
+  --brand-line: rgba(0, 245, 212, 0.5);
 
-  /* aurora blobs — softened */
-  --aura-1: rgba(52, 211, 153, 0.3);
-  --aura-2: rgba(45, 212, 191, 0.26);
-  --aura-3: rgba(163, 230, 53, 0.2);
+  /* aurora blobs — chromatic liquid light */
+  --aura-1: rgba(99, 102, 241, 0.38);
+  --aura-2: rgba(0, 245, 212, 0.32);
+  --aura-3: rgba(255, 170, 0, 0.25);
 
-  /* glow + elevation — gentler bloom */
-  --glow: 0 0 50px rgba(52, 211, 153, 0.16);
-  --e1: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --e2: 0 20px 50px -24px rgba(0, 0, 0, 0.8);
-  --e3: 0 44px 100px -40px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--border);
+  /* glow + 3D elevation */
+  --glow: 0 0 65px rgba(99, 102, 241, 0.3);
+  --e1: 0 2px 5px rgba(0, 0, 0, 0.7);
+  --e2: 0 20px 50px -20px rgba(0, 0, 0, 0.9);
+  --e3: 0 44px 100px -30px rgba(0, 0, 0, 0.96), 0 0 0 1px var(--border);
 
-  --noise-opacity: 0.03;
+  --noise-opacity: 0.035;
   --grain-blend: screen;
 
   /* motion */
