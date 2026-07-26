@@ -395,10 +395,10 @@ function Scene({ onSkillClick }: { onSkillClick?: (skill: string) => void }) {
   return (
     <>
       {/* Lighting */}
-      <ambientLight intensity={0.55} />
-      <pointLight position={[3, 3, 3]} intensity={1.6} color={"#a78bfa"} />
-      <pointLight position={[-3, -2, -2]} intensity={1.3} color={"#2dd4bf"} />
-      <pointLight position={[0, 4, -2]} intensity={0.9} color={"#5eead4"} />
+      <ambientLight intensity={0.7} />
+      <pointLight position={[3, 3, 3]} intensity={2.0} color={"#6366f1"} />
+      <pointLight position={[-3, -2, -2]} intensity={1.6} color={"#00f5d4"} />
+      <pointLight position={[0, 4, -2]} intensity={1.3} color={"#ffaa00"} />
 
       {/* OrbitControls for full interaction */}
       <OrbitControls
