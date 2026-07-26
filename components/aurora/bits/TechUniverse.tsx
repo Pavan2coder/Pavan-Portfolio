@@ -323,21 +323,21 @@ function Hud() {
 
   return (
     <div
-      className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 border-t border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-text-faint backdrop-blur-sm sm:text-[11px]"
-      style={{ background: "rgba(8,14,11,0.55)" }}
+      className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 border-t border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-text-faint backdrop-blur-md sm:text-[11px]"
+      style={{ background: "rgba(3,7,18,0.85)" }}
     >
       <div className="flex items-center gap-3 sm:gap-5">
         <span className="inline-flex items-center gap-1.5 text-brand">
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" /> sys / online
+          <span className="h-1.5 w-1.5 animate-ping rounded-full bg-brand" /> sys / online
         </span>
         <span className="hidden sm:inline">
-          cpu <span className="text-brand-2">{stat.cpu}%</span>
+          cpu <span className="text-brand-2 font-semibold">{stat.cpu}%</span>
         </span>
         <span className="hidden sm:inline">
-          mem <span className="text-brand-2">{stat.mem}%</span>
+          mem <span className="text-brand-2 font-semibold">{stat.mem}%</span>
         </span>
         <span>
-          net <span className="text-brand-2">{stat.net}gb/s</span>
+          net <span className="text-brand-2 font-semibold">{stat.net}gb/s</span>
         </span>
       </div>
       <div className="flex items-center gap-3 sm:gap-5">
