@@ -64,8 +64,13 @@ export function SpotlightCard({
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(340px circle at var(--mx) var(--my), var(--brand-soft), transparent 70%)",
+            "radial-gradient(400px circle at var(--mx) var(--my), var(--brand-soft), transparent 70%)",
         }}
+      />
+      {/* 3D subtle top-edge sheen */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
       <div className="relative z-10">{children}</div>
     </div>
