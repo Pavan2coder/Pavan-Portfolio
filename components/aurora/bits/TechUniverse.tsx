@@ -163,7 +163,7 @@ export function TechUniverse() {
         const A = proj[i];
         const B = proj[j];
         const depth = (A.z + B.z) / 2;
-        ctx!.strokeStyle = `rgba(180,235,210,${0.05 + ((depth + 1) / 2) * 0.22})`;
+        ctx!.strokeStyle = `rgba(0,255,157,${0.1 + ((depth + 1) / 2) * 0.3})`;
         ctx!.lineWidth = 1;
         ctx!.beginPath();
         ctx!.moveTo(cx + A.x * R, cy + A.y * R);
@@ -173,7 +173,7 @@ export function TechUniverse() {
       // points
       for (const P of proj) {
         const dz = (P.z + 1) / 2;
-        ctx!.fillStyle = `rgba(${P.z > 0 ? "52,211,153" : "45,212,191"},${0.3 + dz * 0.6})`;
+        ctx!.fillStyle = `rgba(${P.z > 0 ? "0,255,157" : "0,242,254"},${0.4 + dz * 0.55})`;
         ctx!.beginPath();
         ctx!.arc(cx + P.x * R, cy + P.y * R, 0.8 + dz * 1.6, 0, Math.PI * 2);
         ctx!.fill();
