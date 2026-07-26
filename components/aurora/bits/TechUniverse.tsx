@@ -304,8 +304,8 @@ function Hud() {
   useEffect(() => {
     const id = setInterval(() => {
       setStat((s) => ({
-        cpu: clamp(s.cpu + rand(), 18, 74),
-        mem: clamp(s.mem + rand(), 30, 68),
+        cpu: Math.round(clamp(s.cpu + rand(), 18, 74)),
+        mem: Math.round(clamp(s.mem + rand(), 30, 68)),
         net: +clamp(s.net + rand() / 10, 0.4, 2.4).toFixed(1),
       }));
       setTime(
