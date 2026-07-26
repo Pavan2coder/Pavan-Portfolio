@@ -4,15 +4,17 @@ import { useRef, type ReactNode, type MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * A card that reveals a soft brand-coloured glow following the cursor.
- * Pure CSS vars updated on mousemove — no re-renders, cheap on scroll.
+ * A 3D interactive spotlight card that tilts subtly towards the cursor in 3D perspective
+ * and reveals a soft electric violet & cyan glow following pointer movements.
  */
 export function SpotlightCard({
   children,
   className,
+  tilt = true,
 }: {
   children: ReactNode;
   className?: string;
+  tilt?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
