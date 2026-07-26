@@ -236,34 +236,34 @@ function CoreSphere() {
     <group>
       <Sphere ref={innerRef as any} args={[0.7, 48, 48]}>
         <meshStandardMaterial
-          color={"#5eead4"}
-          emissive={"#a78bfa"}
-          emissiveIntensity={2.4}
+          color={"#00f5d4"}
+          emissive={"#6366f1"}
+          emissiveIntensity={2.8}
           transparent
-          opacity={0.92}
-          metalness={0.4}
-          roughness={0.15}
+          opacity={0.94}
+          metalness={0.5}
+          roughness={0.12}
         />
       </Sphere>
 
       <Icosahedron ref={midRef} args={[1.15, 2]}>
         <meshStandardMaterial
-          color={new THREE.Color("#a78bfa")}
-          emissive={new THREE.Color("#a78bfa")}
-          emissiveIntensity={1.1}
-          metalness={0.7}
-          roughness={0.18}
+          color={new THREE.Color("#6366f1")}
+          emissive={new THREE.Color("#00f5d4")}
+          emissiveIntensity={1.4}
+          metalness={0.75}
+          roughness={0.15}
           transparent
-          opacity={0.55}
+          opacity={0.6}
         />
       </Icosahedron>
 
       <Icosahedron ref={wireRef} args={[1.65, 1]}>
-        <meshBasicMaterial color={"#a78bfa"} wireframe transparent opacity={0.55} />
+        <meshBasicMaterial color={"#6366f1"} wireframe transparent opacity={0.6} />
       </Icosahedron>
 
       <Icosahedron ref={wire2Ref} args={[1.95, 2]}>
-        <meshBasicMaterial color={"#5eead4"} wireframe transparent opacity={0.18} />
+        <meshBasicMaterial color={"#00f5d4"} wireframe transparent opacity={0.25} />
       </Icosahedron>
     </group>
   );
