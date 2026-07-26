@@ -336,18 +336,18 @@ function ConnectionLines() {
   );
 }
 
-function OrbitParticles({ count = 300 }: { count?: number }) {
+function OrbitParticles({ count = 340 }: { count?: number }) {
   const group = useRef<THREE.Group>(null);
   const seeds = useMemo(
     () =>
       Array.from({ length: count }, () => ({
-        r: 2.0 + Math.random() * 3.5,
+        r: 2.0 + Math.random() * 3.8,
         speed: 0.15 + Math.random() * 0.6,
         phase: Math.random() * Math.PI * 2,
         tilt: Math.random() * Math.PI,
-        size: 0.015 + Math.random() * 0.04,
-        color: Math.random() > 0.6 ? "#5eead4" : Math.random() > 0.3 ? "#a78bfa" : "#2dd4bf",
-        opacity: 0.4 + Math.random() * 0.6,
+        size: 0.015 + Math.random() * 0.045,
+        color: Math.random() > 0.6 ? "#6366f1" : Math.random() > 0.3 ? "#00f5d4" : "#ffaa00",
+        opacity: 0.45 + Math.random() * 0.55,
       })),
     [count]
   );
