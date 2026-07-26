@@ -38,81 +38,106 @@ export function AuroraFlow({ className }: { className?: string }) {
       canvas!.style.width = `${width}px`;
       canvas!.style.height = `${height}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seed();
     }
-
-    // smooth animated vector field → angle at (x, y)
-    function angleAt(x: number, y: number) {
-      const s = 0.0016;
-      const n =
-        Math.sin(x * s + t) +
-        Math.cos(y * s * 1.3 - t * 0.8) +
-        Math.sin((x + y) * s * 0.7 + t * 0.5);
-      return n * Math.PI;
-    }
-
-    const SPEED = 1.15;
-    const SWIRL_R = 210;
 
     function step() {
-      t += 0.0016;
+      t += 0.008;
+
+      // Smooth mouse interpolation
+      mouse.x += (mouse.targetX - mouse.x) * 0.08;
+      mouse.y += (mouse.targetY - mouse.y) * 0.08;
+
       ctx!.clearRect(0, 0, width, height);
+
+      // Additive blend mode for luminous light compounding
       ctx!.globalCompositeOperation = "lighter";
-      ctx!.lineCap = "round";
-      ctx!.lineJoin = "round";
 
-      for (const p of ps) {
-        let a = angleAt(p.x, p.y);
+      // 1. Draw Liquid Chromatic Wave Fields
+      const numWaves = 4;
+      const baseSpacing = height / (numWaves + 1);
 
-        // cursor swirl — bend the heading tangentially near the pointer
-        if (mouse.active) {
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
-          const d = Math.hypot(dx, dy);
-          if (d < SWIRL_R && d > 0.5) {
-            const f = (1 - d / SWIRL_R) * 1.5;
-            a += (Math.atan2(dy, dx) + Math.PI / 2 - a) * f * 0.5;
+      for (let wIdx = 0; wIdx < numWaves; wIdx++) {
+        const yCenter = baseSpacing * (wIdx + 1);
+        ctx!.beginPath();
+
+        let prevX = 0;
+        let prevY = yCenter;
+        ctx!.moveTo(0, yCenter);
+
+        const stepX = 18;
+        for (let x = 0; x <= width + stepX; x += stepX) {
+          // Complex multi-harmonic wave equation
+          const freq1 = 0.0025 * (wIdx + 1);
+          const freq2 = 0.005 * (wIdx + 1);
+          
+          let waveOffset =
+            Math.sin(x * freq1 + t * (1.2 + wIdx * 0.3)) * 45 +
+            Math.cos(x * freq2 - t * 0.8) * 30 +
+            Math.sin((x + yCenter) * 0.003 + t) * 25;
+
+          // Interactive Cursor Ripple Distortion
+          if (mouse.active) {
+            const dx = x - mouse.x;
+            const dy = yCenter - mouse.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 260 && dist > 1) {
+              const ripple = Math.sin(dist * 0.04 - t * 4) * (1 - dist / 260) * 55;
+              waveOffset += ripple;
+            }
           }
+
+          const currY = yCenter + waveOffset;
+          ctx!.quadraticCurveTo(prevX, prevY, (prevX + x) / 2, (prevY + currY) / 2);
+          prevX = x;
+          prevY = currY;
         }
 
-        p.x += Math.cos(a) * SPEED;
-        p.y += Math.sin(a) * SPEED;
-        p.life++;
-
-        // extend the trail
-        p.xs.push(p.x);
-        p.ys.push(p.y);
-        if (p.xs.length > TRAIL) {
-          p.xs.shift();
-          p.ys.shift();
+        // Chromatic Color Selection for each wave layer
+        let strokeGradient: CanvasGradient;
+        if (wIdx === 0) {
+          strokeGradient = ctx!.createLinearGradient(0, 0, width, 0);
+          strokeGradient.addColorStop(0, "rgba(99, 102, 241, 0.45)"); // Electric Indigo
+          strokeGradient.addColorStop(0.5, "rgba(0, 245, 212, 0.55)"); // Holographic Mint
+          strokeGradient.addColorStop(1, "rgba(255, 170, 0, 0.35)");  // Liquid Amber
+        } else if (wIdx === 1) {
+          strokeGradient = ctx!.createLinearGradient(0, 0, width, 0);
+          strokeGradient.addColorStop(0, "rgba(0, 245, 212, 0.4)");
+          strokeGradient.addColorStop(0.5, "rgba(244, 63, 94, 0.45)"); // Neon Rose
+          strokeGradient.addColorStop(1, "rgba(99, 102, 241, 0.4)");
+        } else if (wIdx === 2) {
+          strokeGradient = ctx!.createLinearGradient(0, 0, width, 0);
+          strokeGradient.addColorStop(0, "rgba(255, 170, 0, 0.35)");
+          strokeGradient.addColorStop(0.6, "rgba(99, 102, 241, 0.5)");
+          strokeGradient.addColorStop(1, "rgba(0, 245, 212, 0.35)");
+        } else {
+          strokeGradient = ctx!.createLinearGradient(0, 0, width, 0);
+          strokeGradient.addColorStop(0, "rgba(168, 85, 247, 0.4)"); // Electric Violet
+          strokeGradient.addColorStop(0.5, "rgba(0, 245, 212, 0.45)");
+          strokeGradient.addColorStop(1, "rgba(99, 102, 241, 0.4)");
         }
 
-        // fade in then out over the particle's lifetime
-        const fade = Math.sin(Math.min(1, p.life / p.max) * Math.PI);
-        const alpha = 0.06 + fade * 0.5;
+        ctx!.strokeStyle = strokeGradient;
+        ctx!.lineWidth = 3 + wIdx * 1.5;
+        ctx!.stroke();
+      }
 
-        // draw the trail as a tapering, brightening polyline (head is brightest)
-        const n = p.xs.length;
-        for (let k = 1; k < n; k++) {
-          const seg = k / n; // 0 → tail, 1 → head
-          ctx!.strokeStyle = `rgba(${p.c}, ${alpha * seg})`;
-          ctx!.lineWidth = 0.5 + seg * 1.4;
-          ctx!.beginPath();
-          ctx!.moveTo(p.xs[k - 1], p.ys[k - 1]);
-          ctx!.lineTo(p.xs[k], p.ys[k]);
-          ctx!.stroke();
-        }
-
-        // respawn when spent or off-screen
-        if (
-          p.life > p.max ||
-          p.x < -30 ||
-          p.x > width + 30 ||
-          p.y < -30 ||
-          p.y > height + 30
-        ) {
-          reset(p);
-        }
+      // 2. Cursor Specular Refraction Glow
+      if (mouse.active) {
+        const flareGlow = ctx!.createRadialGradient(
+          mouse.x,
+          mouse.y,
+          0,
+          mouse.x,
+          mouse.y,
+          360
+        );
+        flareGlow.addColorStop(0, "rgba(0, 245, 212, 0.22)");
+        flareGlow.addColorStop(0.4, "rgba(99, 102, 241, 0.12)");
+        flareGlow.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx!.fillStyle = flareGlow;
+        ctx!.beginPath();
+        ctx!.arc(mouse.x, mouse.y, 360, 0, Math.PI * 2);
+        ctx!.fill();
       }
 
       ctx!.globalCompositeOperation = "source-over";
