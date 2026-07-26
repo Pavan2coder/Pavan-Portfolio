@@ -3,15 +3,10 @@
 import { useEffect, useRef } from "react";
 
 /**
- * AuroraFlow — a luminous flow-field background.
+ * AuroraFlow — Liquid Chromatic Refraction & Interactive Fluid Mesh Canvas.
  *
- * Hundreds of tiny light particles drift along an animated vector field
- * (a cheap layered-sine "noise"), leaving short glowing streaks that read as
- * silky emerald currents. The cursor bends the field into a gentle swirl.
- *
- * Canvas + rAF, DPR-aware, additive blending over a transparent surface so
- * the aurora blobs behind still show through. Pauses off-screen and respects
- * reduced-motion (draws a single soft frame). No libraries.
+ * Renders organic multi-frequency liquid waves with holographic color dispersion,
+ * glowing specular highlights, and mouse-reactive fluid ripples.
  */
 export function AuroraFlow({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
