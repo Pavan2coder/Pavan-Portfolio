@@ -3,10 +3,9 @@
 import { AuroraFlow } from "./bits/AuroraFlow";
 
 /**
- * Fixed, full-viewport ambient layer for the WHOLE site: a luminous emerald
- * flow-field (AuroraFlow) drifting over three slow aurora blobs, a faint grid,
- * scanlines + film grain. The flow field is the signature "wow" backdrop and
- * bends around the cursor.
+ * Fixed, full-viewport ambient background layer:
+ * High-octane 3D Constellation Laser Field + luminous Quantum Aurora blobs,
+ * perspective grid matrix, and neon scanlines.
  */
 export function AuroraBackground() {
   return (
