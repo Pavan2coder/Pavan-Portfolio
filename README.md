@@ -1,25 +1,24 @@
-# JARVIS AI Portfolio
+# Aurora Portfolio
 
-A futuristic AI-powered portfolio website built with Next.js, Three.js, and Framer Motion. Features an interactive 3D AI Core visualization, cinematic animations, and a JARVIS-inspired interface.
+A modern, premium dark portfolio built with Next.js and Framer Motion. Features a living aurora backdrop, a real typeable terminal, cursor-reactive spotlight cards, and scroll-driven reveals — all tuned for a clean, recruiter-friendly first impression.
 
 ## Features
 
-- **Interactive 3D AI Core** - Fully draggable and zoomable neural reactor with real technology logos
-- **Cinematic Boot Sequence** - JARVIS-style system initialization with sound effects
-- **Smooth Animations** - GSAP and Framer Motion powered transitions
-- **Futuristic UI** - Holographic effects, scanlines, and particle systems
-- **Terminal Interface** - Interactive command-line experience
+- **Interactive Terminal** - A real shell in the hero section (`help`, `whoami`, `projects`, `sudo hire-me`, and more) that pulls live data from the site
+- **Aurora Background** - Drifting gradient blobs, a luminous flow-field of trailing particles, grid, grain, and scanlines
+- **Tech Universe** - A drag-to-rotate 3D wireframe sphere (canvas-based) ringed by orbiting tech logos with a live HUD readout
+- **Spotlight & Tilt Cards** - Cards that light up and tilt toward the cursor
+- **Scramble & Split Text** - Decrypt-style and letter-reveal text effects on headings and taglines
+- **Custom Cursor & Click Spark** - Mix-blend cursor ring with burst effects on click
+- **Theme Toggle** - Dark/light theme with no flash-of-unstyled-content on load
 - **Responsive Design** - Optimized for desktop, tablet, and mobile
-- **Sound System** - Immersive audio feedback for interactions
-- **Production Ready** - Optimized build with Next.js 14
 
 ## Tech Stack
 
 - **Framework:** Next.js 14 (React 18)
-- **3D Graphics:** Three.js, React Three Fiber, React Three Drei
 - **Animations:** Framer Motion, GSAP
 - **Styling:** Tailwind CSS
-- **Icons:** React Icons, Lucide React
+- **Icons:** Lucide React, React Icons
 - **Smooth Scroll:** Lenis
 - **TypeScript:** Full type safety
 
