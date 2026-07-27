@@ -83,24 +83,18 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 ## Project Structure
 
 ```
-├── app/                    # Next.js app directory
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Main page
-│   └── providers.tsx      # Context providers
+├── app/                        # Next.js app directory
+│   ├── globals.css            # Global styles + Aurora design tokens
+│   ├── layout.tsx             # Root layout, fonts, theme init
+│   └── page.tsx               # Page composition + scroll progress bar
 ├── components/
-│   ├── 3d/                # Three.js 3D components
-│   │   └── CinematicAICore.tsx
-│   ├── animations/        # Animation components
-│   ├── boot/              # Boot sequence
-│   ├── hud/               # HUD overlays
-│   ├── layout/            # Layout components
-│   ├── sections/          # Page sections
-│   ├── terminal/          # Terminal interface
-│   └── ui/                # Reusable UI components
-├── hooks/                 # Custom React hooks
-├── lib/                   # Utilities and data
-└── public/                # Static assets
+│   └── aurora/                 # Current design system
+│       ├── bits/               # React Bits–style effects (terminal, flow field,
+│       │                       #   tech universe, spotlight/tilt, cursor, text FX...)
+│       └── sections/           # Hero, About, Skills, Projects, Experience, Contact
+├── hooks/                      # Custom React hooks
+├── lib/                        # Content (data.ts) and utilities
+└── public/                     # Static assets
 ```
 
 ## Customization
@@ -129,22 +123,7 @@ All content is managed in `lib/data.ts`. Update the exported objects:
 
 ### Colors & Theme
 
-Customize the color scheme in `tailwind.config.ts`:
-
-```typescript
-colors: {
-  primary: "#00ffff",  // Cyan
-  bg: "#0a0e27",       // Dark blue
-  // ... more colors
-}
-```
-
-## Performance
-
-- **Bundle Size:** ~190 kB (optimized)
-- **Lighthouse Score:** 90+ (Performance, Accessibility, Best Practices)
-- **Build Time:** ~30 seconds
-- **First Load JS:** 87.6 kB shared
+Aurora's design tokens (colors, glow, borders, grid) live as CSS variables in `app/globals.css` under `data-theme`, with matching values wired into `tailwind.config.ts`.
 
 ## Browser Support
 
@@ -160,8 +139,6 @@ colors: {
 
 Built by [Athava Sri Pavan](https://github.com/Pavan2coder)
 
-Inspired by JARVIS from Iron Man.
-
 ## Contact
 
 - Email: sripavan472006@gmail.com
@@ -170,4 +147,4 @@ Inspired by JARVIS from Iron Man.
 
 ---
 
-Made with  using Next.js and Three.js
+Made with Next.js and Framer Motion
