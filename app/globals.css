@@ -104,6 +104,8 @@
   --brand: #059669;
   --brand-2: #0d9488;
   --brand-3: #4d7c0f;
+  --brand-soft: rgba(5, 150, 105, 0.12);
+  --brand-line: rgba(5, 150, 105, 0.35);
 }
 
 * {
