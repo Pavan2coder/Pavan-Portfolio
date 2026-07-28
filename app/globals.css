@@ -102,6 +102,7 @@
 
 :root[data-theme="light"] #home {
   --brand: #059669;
+  --brand-2: #0d9488;
 }
 
 * {
