@@ -94,6 +94,7 @@
    inside #home picks it up automatically. */
 #home {
   --brand: #34d399;
+  --brand-2: #2dd4bf;
 }
 
 * {
