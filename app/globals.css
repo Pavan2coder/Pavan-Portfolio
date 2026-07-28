@@ -100,6 +100,10 @@
   --brand-line: rgba(45, 212, 191, 0.5);
 }
 
+:root[data-theme="light"] #home {
+  --brand: #059669;
+}
+
 * {
   box-sizing: border-box;
 }
