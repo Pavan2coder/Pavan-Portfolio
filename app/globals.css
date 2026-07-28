@@ -92,6 +92,9 @@
    indigo/mint/amber. Scoped via CSS var cascade so every var(--brand*)
    utility (text-brand-2, bg-brand-line, .text-gradient, .btn-ghost, etc.)
    inside #home picks it up automatically. */
+#home {
+  --brand: #34d399;
+}
 
 * {
   box-sizing: border-box;
