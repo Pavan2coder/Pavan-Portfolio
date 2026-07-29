@@ -1,5 +1,7 @@
 "use client";
 
+import { Particles } from "./bits/Particles";
+
 /**
  * Fixed, full-viewport ambient background layer:
  * Luminous Quantum Aurora blobs, perspective grid matrix, and neon
