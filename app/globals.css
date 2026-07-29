@@ -61,8 +61,8 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f8fafc;
-  --bg-2: #f1f5f9;
+  --bg: #faf9f7;
+  --bg-2: #f3f1ee;
   --bg-3: #ffffff;
   --card: rgba(30, 27, 75, 0.04);
   --card-2: rgba(30, 27, 75, 0.08);
