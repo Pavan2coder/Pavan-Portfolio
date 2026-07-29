@@ -11,10 +11,10 @@
 
 :root,
 :root[data-theme="dark"] {
-  /* surfaces — Deep Velvet Obsidian & Liquid Midnight */
-  --bg: #080914;
-  --bg-2: #0e1024;
-  --bg-3: #141733;
+  /* surfaces — Graphite Noir */
+  --bg: #0a0a0c;
+  --bg-2: #131316;
+  --bg-3: #1c1c21;
   --card: rgba(18, 20, 42, 0.75);
   --card-2: rgba(26, 29, 60, 0.88);
 
