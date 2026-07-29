@@ -1,11 +1,9 @@
 "use client";
 
-import { AuroraFlow } from "./bits/AuroraFlow";
-
 /**
  * Fixed, full-viewport ambient background layer:
- * High-octane 3D Constellation Laser Field + luminous Quantum Aurora blobs,
- * perspective grid matrix, and neon scanlines.
+ * Luminous Quantum Aurora blobs, perspective grid matrix, and neon
+ * scanlines.
  */
 export function AuroraBackground() {
   return (
@@ -44,9 +42,6 @@ export function AuroraBackground() {
           animationDelay: "-12s",
         }}
       />
-
-      {/* Signature: 3D Constellation Laser Lattice & Interactive Particles */}
-      <AuroraFlow className="absolute inset-0 h-full w-full opacity-95" />
 
       {/* CRT scanlines */}
       <div className="scanlines absolute inset-0 opacity-25" />
