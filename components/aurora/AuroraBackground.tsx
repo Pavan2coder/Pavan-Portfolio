@@ -1,11 +1,13 @@
 "use client";
 
 import { Particles } from "./bits/Particles";
+import QuantumHologramCore from "../hero/QuantumHologramCore";
 
 /**
  * Fixed, full-viewport ambient background layer:
- * Starfield + interactive particle constellation, luminous Quantum Aurora
- * blobs, perspective grid matrix, and neon scanlines.
+ * Starfield + interactive particle constellation, a floating 3D holographic
+ * core, luminous Quantum Aurora blobs, perspective grid matrix, and neon
+ * scanlines.
  */
 export function AuroraBackground() {
   return (
@@ -47,6 +49,11 @@ export function AuroraBackground() {
 
       {/* Interactive particle constellation + starfield */}
       <Particles className="absolute inset-0 h-full w-full opacity-80" />
+
+      {/* Floating 3D holographic core, centered behind content */}
+      <div className="absolute left-1/2 top-1/2 h-[70vmin] w-[70vmin] -translate-x-1/2 -translate-y-1/2 opacity-60">
+        <QuantumHologramCore />
+      </div>
 
       {/* CRT scanlines */}
       <div className="scanlines absolute inset-0 opacity-25" />
