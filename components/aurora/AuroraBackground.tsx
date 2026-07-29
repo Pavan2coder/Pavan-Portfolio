@@ -4,8 +4,8 @@ import { Particles } from "./bits/Particles";
 
 /**
  * Fixed, full-viewport ambient background layer:
- * Luminous Quantum Aurora blobs, perspective grid matrix, and neon
- * scanlines.
+ * Starfield + interactive particle constellation, luminous Quantum Aurora
+ * blobs, perspective grid matrix, and neon scanlines.
  */
 export function AuroraBackground() {
   return (
@@ -44,6 +44,9 @@ export function AuroraBackground() {
           animationDelay: "-12s",
         }}
       />
+
+      {/* Interactive particle constellation + starfield */}
+      <Particles className="absolute inset-0 h-full w-full opacity-80" />
 
       {/* CRT scanlines */}
       <div className="scanlines absolute inset-0 opacity-25" />
