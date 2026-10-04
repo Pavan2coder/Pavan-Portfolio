@@ -1,4 +1,4 @@
-# Aurora Portfolio
+# Jarvis  Portfolio
 
 A modern, premium dark portfolio built with Next.js and Framer Motion. Features a living aurora backdrop, a real typeable terminal, cursor-reactive spotlight cards, and scroll-driven reveals — all tuned for a clean, recruiter-friendly first impression.
 
