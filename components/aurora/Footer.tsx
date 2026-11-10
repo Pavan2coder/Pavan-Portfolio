@@ -52,6 +52,12 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-hairline pt-6 text-center sm:flex-row">
           <span className="label">© 2026 {profile.name}</span>
+          <button
+            onClick={() => window.dispatchEvent(new Event("replay-intro"))}
+            className="label transition-colors hover:text-brand"
+          >
+            ↻ Replay build intro
+          </button>
           <span className="label">Designed & built with Next.js + Tailwind</span>
         </div>
       </div>

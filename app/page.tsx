@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-import { AuroraBackground } from "@/components/aurora/AuroraBackground";
 import { ClickSpark } from "@/components/aurora/bits/ClickSpark";
 import { CustomCursor } from "@/components/aurora/bits/CustomCursor";
-import { Preloader } from "@/components/aurora/bits/Preloader";
+import { CodeIntro } from "@/components/aurora/bits/CodeIntro";
+import { CursorSwarm } from "@/components/aurora/bits/CursorSwarm";
 import { Nav } from "@/components/aurora/Nav";
 import { Footer } from "@/components/aurora/Footer";
 import TextPressure from "@/components/aurora/bits/TextPressure";
@@ -23,6 +23,24 @@ import { Contact } from "@/components/aurora/sections/Contact";
  */
 export default function Page() {
   const [ready, setReady] = useState(false);
+  const [introRun, setIntroRun] = useState(0);
+  const [swarmRun, setSwarmRun] = useState(0);
+  const onIntroDone = useCallback((played: boolean) => {
+    setReady(true);
+    if (played) setSwarmRun((n) => n + 1); // code typed → agents assemble the page
+  }, []);
+  const replaySwarm = useCallback(() => setSwarmRun((n) => n + 1), []);
+
+  // Footer "replay intro" button fires this event.
+  useEffect(() => {
+    const replay = () => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      setSwarmRun(0);
+      setIntroRun((n) => n + 1);
+    };
+    window.addEventListener("replay-intro", replay);
+    return () => window.removeEventListener("replay-intro", replay);
+  }, []);
 
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
@@ -33,8 +51,8 @@ export default function Page() {
 
   return (
     <>
-      <Preloader onDone={() => setReady(true)} />
-      <AuroraBackground />
+      <CodeIntro key={`intro-${introRun}`} replay={introRun > 0} onDone={onIntroDone} />
+      {swarmRun > 0 && <CursorSwarm key={`swarm-${swarmRun}`} onReplay={replaySwarm} />}
       <ClickSpark />
       <CustomCursor />
 
