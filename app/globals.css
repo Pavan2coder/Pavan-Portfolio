@@ -12,11 +12,11 @@
 :root,
 :root[data-theme="dark"] {
   /* surfaces — Graphite Noir */
-  --bg: #0a0a0c;
-  --bg-2: #131316;
-  --bg-3: #1c1c21;
-  --card: rgba(18, 20, 42, 0.75);
-  --card-2: rgba(26, 29, 60, 0.88);
+  --bg: #030303;
+  --bg-2: #0b0b0d;
+  --bg-3: #141417;
+  --card: rgba(12, 12, 15, 0.78);
+  --card-2: rgba(20, 20, 24, 0.9);
 
   /* structure — glowing iridescent indigo & cyan borders */
   --border: rgba(99, 102, 241, 0.28);
@@ -471,6 +471,15 @@ body {
 }
 .animate-blink {
   animation: blink 1.1s steps(2, start) infinite;
+}
+
+/* CursorSwarm — layers waiting for an agent to place them */
+.swarm-layer {
+  transition: opacity 0.5s var(--ease-out), filter 0.5s var(--ease-out) !important;
+}
+.swarm-pending {
+  opacity: 0 !important;
+  filter: blur(6px) !important;
 }
 
 /* =====================================================================
