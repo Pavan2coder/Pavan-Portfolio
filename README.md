@@ -1,17 +1,20 @@
 # Jarvis  Portfolio
 
-A modern, premium dark portfolio built with Next.js and Framer Motion. Features a living aurora backdrop, a real typeable terminal, cursor-reactive spotlight cards, and scroll-driven reveals — all tuned for a clean, recruiter-friendly first impression.
+A premium black portfolio built with Next.js and Framer Motion. It opens with a "live build": three AI agents type the site's code in a fake editor, then a swarm of cursors assembles the page in front of you. After that you get a real typeable terminal, cursor-reactive cards and scroll-driven reveals.
 
 ## Features
 
-- **Interactive Terminal** - A real shell in the hero section (`help`, `whoami`, `projects`, `sudo hire-me`, and more) that pulls live data from the site
-- **Aurora Background** - Drifting gradient blobs, a luminous flow-field of trailing particles, grid, grain, and scanlines
-- **Tech Universe** - A drag-to-rotate 3D wireframe sphere (canvas-based) ringed by orbiting tech logos with a live HUD readout
-- **Spotlight & Tilt Cards** - Cards that light up and tilt toward the cursor
-- **Scramble & Split Text** - Decrypt-style and letter-reveal text effects on headings and taglines
-- **Custom Cursor & Click Spark** - Mix-blend cursor ring with burst effects on click
-- **Theme Toggle** - Dark/light theme with no flash-of-unstyled-content on load
-- **Responsive Design** - Optimized for desktop, tablet, and mobile
+- **Code Intro**: a full-screen editor where 3 agents type `Hero.tsx`, `theme.css` and `data.ts` while a live preview builds itself. Skip with the button or `Esc`
+- **Cursor Swarm**: 18 coloured agent cursors draw a frame for each section and fill it in as the page tours itself. You can replay it from the footer ("↻ Replay build intro")
+- **Interactive Terminal**: a real shell in the hero (`help`, `whoami`, `projects`, `sudo hire-me`, and more) that pulls live data from the site
+- **Tech Universe**: a drag-to-rotate 3D wireframe sphere (canvas) ringed by orbiting tech logos, with a live HUD readout
+- **Text Pressure**: a variable-font "PAVAN" band whose letters deform toward your cursor
+- **Scramble, Decrypt & Split Text**: headings decode from dots near the cursor, and the role rotator decrypts
+- **Spotlight & Tilt Cards**: cards that light up and tilt toward the cursor
+- **Custom Cursor & Click Spark**: a mix-blend cursor ring with bursts on click
+- **Theme Toggle**: black by default, with an optional light theme and no flash on load
+- **Accessible motion**: `prefers-reduced-motion` skips the intro and swarm
+- **Responsive**: works on desktop, tablet and mobile
 
 ## Tech Stack
 
@@ -89,8 +92,8 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 │   └── page.tsx               # Page composition + scroll progress bar
 ├── components/
 │   └── aurora/                 # Current design system
-│       ├── bits/               # React Bits–style effects (terminal, flow field,
-│       │                       #   tech universe, spotlight/tilt, cursor, text FX...)
+│       ├── bits/               # Effects: CodeIntro, CursorSwarm, terminal,
+│       │                       #   tech universe, tilt, cursor, text FX...
 │       └── sections/           # Hero, About, Skills, Projects, Experience, Contact
 ├── hooks/                      # Custom React hooks
 ├── lib/                        # Content (data.ts) and utilities
@@ -123,7 +126,7 @@ All content is managed in `lib/data.ts`. Update the exported objects:
 
 ### Colors & Theme
 
-Aurora's design tokens (colors, glow, borders, grid) live as CSS variables in `app/globals.css` under `data-theme`, with matching values wired into `tailwind.config.ts`.
+Aurora's design tokens (colors, glow, borders) live as CSS variables in `app/globals.css` under `data-theme`, with matching values wired into `tailwind.config.ts`.
 
 ## Browser Support
 
@@ -132,8 +135,9 @@ Aurora's design tokens (colors, glow, borders, grid) live as CSS variables in `a
 - Safari (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 
-- feel free to use this project for your own portfolio.
+## License
+
+Feel free to use this project for your own portfolio.
 
 ## Credits
 
