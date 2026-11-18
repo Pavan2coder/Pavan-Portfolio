@@ -89,26 +89,6 @@
   --grain-blend: multiply;
 }
 
-/* Hero-only accent override — emerald/teal/lime, rest of the site stays
-   indigo/mint/amber. Scoped via CSS var cascade so every var(--brand*)
-   utility (text-brand-2, bg-brand-line, .text-gradient, .btn-ghost, etc.)
-   inside #home picks it up automatically. */
-#home {
-  --brand: #34d399;
-  --brand-2: #2dd4bf;
-  --brand-3: #a3e635;
-  --brand-soft: rgba(52, 211, 153, 0.18);
-  --brand-line: rgba(45, 212, 191, 0.5);
-}
-
-:root[data-theme="light"] #home {
-  --brand: #059669;
-  --brand-2: #0d9488;
-  --brand-3: #4d7c0f;
-  --brand-soft: rgba(5, 150, 105, 0.12);
-  --brand-line: rgba(5, 150, 105, 0.35);
-}
-
 * {
   box-sizing: border-box;
 }
