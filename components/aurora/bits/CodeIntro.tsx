@@ -310,7 +310,7 @@ function Preview({ marks }: { marks: Set<string> }) {
     <div className="relative hidden min-h-0 overflow-hidden md:block" style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>
       <div className="absolute inset-0 flex flex-col p-4">
         <div className="mb-3 flex items-center gap-2 rounded-md bg-white/[0.04] px-3 py-1.5 text-[11px] text-white/40" style={{ fontFamily: "var(--font-mono), monospace" }}>
-          <span className="h-1.5 w-1.5 rounded-full bg-[#34d399]" /> localhost:3000 — live preview
+          <span className="h-1.5 w-1.5 rounded-full bg-[#3b82f6]" /> localhost:3000 — live preview
         </div>
         <div
           className="relative flex-1 overflow-hidden rounded-xl border border-white/[0.06] p-8 transition-colors duration-700"
@@ -318,7 +318,7 @@ function Preview({ marks }: { marks: Set<string> }) {
         >
           <motion.div
             className="pointer-events-none absolute left-1/2 top-[-40%] h-[80%] w-[140%] -translate-x-1/2"
-            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(52,211,153,0.22), transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59, 130, 246,0.22), transparent 70%)" }}
             initial={false}
             animate={{ opacity: on("glow") ? 1 : 0 }}
             transition={{ duration: 0.8 }}
