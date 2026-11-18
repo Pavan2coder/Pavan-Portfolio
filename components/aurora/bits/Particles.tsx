@@ -73,8 +73,8 @@ export function Particles({
 
     const LINK = 150;
     // emerald palette, softened for a calm ambient network
-    const brand = "52, 211, 153";
-    const cyan = "45, 212, 191";
+    const brand = "59, 130, 246";
+    const cyan = "34, 211, 238";
 
     function frame() {
       if (!running) return;
