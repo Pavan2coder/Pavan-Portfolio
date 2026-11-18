@@ -74,7 +74,7 @@ export function Nav() {
           {/* desktop links */}
           <div
             className={cn(
-              "hidden items-center gap-1 rounded-full border border-border px-1.5 py-1.5 transition-all duration-500 md:flex",
+              "hidden items-center gap-1 rounded-none border border-border px-1.5 py-1.5 transition-all duration-500 md:flex",
               scrolled ? "bg-card-2 shadow-e2 backdrop-blur-xl" : "bg-card",
             )}
           >
@@ -83,7 +83,7 @@ export function Nav() {
                 key={item.id}
                 href={`#${item.id}`}
                 className={cn(
-                  "relative rounded-full px-4 py-1.5 text-sm transition-colors duration-300",
+                  "relative rounded-none px-4 py-1.5 text-sm transition-colors duration-300",
                   active === item.id
                     ? "text-text"
                     : "text-text-muted hover:text-text",
@@ -92,7 +92,7 @@ export function Nav() {
                 {active === item.id && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-full bg-brand-soft"
+                    className="absolute inset-0 rounded-none bg-brand-soft"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
