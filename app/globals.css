@@ -11,37 +11,37 @@
 
 :root,
 :root[data-theme="dark"] {
-  /* surfaces — Graphite Noir */
-  --bg: #030303;
-  --bg-2: #0b0b0d;
-  --bg-3: #141417;
-  --card: rgba(12, 12, 15, 0.78);
-  --card-2: rgba(20, 20, 24, 0.9);
+  /* surfaces — Electric Violet ink */
+  --bg: #05070d;
+  --bg-2: #0a0e18;
+  --bg-3: #0d1220;
+  --card: #0a0e18;
+  --card-2: #0d1220;
 
-  /* structure — glowing iridescent indigo & cyan borders */
-  --border: rgba(99, 102, 241, 0.28);
-  --border-strong: rgba(0, 245, 212, 0.45);
-  --hairline: rgba(99, 102, 241, 0.14);
+  /* structure — Swiss grid lines */
+  --grid-line: rgba(147, 197, 253, 0.14);
+  --border: rgba(147, 197, 253, 0.14);
+  --border-strong: rgba(147, 197, 253, 0.3);
+  --hairline: rgba(147, 197, 253, 0.08);
 
   /* type */
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
+  --text: #eef3ff;
+  --text-muted: #9aa6c2;
+  --text-faint: #5f6b88;
 
-  /* brand — Electric Indigo → Holographic Mint Cyan → Liquid Amber Gold */
-  --brand: #6366f1;
-  --brand-2: #00f5d4;
-  --brand-3: #ffaa00;
-  --brand-soft: rgba(99, 102, 241, 0.18);
-  --brand-line: rgba(0, 245, 212, 0.5);
+  /* brand — violet → hot pink, amber for tiny highlights */
+  --brand: #3b82f6;
+  --brand-2: #22d3ee;
+  --brand-3: #a78bfa;
+  --brand-soft: rgba(59, 130, 246, 0.14);
+  --brand-line: rgba(59, 130, 246, 0.6);
 
-  /* aurora blobs — chromatic liquid light */
-  --aura-1: rgba(99, 102, 241, 0.38);
-  --aura-2: rgba(0, 245, 212, 0.32);
-  --aura-3: rgba(255, 170, 0, 0.25);
+  --aura-1: rgba(59, 130, 246, 0.3);
+  --aura-2: rgba(34, 211, 238, 0.25);
+  --aura-3: rgba(167, 139, 250, 0.2);
 
   /* glow + 3D elevation */
-  --glow: 0 0 65px rgba(99, 102, 241, 0.3);
+  --glow: 0 0 50px rgba(59, 130, 246, 0.25);
   --e1: 0 2px 5px rgba(0, 0, 0, 0.7);
   --e2: 0 20px 50px -20px rgba(0, 0, 0, 0.9);
   --e3: 0 44px 100px -30px rgba(0, 0, 0, 0.96), 0 0 0 1px var(--border);
