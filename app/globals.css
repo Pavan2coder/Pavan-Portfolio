@@ -118,7 +118,7 @@ body {
 
 ::selection {
   background: var(--brand);
-  color: #04160f;
+  color: #ffffff;
 }
 
 /* scrollbar */
@@ -166,6 +166,38 @@ body {
     font-size: 0.6875rem;
     line-height: 1;
     letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  /* Swiss grid — gap-1px over a line-coloured bg draws every cell border once */
+  .swiss {
+    display: grid;
+    gap: 1px;
+    background: var(--grid-line);
+    border: 1px solid var(--grid-line);
+  }
+  .swiss > * {
+    background: var(--bg);
+  }
+  .cell {
+    position: relative;
+    padding: 1.5rem;
+    transition: background 0.3s var(--ease-out);
+  }
+  @media (min-width: 768px) {
+    .cell {
+      padding: 2rem;
+    }
+  }
+  .cell-hover:hover {
+    background: var(--bg-2);
+  }
+  /* corner index tag, e.g. "A.01" */
+  .tag {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-faint);
   }
