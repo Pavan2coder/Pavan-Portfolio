@@ -106,7 +106,7 @@ export function Nav() {
             <button
               onClick={toggle}
               aria-label="Toggle theme"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-text-muted transition-colors hover:border-brand-line hover:text-text"
+              className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card text-text-muted transition-colors hover:border-brand-line hover:text-text"
             >
               {mounted && (
                 <Icon name={theme === "dark" ? "Sun" : "Moon"} className="h-4 w-4" />
@@ -123,7 +123,7 @@ export function Nav() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-text md:hidden"
+              className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card text-text md:hidden"
             >
               <Icon name="Menu" className="h-4 w-4" />
             </button>
@@ -157,7 +157,7 @@ export function Nav() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card"
+                  className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card"
                 >
                   <Icon name="X" className="h-4 w-4" />
                 </button>
