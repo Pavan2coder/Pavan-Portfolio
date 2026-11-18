@@ -134,6 +134,7 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
       setDoneIn((performance.now() - t0) / 1000);
       // gather into a ring, then fade the swarm out
       agents.forEach((a, i) => {
+        stopTyping(a);
         const ang = (i / agents.length) * Math.PI * 2;
         a.el = null; a.phase = "idle";
         a.tx = innerWidth / 2 + Math.cos(ang) * 70;
@@ -209,21 +210,54 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
             (f.firstChild as HTMLElement).textContent = `${Math.round(w)} × ${Math.round(h)}`;
           }
           if (k >= 1) {
-            // release → content fills the frame, frame flashes and fades
-            reveal(a.el);
-            a.phase = "fill"; a.until = now + 420;
-            if (f) {
-              f.style.transition = "opacity .45s ease .12s, background .3s";
-              f.style.background = col(a.hue, 0.2);
-              f.style.opacity = "0";
+            // release → content appears; text gets typed in, char by char, inside the box
+            a.chars = 0;
+            if (HL) {
+              a.typing = textNodes(a.el).map((node) => {
+                const r = new Range();
+                r.selectNodeContents(node);
+                HL.add(r);
+                a.chars += node.length;
+                return { node, r };
+              });
             }
+            reveal(a.el);
+            a.phase = "fill"; a.t0 = now;
+            a.dur = a.chars ? Math.min(1600, Math.max(250, a.chars * 22)) : 0;
+            a.until = now + a.dur + 420;
+            if (f) f.style.background = col(a.hue, 0.2);
           }
         } else if (a.phase === "fill" && a.el) {
           const p = aim(a.el);
-          a.x = p.x + p.w; a.y = p.y + p.h; // ride along with the element while it settles
           const f = frameRefs.current[i];
           if (f) f.style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
-          if (now >= a.until) { a.el = null; a.phase = "idle"; a.nextLook = now; }
+          const typed = a.dur ? Math.floor(a.chars * Math.min((now - a.t0) / a.dur, 1)) : a.chars;
+          let left = typed, caret: DOMRect | null = null;
+          for (const { node, r } of a.typing) {
+            if (!node.isConnected) continue;
+            const n = Math.min(left, node.length);
+            left -= n;
+            if (n > 0) {
+              const c = new Range();
+              c.setStart(node, n - 1); c.setEnd(node, n);
+              caret = c.getBoundingClientRect();
+            }
+            r.setStart(node, n); // untyped tail stays transparent
+          }
+          // cursor sits on the caret while typing, then rests at the box corner
+          if (caret && typed < a.chars) { a.x = caret.right; a.y = caret.top + caret.height * 0.6; }
+          else { a.x = p.x + p.w; a.y = p.y + p.h; }
+          if (typed >= a.chars && a.typing.length) {
+            stopTyping(a);
+            if (f) {
+              f.style.transition = "opacity .45s ease .12s, background .3s";
+              f.style.opacity = "0";
+            }
+          }
+          if (now >= a.until) {
+            if (f && f.style.opacity !== "0") { f.style.transition = "opacity .45s"; f.style.opacity = "0"; }
+            a.el = null; a.phase = "idle"; a.nextLook = now;
+          }
         } else {
           // wander
           if (!finished && Math.hypot(a.tx - a.x, a.ty - a.y) < 30) {
