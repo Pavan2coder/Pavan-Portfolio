@@ -20,7 +20,19 @@ type Agent = {
   until: number;
   tx: number; ty: number; nextLook: number;
   hue: number;
+  typing: { node: Text; r: Range }[]; chars: number;
 };
+
+// CSS Custom Highlight API: untyped text is painted transparent, layout untouched.
+// ponytail: browsers without it (old Firefox/Safari) just get the instant reveal.
+const HL = typeof CSS !== "undefined" && "highlights" in CSS ? new Highlight() : null;
+
+function textNodes(el: HTMLElement) {
+  const out: Text[] = [];
+  const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  while (w.nextNode()) if ((w.currentNode as Text).data.trim()) out.push(w.currentNode as Text);
+  return out;
+}
 
 const col = (hue: number, a = 1) => `hsl(${hue} 85% 68% / ${a})`;
 
@@ -95,8 +107,15 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
         x, y, fx: x, fy: y, t0: 0, dur: 0, el: null, phase: "idle", until: 0,
         tx: Math.random() * innerWidth, ty: Math.random() * innerHeight, nextLook: 0,
         hue: (i * 360) / count + 140,
+        typing: [], chars: 0,
       };
     });
+    if (HL) CSS.highlights.set("swarm-untyped", HL);
+
+    const stopTyping = (a: Agent) => {
+      a.typing.forEach(({ r }) => HL?.delete(r));
+      a.typing = [];
+    };
 
     const reveal = (el: HTMLElement) => {
       pending.delete(el);
