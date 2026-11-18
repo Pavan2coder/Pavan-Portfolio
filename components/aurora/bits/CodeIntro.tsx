@@ -329,12 +329,12 @@ function Preview({ marks }: { marks: Set<string> }) {
               <br />
               <span
                 className="transition-colors duration-700"
-                style={on("brand") ? { color: "#34d399", textShadow: "0 0 40px rgba(52,211,153,.35)" } : undefined}
+                style={on("brand") ? { color: "#3b82f6", textShadow: "0 0 40px rgba(59, 130, 246,.35)" } : undefined}
               >
                 Pavan
               </span>
             </motion.h1>
-            <motion.p {...appear("role")} className="mt-4 text-sm font-medium" style={{ color: on("brand") ? "#2dd4bf" : "#cbd5e1" }}>
+            <motion.p {...appear("role")} className="mt-4 text-sm font-medium" style={{ color: on("brand") ? "#22d3ee" : "#cbd5e1" }}>
               — {profile.role}
             </motion.p>
             <motion.p {...appear("intro")} className="mt-3 max-w-sm text-[13px] leading-relaxed text-white/55">
@@ -343,7 +343,7 @@ function Preview({ marks }: { marks: Set<string> }) {
             <motion.div {...appear("cta")} className="mt-6 flex gap-3">
               <span
                 className="rounded-full px-4 py-2 text-[12px] font-bold transition-colors duration-700"
-                style={on("brand") ? { background: "#34d399", color: "#04160f" } : { background: "#e2e8f0", color: "#111" }}
+                style={on("brand") ? { background: "#3b82f6", color: "#ffffff" } : { background: "#e2e8f0", color: "#111" }}
               >
                 View my work →
               </span>
@@ -352,7 +352,7 @@ function Preview({ marks }: { marks: Set<string> }) {
             <motion.div {...appear("stats")} className="mt-8 grid grid-cols-4 gap-2">
               {stats.map((s) => (
                 <div key={s.label} className="rounded-lg border border-white/[0.07] bg-white/[0.02] p-3">
-                  <div className="text-lg font-bold text-[#34d399]">{s.value}</div>
+                  <div className="text-lg font-bold text-[#3b82f6]">{s.value}</div>
                   <div className="text-[10px] leading-tight text-white/45">{s.label}</div>
                 </div>
               ))}
