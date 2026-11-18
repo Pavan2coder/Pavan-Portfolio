@@ -21,7 +21,7 @@ import type { IconType } from "react-icons";
 const TECHS: { Icon: IconType; color: string; ring: number }[] = [
   { Icon: FaReact, color: "#61DAFB", ring: 0 },
   { Icon: FaNodeJs, color: "#83CD29", ring: 0 },
-  { Icon: FaPython, color: "#a3e635", ring: 0 },
+  { Icon: FaPython, color: "#FFD43B", ring: 0 },
   { Icon: SiJavascript, color: "#F7DF1E", ring: 0 },
   { Icon: SiFlutter, color: "#47C5FB", ring: 1 },
   { Icon: SiMongodb, color: "#47A248", ring: 1 },
@@ -133,7 +133,7 @@ export function TechUniverse() {
         const rx = R * (1.55 + o * 0.5);
         const ry = rx * 0.34;
         ctx!.strokeStyle =
-          o % 2 === 0 ? "rgba(0,255,157,0.3)" : "rgba(0,242,254,0.25)";
+          o % 2 === 0 ? "rgba(59,130,246,0.3)" : "rgba(34,211,238,0.25)";
         ctx!.lineWidth = 1;
         ctx!.save();
         ctx!.rotate(0.35 * (o + 1) + a * (0.6 - o * 0.14));
