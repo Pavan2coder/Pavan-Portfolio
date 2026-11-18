@@ -307,6 +307,7 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      agents.forEach(stopTyping);
       window.removeEventListener("wheel", stopTour);
       window.removeEventListener("touchstart", stopTour);
       window.removeEventListener("keydown", onKey);
