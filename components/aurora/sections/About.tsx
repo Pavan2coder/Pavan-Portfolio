@@ -1,6 +1,6 @@
 "use client";
 
-import { SectionHeading } from "../SectionHeading";
+import { SectionLayout } from "../SectionHeading";
 import { Reveal } from "../Reveal";
 import { ScrambleReveal } from "../bits/ScrambleReveal";
 import { Icon } from "../Icon";
