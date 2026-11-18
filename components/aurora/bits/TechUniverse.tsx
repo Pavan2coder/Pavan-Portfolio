@@ -146,9 +146,9 @@ export function TechUniverse() {
 
       // core glow
       const g = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 1.1);
-      g.addColorStop(0, "rgba(240,253,250,0.95)");
-      g.addColorStop(0.25, "rgba(0,255,157,0.45)");
-      g.addColorStop(0.5, "rgba(0,242,254,0.25)");
+      g.addColorStop(0, "rgba(239,246,255,0.95)");
+      g.addColorStop(0.25, "rgba(59,130,246,0.45)");
+      g.addColorStop(0.5, "rgba(34,211,238,0.25)");
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = g;
       ctx!.beginPath();
@@ -163,7 +163,7 @@ export function TechUniverse() {
         const A = proj[i];
         const B = proj[j];
         const depth = (A.z + B.z) / 2;
-        ctx!.strokeStyle = `rgba(0,255,157,${0.1 + ((depth + 1) / 2) * 0.3})`;
+        ctx!.strokeStyle = `rgba(59,130,246,${0.1 + ((depth + 1) / 2) * 0.3})`;
         ctx!.lineWidth = 1;
         ctx!.beginPath();
         ctx!.moveTo(cx + A.x * R, cy + A.y * R);
@@ -173,7 +173,7 @@ export function TechUniverse() {
       // points
       for (const P of proj) {
         const dz = (P.z + 1) / 2;
-        ctx!.fillStyle = `rgba(${P.z > 0 ? "0,255,157" : "0,242,254"},${0.4 + dz * 0.55})`;
+        ctx!.fillStyle = `rgba(${P.z > 0 ? "59,130,246" : "34,211,238"},${0.4 + dz * 0.55})`;
         ctx!.beginPath();
         ctx!.arc(cx + P.x * R, cy + P.y * R, 0.8 + dz * 1.6, 0, Math.PI * 2);
         ctx!.fill();
