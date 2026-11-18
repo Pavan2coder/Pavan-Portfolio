@@ -70,10 +70,10 @@ function paint(text: string): ReactNode[] {
     if (!t) return null;
     let c = "";
     if (t.startsWith("//")) c = "#5c6370";
-    else if (t.startsWith('"')) c = "#a3e635";
+    else if (t.startsWith('"')) c = "#a78bfa";
     else if (/^(export|function|return|const|import|from)$/.test(t)) c = "#c678dd";
     else if (/^<\/?[A-Za-z]|^\/?>$/.test(t)) c = "#61afef";
-    else if (t.startsWith("--")) c = "#2dd4bf";
+    else if (t.startsWith("--")) c = "#22d3ee";
     else if (/^#|^\d/.test(t)) c = "#e5c07b";
     else if (/^[{}()[\]]$/.test(t)) c = "#7f848e";
     return c ? <span key={i} style={{ color: c }}>{t}</span> : t;
@@ -194,7 +194,7 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
           {/* glow */}
           <div
             className="pointer-events-none absolute left-1/2 top-[-30vh] h-[70vh] w-[110vw] -translate-x-1/2"
-            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(52,211,153,0.12), transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59, 130, 246,0.12), transparent 70%)" }}
           />
 
           {/* title bar */}
