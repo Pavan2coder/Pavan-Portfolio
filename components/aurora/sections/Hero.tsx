@@ -38,7 +38,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 backdrop-blur-md"
+              className="mb-6 inline-flex items-center gap-2 border border-border px-3 py-1.5"
             >
               {profile.available && (
                 <span className="relative flex h-2 w-2">
@@ -124,7 +124,7 @@ export function Hero() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={s.label}
-                      className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card text-text-muted transition-all hover:border-brand-line hover:text-text"
+                      className="grid h-11 w-11 place-items-center border border-border text-text-muted transition-all hover:border-brand hover:text-brand"
                     >
                       <Icon name={s.icon} className="h-[18px] w-[18px]" />
                     </a>
