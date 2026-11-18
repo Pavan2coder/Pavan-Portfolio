@@ -266,13 +266,13 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
           {/* status bar */}
           <div className="relative flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-white/[0.06] px-4 py-2 text-[12px]">
             {finished ? (
-              <span className="text-[#34d399]">
+              <span className="text-[#3b82f6]">
                 ✓ Built by {files.length} agents in {elapsed.toFixed(1)}s
               </span>
             ) : (
               <>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#34d399]" />
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#3b82f6]" />
                   {files.length} agents
                 </span>
                 <span className="text-white/40">
@@ -284,7 +284,7 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
             <span className="ml-auto flex items-center gap-3">
               <span className="relative h-1 w-32 overflow-hidden rounded-full bg-white/10">
                 <span
-                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#34d399] via-[#2dd4bf] to-[#a3e635]"
+                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#3b82f6] via-[#22d3ee] to-[#a78bfa]"
                   style={{ width: `${pct}%` }}
                 />
               </span>
