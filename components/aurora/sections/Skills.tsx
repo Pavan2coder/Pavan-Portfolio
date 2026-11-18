@@ -1,8 +1,7 @@
 "use client";
 
-import { SectionHeading } from "../SectionHeading";
+import { SectionLayout, Row } from "../SectionHeading";
 import { Reveal } from "../Reveal";
-import { SpotlightCard } from "../SpotlightCard";
 import { ScrollVelocity } from "../bits/ScrollVelocity";
 import { TechUniverse } from "../bits/TechUniverse";
 import { Icon } from "../Icon";
