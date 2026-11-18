@@ -51,8 +51,8 @@ const config: Config = {
         sm: "var(--r-sm)",
         md: "var(--r-md)",
         lg: "var(--r-lg)",
-        xl: "28px",
-        "2xl": "34px",
+        xl: "0px",
+        "2xl": "0px",
       },
       boxShadow: {
         e1: "var(--e1)",
