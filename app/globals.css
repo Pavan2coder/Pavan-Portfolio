@@ -316,17 +316,15 @@ body {
    ===================================================================== */
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-none font-medium transition-all duration-300;
   }
   .btn-primary {
-    background: linear-gradient(115deg, var(--brand), var(--brand-2));
-    color: #04160f;
-    font-weight: 700;
-    box-shadow: 0 10px 30px -10px var(--brand-line);
+    background: var(--brand);
+    color: #ffffff;
+    font-weight: 600;
   }
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px -12px var(--brand-line);
+    background: var(--brand-2);
   }
   .btn-ghost {
     border: 1px solid var(--border-strong);
@@ -334,11 +332,11 @@ body {
     background: var(--card);
   }
   .btn-ghost:hover {
-    border-color: var(--brand-line);
-    transform: translateY(-2px);
+    border-color: var(--brand);
+    color: var(--brand);
   }
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-none px-2.5 py-1 font-mono text-[11px] font-medium;
     background: var(--card);
     border: 1px solid var(--border);
     color: var(--text-muted);
@@ -493,6 +491,10 @@ body {
 .swarm-pending {
   opacity: 0 !important;
   filter: blur(6px) !important;
+}
+/* characters an agent hasn't typed yet (keeps layout, no DOM changes) */
+::highlight(swarm-untyped) {
+  color: transparent;
 }
 
 /* =====================================================================
