@@ -164,10 +164,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3, ease }}
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border backdrop-blur-md sm:grid-cols-4 md:mt-20"
+          className="mt-16 grid grid-cols-2 border-t border-border sm:grid-cols-4 md:mt-20"
         >
           {stats.map((s) => (
-            <div key={s.label} className="bg-bg-2 px-5 py-6 text-center sm:text-left">
+            <div key={s.label} className="border-l-2 border-transparent py-6 pl-5 transition-colors first:border-brand hover:border-brand">
+
               <div className="font-display text-3xl font-bold tracking-tight md:text-4xl">
                 <CountUp value={s.value} className="text-gradient" />
               </div>
