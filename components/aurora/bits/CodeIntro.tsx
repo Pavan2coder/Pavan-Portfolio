@@ -10,7 +10,7 @@ import { profile, stats } from "@/lib/data";
 const FILES = [
   {
     name: "Hero.tsx",
-    agent: { id: "agent-1", color: "#34d399" },
+    agent: { id: "agent-1", color: "#3b82f6" },
     code: `export function Hero() {
   return (
     <section id="home">
@@ -24,16 +24,16 @@ const FILES = [
   },
   {
     name: "theme.css",
-    agent: { id: "agent-2", color: "#2dd4bf" },
+    agent: { id: "agent-2", color: "#22d3ee" },
     code: `:root {
   --bg: #030303;⟦bg⟧
-  --brand: #34d399;⟦brand⟧
-  --glow: 0 0 80px rgba(52, 211, 153, .25);⟦glow⟧
+  --brand: #3b82f6;⟦brand⟧
+  --glow: 0 0 80px rgba(59, 130, 246, .25);⟦glow⟧
 }`,
   },
   {
     name: "data.ts",
-    agent: { id: "agent-3", color: "#a3e635" },
+    agent: { id: "agent-3", color: "#a78bfa" },
     code: `export const stats = [
 ${stats.map((s) => `  { value: "${s.value}", label: "${s.label}" },`).join("\n")}⟦stats⟧
 ];`,
