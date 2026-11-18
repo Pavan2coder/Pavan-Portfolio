@@ -21,57 +21,53 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-wide px-5 sm:px-8">
-        <Reveal>
-          <div className="relative overflow-hidden rounded-2xl border border-border-strong bg-card-2 p-8 text-center md:p-16">
-            {/* glow */}
-            <div className="pointer-events-none absolute -top-1/3 left-1/2 h-[60%] w-[70%] -translate-x-1/2 rounded-full bg-brand-soft blur-3xl" />
+        <div className="swiss lg:grid-cols-[2fr_1fr]">
+          <Reveal className="cell md:!p-12">
+            <span className="label text-brand">05 — Contact</span>
+            <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl md:text-7xl">
+              Let&apos;s build something <span className="text-brand">worth shipping.</span>
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted md:text-lg">
+              Open to internships, freelance builds, and collaborations. Drop me a line — I usually
+              reply within a day.
+            </p>
+          </Reveal>
 
-            <div className="relative z-10">
-              <span className="label text-brand">05 — Contact</span>
-              <h2 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                Let&apos;s build something{" "}
-                <span className="text-gradient">worth shipping.</span>
-              </h2>
-              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-text-muted md:text-lg">
-                Open to internships, freelance builds, and collaborations. Drop me
-                a line — I usually reply within a day.
-              </p>
-
-              <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <div className="grid gap-px" style={{ background: "var(--grid-line)" }}>
+            <a
+              href={`mailto:${profile.email}`}
+              className="cell group flex items-center justify-between bg-brand text-white transition-colors hover:brightness-110"
+            >
+              <span className="font-display text-xl font-semibold">Send an email</span>
+              <Icon name="ArrowUpRight" className="h-6 w-6 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <button
+              onClick={copyEmail}
+              aria-label="Copy email address"
+              className="cell cell-hover flex items-center justify-between gap-3 bg-bg text-left"
+            >
+              <span className="min-w-0">
+                <span className="tag block">{copied ? "Copied!" : "Copy email"}</span>
+                <span className="mt-2 block truncate font-mono text-sm text-text">{profile.email}</span>
+              </span>
+              <Icon name={copied ? "Check" : "Copy"} className="h-4 w-4 shrink-0 text-brand" />
+            </button>
+            <div className="grid grid-cols-3 gap-px" style={{ background: "var(--grid-line)" }}>
+              {socials.map((s) => (
                 <a
-                  href={`mailto:${profile.email}`}
-                  className="btn btn-primary px-6 py-3"
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="cell cell-hover grid place-items-center bg-bg text-text-muted hover:text-brand"
                 >
-                  <Icon name="Send" className="h-4 w-4" />
-                  Send an email
+                  <Icon name={s.icon} className="h-5 w-5" />
                 </a>
-                <button
-                  onClick={copyEmail}
-                  className="btn btn-ghost px-6 py-3"
-                  aria-label="Copy email address"
-                >
-                  <Icon name={copied ? "Check" : "Copy"} className="h-4 w-4" />
-                  {copied ? "Copied!" : profile.email}
-                </button>
-              </div>
-
-              <div className="mt-10 flex items-center justify-center gap-2">
-                {socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={s.label}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-border bg-bg-3 text-text-muted transition-all hover:-translate-y-0.5 hover:border-brand-line hover:text-text"
-                  >
-                    <Icon name={s.icon} className="h-[18px] w-[18px]" />
-                  </a>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
