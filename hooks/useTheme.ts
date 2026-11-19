@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
-const STORAGE_KEY = "aurora-theme";
+const STORAGE_KEY = "aurora-theme-v2";
 
 /**
  * Reads the theme already applied to <html> by the no-FOUC init script and
