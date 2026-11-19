@@ -62,14 +62,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070d",
+  themeColor: "#faeee7",
   width: "device-width",
   initialScale: 1,
 };
 
-/* No-FOUC: dark is the default ground; only flip to light if stored. */
+/* No-FOUC: blush (light) is the default ground; only flip to dark if stored. */
 const themeInit = `
-(function(){try{var t=localStorage.getItem('aurora-theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+(function(){try{var t=localStorage.getItem('aurora-theme-v2');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
 `;
 
 export default function RootLayout({
@@ -80,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       className={`${chakra.variable} ${jakarta.variable} ${jetbrainsMono.variable} ${robotoFlex.variable}`}
       suppressHydrationWarning
     >
