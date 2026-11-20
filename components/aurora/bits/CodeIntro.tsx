@@ -10,7 +10,7 @@ import { profile, stats } from "@/lib/data";
 const FILES = [
   {
     name: "Hero.tsx",
-    agent: { id: "agent-1", color: "#3b82f6" },
+    agent: { id: "agent-1", color: "#c6ff3d" },
     code: `export function Hero() {
   return (
     <section id="home">
@@ -24,16 +24,16 @@ const FILES = [
   },
   {
     name: "theme.css",
-    agent: { id: "agent-2", color: "#22d3ee" },
+    agent: { id: "agent-2", color: "#7c5cff" },
     code: `:root {
   --bg: #030303;⟦bg⟧
-  --brand: #3b82f6;⟦brand⟧
-  --glow: 0 0 80px rgba(59, 130, 246, .25);⟦glow⟧
+  --brand: #c6ff3d;⟦brand⟧
+  --glow: 0 0 80px rgba(198,255,61, .25);⟦glow⟧
 }`,
   },
   {
     name: "data.ts",
-    agent: { id: "agent-3", color: "#a78bfa" },
+    agent: { id: "agent-3", color: "#f2f0ea" },
     code: `export const stats = [
 ${stats.map((s) => `  { value: "${s.value}", label: "${s.label}" },`).join("\n")}⟦stats⟧
 ];`,
@@ -70,10 +70,10 @@ function paint(text: string): ReactNode[] {
     if (!t) return null;
     let c = "";
     if (t.startsWith("//")) c = "#5c6370";
-    else if (t.startsWith('"')) c = "#a78bfa";
+    else if (t.startsWith('"')) c = "#f2f0ea";
     else if (/^(export|function|return|const|import|from)$/.test(t)) c = "#c678dd";
     else if (/^<\/?[A-Za-z]|^\/?>$/.test(t)) c = "#61afef";
-    else if (t.startsWith("--")) c = "#22d3ee";
+    else if (t.startsWith("--")) c = "#7c5cff";
     else if (/^#|^\d/.test(t)) c = "#e5c07b";
     else if (/^[{}()[\]]$/.test(t)) c = "#7f848e";
     return c ? <span key={i} style={{ color: c }}>{t}</span> : t;
@@ -194,7 +194,7 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
           {/* glow */}
           <div
             className="pointer-events-none absolute left-1/2 top-[-30vh] h-[70vh] w-[110vw] -translate-x-1/2"
-            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59, 130, 246,0.12), transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(198,255,61,0.12), transparent 70%)" }}
           />
 
           {/* title bar */}
@@ -266,13 +266,13 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
           {/* status bar */}
           <div className="relative flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-white/[0.06] px-4 py-2 text-[12px]">
             {finished ? (
-              <span className="text-[#3b82f6]">
+              <span className="text-[#c6ff3d]">
                 ✓ Built by {files.length} agents in {elapsed.toFixed(1)}s
               </span>
             ) : (
               <>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#3b82f6]" />
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#c6ff3d]" />
                   {files.length} agents
                 </span>
                 <span className="text-white/40">
@@ -284,7 +284,7 @@ export function CodeIntro({ onDone, replay = false }: { onDone: (played: boolean
             <span className="ml-auto flex items-center gap-3">
               <span className="relative h-1 w-32 overflow-hidden rounded-full bg-white/10">
                 <span
-                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#3b82f6] via-[#22d3ee] to-[#a78bfa]"
+                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#c6ff3d] via-[#7c5cff] to-[#f2f0ea]"
                   style={{ width: `${pct}%` }}
                 />
               </span>
@@ -310,7 +310,7 @@ function Preview({ marks }: { marks: Set<string> }) {
     <div className="relative hidden min-h-0 overflow-hidden md:block" style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>
       <div className="absolute inset-0 flex flex-col p-4">
         <div className="mb-3 flex items-center gap-2 rounded-md bg-white/[0.04] px-3 py-1.5 text-[11px] text-white/40" style={{ fontFamily: "var(--font-mono), monospace" }}>
-          <span className="h-1.5 w-1.5 rounded-full bg-[#3b82f6]" /> localhost:3000 — live preview
+          <span className="h-1.5 w-1.5 rounded-full bg-[#c6ff3d]" /> localhost:3000 — live preview
         </div>
         <div
           className="relative flex-1 overflow-hidden rounded-xl border border-white/[0.06] p-8 transition-colors duration-700"
@@ -318,7 +318,7 @@ function Preview({ marks }: { marks: Set<string> }) {
         >
           <motion.div
             className="pointer-events-none absolute left-1/2 top-[-40%] h-[80%] w-[140%] -translate-x-1/2"
-            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59, 130, 246,0.22), transparent 70%)" }}
+            style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(198,255,61,0.22), transparent 70%)" }}
             initial={false}
             animate={{ opacity: on("glow") ? 1 : 0 }}
             transition={{ duration: 0.8 }}
@@ -329,12 +329,12 @@ function Preview({ marks }: { marks: Set<string> }) {
               <br />
               <span
                 className="transition-colors duration-700"
-                style={on("brand") ? { color: "#3b82f6", textShadow: "0 0 40px rgba(59, 130, 246,.35)" } : undefined}
+                style={on("brand") ? { color: "#c6ff3d", textShadow: "0 0 40px rgba(198,255,61,.35)" } : undefined}
               >
                 Pavan
               </span>
             </motion.h1>
-            <motion.p {...appear("role")} className="mt-4 text-sm font-medium" style={{ color: on("brand") ? "#22d3ee" : "#cbd5e1" }}>
+            <motion.p {...appear("role")} className="mt-4 text-sm font-medium" style={{ color: on("brand") ? "#7c5cff" : "#cbd5e1" }}>
               — {profile.role}
             </motion.p>
             <motion.p {...appear("intro")} className="mt-3 max-w-sm text-[13px] leading-relaxed text-white/55">
@@ -343,7 +343,7 @@ function Preview({ marks }: { marks: Set<string> }) {
             <motion.div {...appear("cta")} className="mt-6 flex gap-3">
               <span
                 className="rounded-full px-4 py-2 text-[12px] font-bold transition-colors duration-700"
-                style={on("brand") ? { background: "#3b82f6", color: "#ffffff" } : { background: "#e2e8f0", color: "#111" }}
+                style={on("brand") ? { background: "#c6ff3d", color: "#0b0b0f" } : { background: "#e2e8f0", color: "#111" }}
               >
                 View my work →
               </span>
@@ -352,7 +352,7 @@ function Preview({ marks }: { marks: Set<string> }) {
             <motion.div {...appear("stats")} className="mt-8 grid grid-cols-4 gap-2">
               {stats.map((s) => (
                 <div key={s.label} className="rounded-lg border border-white/[0.07] bg-white/[0.02] p-3">
-                  <div className="text-lg font-bold text-[#3b82f6]">{s.value}</div>
+                  <div className="text-lg font-bold text-[#c6ff3d]">{s.value}</div>
                   <div className="text-[10px] leading-tight text-white/45">{s.label}</div>
                 </div>
               ))}
