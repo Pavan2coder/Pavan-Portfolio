@@ -142,7 +142,7 @@ export function Nav() {
           >
             <div
               className="absolute inset-0 backdrop-blur-md"
-              style={{ background: "rgba(7,8,12,0.72)" }}
+              style={{ background: "rgba(11,11,15,0.72)" }}
               onClick={() => setOpen(false)}
             />
             <motion.div
