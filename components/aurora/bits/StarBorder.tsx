@@ -45,11 +45,11 @@ export function StarBorder({
   );
 
   const cls = cn(
-    "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5",
+    "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 font-semibold text-[var(--on-brand)] transition-transform duration-300 hover:-translate-y-0.5",
     className,
   );
   const style = {
-    background: "linear-gradient(115deg, var(--brand), var(--brand-2))",
+    background: "linear-gradient(115deg, var(--brand), var(--brand-3))",
     boxShadow: "0 12px 34px -12px var(--brand-line)",
   };
 
