@@ -371,9 +371,9 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
               <span className="text-white">{count} agents</span>
               <span>{placed} / {total} layers</span>
               <span className="relative hidden h-1 w-24 overflow-hidden rounded-full bg-white/10 sm:block">
-                <span className="absolute inset-y-0 left-0 rounded-full bg-[#3b82f6] transition-[width]" style={{ width: `${pct}%` }} />
+                <span className="absolute inset-y-0 left-0 rounded-full bg-[#c6ff3d] transition-[width]" style={{ width: `${pct}%` }} />
               </span>
-              <span className={touring ? "rounded bg-[#3b82f6]/20 px-2 py-0.5 text-[#3b82f6]" : "rounded bg-white/10 px-2 py-0.5"}>
+              <span className={touring ? "rounded bg-[#c6ff3d]/20 px-2 py-0.5 text-[#c6ff3d]" : "rounded bg-white/10 px-2 py-0.5"}>
                 {touring ? "Touring" : "Manual"}
               </span>
               <button onClick={() => finishRef.current()} className="pointer-events-auto rounded px-2 py-0.5 text-white/60 hover:bg-white/10 hover:text-white">
@@ -382,7 +382,7 @@ export function CursorSwarm({ onReplay }: { onReplay: () => void }) {
             </>
           ) : (
             <>
-              <span className="text-[#3b82f6]">✓ Rebuilt by {count} agents in {doneIn.toFixed(1)}s</span>
+              <span className="text-[#c6ff3d]">✓ Rebuilt by {count} agents in {doneIn.toFixed(1)}s</span>
               <button
                 onClick={() => { window.scrollTo({ top: 0, behavior: "instant" }); onReplay(); }}
                 className="pointer-events-auto rounded bg-white/10 px-2 py-0.5 text-white hover:bg-white/20"
