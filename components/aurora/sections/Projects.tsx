@@ -30,7 +30,7 @@ export function Projects() {
                 <h3 className="font-display text-3xl font-semibold leading-tight tracking-tight transition-colors group-hover:text-brand md:text-4xl">
                   {p.title}
                 </h3>
-                <span className="mt-1 grid h-11 w-11 shrink-0 place-items-center border border-border text-text-muted transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                <span className="mt-1 grid h-11 w-11 shrink-0 place-items-center border border-border text-text-muted transition-all group-hover:border-brand group-hover:bg-brand group-hover:text-[var(--on-brand)]">
                   <Icon name="ArrowUpRight" className="h-5 w-5" />
                 </span>
               </div>
