@@ -45,7 +45,7 @@ export function ClickSpark() {
 
     function burst(x: number, y: number) {
       const n = 14;
-      const hues = ["59, 130, 246", "34, 211, 238", "167, 139, 250"];
+      const hues = ["198,255,61", "124,92,255", "242,240,234"];
       for (let i = 0; i < n; i++) {
         sparks.push({
           x,
@@ -65,8 +65,8 @@ export function ClickSpark() {
       glow.x += (glow.tx - glow.x) * 0.18;
       glow.y += (glow.ty - glow.y) * 0.18;
       const g = ctx!.createRadialGradient(glow.x, glow.y, 0, glow.x, glow.y, 26);
-      g.addColorStop(0, "rgba(59, 130, 246, 0.22)");
-      g.addColorStop(1, "rgba(59, 130, 246, 0)");
+      g.addColorStop(0, "rgba(198,255,61, 0.22)");
+      g.addColorStop(1, "rgba(198,255,61, 0)");
       ctx!.fillStyle = g;
       ctx!.beginPath();
       ctx!.arc(glow.x, glow.y, 26, 0, Math.PI * 2);
