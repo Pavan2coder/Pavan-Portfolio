@@ -133,7 +133,7 @@ export function TechUniverse() {
         const rx = R * (1.55 + o * 0.5);
         const ry = rx * 0.34;
         ctx!.strokeStyle =
-          o % 2 === 0 ? "rgba(59,130,246,0.3)" : "rgba(34,211,238,0.25)";
+          o % 2 === 0 ? "rgba(198,255,61,0.3)" : "rgba(124,92,255,0.25)";
         ctx!.lineWidth = 1;
         ctx!.save();
         ctx!.rotate(0.35 * (o + 1) + a * (0.6 - o * 0.14));
@@ -146,9 +146,9 @@ export function TechUniverse() {
 
       // core glow
       const g = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 1.1);
-      g.addColorStop(0, "rgba(239,246,255,0.95)");
-      g.addColorStop(0.25, "rgba(59,130,246,0.45)");
-      g.addColorStop(0.5, "rgba(34,211,238,0.25)");
+      g.addColorStop(0, "rgba(250,255,230,0.95)");
+      g.addColorStop(0.25, "rgba(198,255,61,0.45)");
+      g.addColorStop(0.5, "rgba(124,92,255,0.25)");
       g.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = g;
       ctx!.beginPath();
@@ -163,7 +163,7 @@ export function TechUniverse() {
         const A = proj[i];
         const B = proj[j];
         const depth = (A.z + B.z) / 2;
-        ctx!.strokeStyle = `rgba(59,130,246,${0.1 + ((depth + 1) / 2) * 0.3})`;
+        ctx!.strokeStyle = `rgba(198,255,61,${0.1 + ((depth + 1) / 2) * 0.3})`;
         ctx!.lineWidth = 1;
         ctx!.beginPath();
         ctx!.moveTo(cx + A.x * R, cy + A.y * R);
@@ -173,7 +173,7 @@ export function TechUniverse() {
       // points
       for (const P of proj) {
         const dz = (P.z + 1) / 2;
-        ctx!.fillStyle = `rgba(${P.z > 0 ? "59,130,246" : "34,211,238"},${0.4 + dz * 0.55})`;
+        ctx!.fillStyle = `rgba(${P.z > 0 ? "198,255,61" : "124,92,255"},${0.4 + dz * 0.55})`;
         ctx!.beginPath();
         ctx!.arc(cx + P.x * R, cy + P.y * R, 0.8 + dz * 1.6, 0, Math.PI * 2);
         ctx!.fill();
@@ -324,7 +324,7 @@ function Hud() {
   return (
     <div
       className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 border-t border-border px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-text-faint backdrop-blur-md sm:text-[11px]"
-      style={{ background: "rgba(3,7,18,0.85)" }}
+      style={{ background: "rgba(11,11,15,0.85)" }}
     >
       <div className="flex items-center gap-3 sm:gap-5">
         <span className="inline-flex items-center gap-1.5 text-brand">
