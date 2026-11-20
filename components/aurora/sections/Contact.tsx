@@ -36,7 +36,7 @@ export function Contact() {
           <div className="grid gap-px" style={{ background: "var(--grid-line)" }}>
             <a
               href={`mailto:${profile.email}`}
-              className="cell group flex items-center justify-between bg-brand text-white transition-colors hover:brightness-110"
+              className="cell group flex items-center justify-between bg-brand text-[var(--on-brand)] transition-colors hover:brightness-110"
             >
               <span className="font-display text-xl font-semibold">Send an email</span>
               <Icon name="ArrowUpRight" className="h-6 w-6 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
