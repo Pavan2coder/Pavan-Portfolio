@@ -1,65 +1,54 @@
 "use client";
 
-import { SectionLayout, Row } from "../SectionHeading";
-import { Reveal } from "../Reveal";
+import { SectionLayout, Tile, type Tone } from "../SectionHeading";
 import { ScrollVelocity } from "../bits/ScrollVelocity";
 import { TechUniverse } from "../bits/TechUniverse";
 import { Icon } from "../Icon";
 import { skillDomains, techMarquee } from "@/lib/data";
 
+const tones: Tone[] = ["red", "cream", "cream", "green"];
+const spans = ["lg:col-span-5", "lg:col-span-7", "lg:col-span-7", "lg:col-span-5"];
+
 export function Skills() {
   return (
-    <>
-      <SectionLayout
-        id="skills"
-        index="02"
-        kicker="Toolkit"
-        title="What I build with."
-        lead="A full-stack toolkit spanning machine learning, web, and mobile — chosen to ship real, reliable products."
-      >
-        <div className="border-b border-border">
-          {skillDomains.map((d, i) => (
-            <Row key={d.title} delay={i * 0.05}>
-              <div className="grid gap-4 sm:grid-cols-[3rem_minmax(0,1fr)]">
-                <span className="font-mono text-sm text-text-faint transition-colors group-hover:text-brand">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <div className="flex items-center justify-between gap-4">
-                    <h3 className="font-display text-2xl font-semibold tracking-tight transition-colors group-hover:text-brand md:text-3xl">
-                      {d.title}
-                    </h3>
-                    <Icon name={d.icon} className="h-6 w-6 shrink-0 text-text-faint transition-colors group-hover:text-brand-2" />
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-text-muted md:text-base">{d.blurb}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {d.items.map((it) => (
-                      <span key={it} className="chip">{it}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Row>
-          ))}
-        </div>
-      </SectionLayout>
+    <SectionLayout
+      id="skills"
+      index="02"
+      kicker="Toolkit"
+      title="What I build with."
+      lead="A full-stack toolkit spanning machine learning, web, and mobile — chosen to ship real, reliable products."
+    >
+      <Tile tone="green" delay={0.05} className="flex flex-col justify-between gap-6 md:col-span-6 lg:col-span-4">
+        <span className="bubble bubble-mint self-start text-sm">{techMarquee.length} tools · 4 domains</span>
+        <Icon name="Cpu" className="h-24 w-24 text-brand" strokeWidth={1.25} />
+      </Tile>
 
-      {/* full-bleed marquee + orbit */}
-      <div className="relative border-y border-border py-7">
-        <ScrollVelocity items={techMarquee} baseVelocity={1.2} />
-      </div>
-      <div className="mx-auto max-w-wide px-5 py-20 sm:px-8">
-        <Reveal className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <span className="label text-brand">SYS·MAP</span>
-            <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">My stack, in orbit.</h3>
+      {skillDomains.map((d, i) => (
+        <Tile key={d.title} tone={tones[i]} delay={i * 0.05} className={`md:col-span-6 ${spans[i]}`}>
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="display text-5xl md:text-6xl">{d.title}</h3>
+            <Icon name={d.icon} className="h-8 w-8 shrink-0 text-brand" />
           </div>
-          <span className="label hidden text-brand sm:block">↔ drag to rotate · 360°</span>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <TechUniverse />
-        </Reveal>
-      </div>
-    </>
+          <p className="mt-4 text-base leading-relaxed text-text-muted">{d.blurb}</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {d.items.map((it) => (
+              <span key={it} className="chip">{it}</span>
+            ))}
+          </div>
+        </Tile>
+      ))}
+
+      <Tile tone="red" className="!px-0 !py-6">
+        <ScrollVelocity items={techMarquee} baseVelocity={1.2} />
+      </Tile>
+
+      <Tile tone="ink">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h3 className="display text-5xl md:text-6xl">My stack, in orbit.</h3>
+          <span className="bubble bubble-mint hidden text-sm sm:inline-flex">↔ drag to rotate</span>
+        </div>
+        <TechUniverse />
+      </Tile>
+    </SectionLayout>
   );
 }
