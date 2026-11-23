@@ -12,6 +12,8 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // tone classes are built as `tile-${tone}`, so keep them from being purged
+  safelist: ["tile-cream", "tile-green", "tile-red", "tile-mint", "tile-ink"],
   theme: {
     extend: {
       colors: {
@@ -51,8 +53,8 @@ const config: Config = {
         sm: "var(--r-sm)",
         md: "var(--r-md)",
         lg: "var(--r-lg)",
-        xl: "0px",
-        "2xl": "0px",
+        xl: "20px",
+        "2xl": "28px",
       },
       boxShadow: {
         e1: "var(--e1)",
