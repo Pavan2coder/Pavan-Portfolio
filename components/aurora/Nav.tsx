@@ -74,7 +74,7 @@ export function Nav() {
           {/* desktop links */}
           <div
             className={cn(
-              "hidden items-center gap-1 rounded-none border border-border px-1.5 py-1.5 transition-all duration-500 md:flex",
+              "hidden items-center gap-1 rounded-full border border-border px-1.5 py-1.5 transition-all duration-500 md:flex",
               scrolled ? "bg-card-2 shadow-e2 backdrop-blur-xl" : "bg-card",
             )}
           >
@@ -83,7 +83,7 @@ export function Nav() {
                 key={item.id}
                 href={`#${item.id}`}
                 className={cn(
-                  "relative rounded-none px-4 py-1.5 text-sm transition-colors duration-300",
+                  "relative rounded-full px-4 py-1.5 text-sm transition-colors duration-300",
                   active === item.id
                     ? "text-text"
                     : "text-text-muted hover:text-text",
@@ -92,7 +92,7 @@ export function Nav() {
                 {active === item.id && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-none bg-brand-soft"
+                    className="absolute inset-0 rounded-full bg-brand-soft"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -106,7 +106,7 @@ export function Nav() {
             <button
               onClick={toggle}
               aria-label="Toggle theme"
-              className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card text-text-muted transition-colors hover:border-brand-line hover:text-text"
+              className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-text-muted transition-colors hover:border-brand-line hover:text-text"
             >
               {mounted && (
                 <Icon name={theme === "dark" ? "Sun" : "Moon"} className="h-4 w-4" />
@@ -123,7 +123,7 @@ export function Nav() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card text-text md:hidden"
+              className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-text md:hidden"
             >
               <Icon name="Menu" className="h-4 w-4" />
             </button>
@@ -157,7 +157,7 @@ export function Nav() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="grid h-9 w-9 place-items-center rounded-none border border-border bg-card"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card"
                 >
                   <Icon name="X" className="h-4 w-4" />
                 </button>
