@@ -78,10 +78,12 @@ export default function Page() {
         <Contact />
 
         {/* interactive variable-font signature — move your cursor across it */}
-        <section className="relative overflow-hidden border-t border-hairline py-16 md:py-20">
-          <div className="mx-auto max-w-6xl px-8 sm:px-14">
-            <div className="mb-4 flex items-center justify-center gap-3">
-              <span className="label text-brand">// move your cursor across my name</span>
+        <section className="relative py-6 md:py-8">
+          <div className="mx-auto max-w-wide px-4 sm:px-8">
+          <div className="tile tile-cream !pb-14">
+            <div className="mb-4 flex items-center justify-between font-mono text-sm font-semibold text-text-muted">
+              <span>{"// move your cursor across my name"}</span>
+              <span>[ ✦ ]</span>
             </div>
             <div style={{ position: "relative", height: "clamp(70px, 15vw, 200px)" }}>
               <TextPressure
@@ -92,9 +94,10 @@ export default function Page() {
                 italic={false}
                 alpha={false}
                 minFontSize={28}
-                textColor="#eef3ff"
+                textColor="#0f4d3a"
               />
             </div>
+          </div>
           </div>
         </section>
       </motion.main>
