@@ -462,7 +462,7 @@ body {
    ===================================================================== */
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-none font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300;
   }
   .btn-primary {
     background: var(--brand);
@@ -482,7 +482,7 @@ body {
     color: var(--brand);
   }
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-none px-2.5 py-1 font-mono text-[11px] font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[11px] font-medium;
     background: var(--card);
     border: 1px solid var(--border);
     color: var(--text-muted);
