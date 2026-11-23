@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Chakra_Petch,
+  Barlow_Condensed,
   Plus_Jakarta_Sans,
   JetBrains_Mono,
   Roboto_Flex,
@@ -8,10 +8,11 @@ import {
 import "./globals.css";
 import { profile } from "@/lib/data";
 
-/* Display / headings — sharp, squared, techy/HUD terminal character */
-const chakra = Chakra_Petch({
+/* Display / headings — tall condensed grotesque for the bento headlines */
+const display = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600", "700", "800"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
@@ -81,7 +82,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${chakra.variable} ${jakarta.variable} ${jetbrainsMono.variable} ${robotoFlex.variable}`}
+      className={`${display.variable} ${jakarta.variable} ${jetbrainsMono.variable} ${robotoFlex.variable}`}
       suppressHydrationWarning
     >
       <head>
