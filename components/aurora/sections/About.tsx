@@ -1,60 +1,53 @@
 "use client";
 
-import { SectionLayout } from "../SectionHeading";
-import { Reveal } from "../Reveal";
+import { SectionLayout, Tile } from "../SectionHeading";
 import { ScrambleReveal } from "../bits/ScrambleReveal";
 import { Icon } from "../Icon";
 import { about, profile } from "@/lib/data";
 
+const factIcons = ["GraduationCap", "BrainCircuit", "Code2", "MapPin"];
+
 export function About() {
   return (
-    <SectionLayout id="about" index="01" kicker="About" title={about.heading}>
-      <Reveal className="mb-10 border-l-2 border-brand pl-5">
-        <span className="label mb-3 block text-brand">{"// move your cursor across to decode"}</span>
-        <ScrambleReveal radius={200} className="text-xl font-medium tracking-tight md:text-2xl">
+    <SectionLayout id="about" index="01" kicker="About" title="AI meets product.">
+      <Tile tone="red" delay={0.05} className="flex flex-col justify-between gap-8 lg:col-span-4">
+        <span className="font-mono text-sm font-semibold">{"// hover to decode"}</span>
+        <ScrambleReveal radius={200} className="display !font-display text-5xl !leading-[0.9]">
           {profile.tagline}
         </ScrambleReveal>
-      </Reveal>
+        <span className="font-mono text-sm font-semibold">[ {profile.github.replace("https://", "")} ]</span>
+      </Tile>
 
-      <div className="space-y-5">
-        {about.paragraphs.map((p, i) => (
-          <Reveal key={i} delay={i * 0.05}>
-            <p className={i === 0 ? "text-xl leading-relaxed text-text md:text-2xl" : "text-base leading-relaxed text-text-muted md:text-lg"}>
-              {p}
-            </p>
-          </Reveal>
+      <Tile delay={0.05} className="space-y-5 lg:col-span-7">
+        <p className="text-xl font-medium leading-relaxed md:text-2xl">{about.paragraphs[0]}</p>
+        {about.paragraphs.slice(1).map((p, i) => (
+          <p key={i} className="text-base leading-relaxed text-text-muted md:text-lg">
+            {p}
+          </p>
         ))}
-      </div>
+      </Tile>
 
-      {/* facts as a spec sheet */}
-      <dl className="mt-12 border-b border-border">
-        {about.facts.map((f, i) => (
-          <Reveal
-            key={f.label}
-            delay={i * 0.05}
-            className="group grid grid-cols-[2rem_minmax(0,1fr)] items-baseline gap-x-4 gap-y-1 border-t border-border py-5 sm:grid-cols-[2rem_10rem_minmax(0,1fr)]"
-          >
-            <Icon name={factIcon(i)} className="h-4 w-4 translate-y-0.5 text-brand" />
-            <dt className="label">{f.label}</dt>
-            <dd className="col-start-2 text-base font-medium text-text transition-colors group-hover:text-brand-2 sm:col-start-3">
-              {f.value}
-            </dd>
-          </Reveal>
-        ))}
-      </dl>
-
-      <div className="mt-8 flex flex-wrap gap-2">
-        <a href={profile.github} target="_blank" rel="noreferrer" className="chip hover:border-brand hover:text-text">
-          <Icon name="Github" className="h-3.5 w-3.5" /> GitHub
-        </a>
-        <a href={profile.linkedin} target="_blank" rel="noreferrer" className="chip hover:border-brand hover:text-text">
-          <Icon name="Linkedin" className="h-3.5 w-3.5" /> LinkedIn
-        </a>
-      </div>
+      <Tile tone="green" delay={0.1} className="lg:col-span-5">
+        <dl className="divide-y divide-[rgba(244,239,230,0.14)]">
+          {about.facts.map((f, i) => (
+            <div key={f.label} className="flex gap-4 py-4 first:pt-0 last:pb-0">
+              <Icon name={factIcons[i] ?? "Sparkles"} className="mt-1 h-5 w-5 shrink-0 text-brand" />
+              <div>
+                <dt className="font-mono text-xs font-semibold uppercase tracking-widest text-text-faint">{f.label}</dt>
+                <dd className="mt-1 text-lg font-medium">{f.value}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+        <div className="mt-6 flex flex-wrap gap-2">
+          <a href={profile.github} target="_blank" rel="noreferrer" className="bubble bubble-mint text-sm">
+            <Icon name="Github" className="h-4 w-4" /> GitHub
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="bubble bubble-mint text-sm">
+            <Icon name="Linkedin" className="h-4 w-4" /> LinkedIn
+          </a>
+        </div>
+      </Tile>
     </SectionLayout>
   );
-}
-
-function factIcon(i: number) {
-  return ["GraduationCap", "BrainCircuit", "Code2", "MapPin"][i] ?? "Sparkles";
 }
