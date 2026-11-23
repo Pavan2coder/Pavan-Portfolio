@@ -3,11 +3,10 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
 import { ScrambleReveal } from "./bits/ScrambleReveal";
-import { ShinyText } from "./bits/ShinyText";
 
 /**
- * Sticky side-scroll section: the title column pins on the left while the
- * content scrolls past on the right (stacks on mobile).
+ * Bento section: a 12-col grid of rounded tiles. The first tile is the
+ * headline; `children` are more <Tile>s that fill out the mosaic.
  */
 export function SectionLayout({
   id,
@@ -15,6 +14,8 @@ export function SectionLayout({
   kicker,
   title,
   lead,
+  headClass = "lg:col-span-8",
+  tone = "cream",
   children,
 }: {
   id: string;
@@ -22,45 +23,49 @@ export function SectionLayout({
   kicker: string;
   title: string;
   lead?: string;
+  headClass?: string;
+  tone?: Tone;
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="relative py-24 md:py-32">
-      <div className="mx-auto grid max-w-wide gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
-        <aside className="lg:sticky lg:top-28 lg:self-start">
-          <Reveal>
-            <div className="mb-6 flex items-center gap-3">
-              <span className="font-mono text-sm font-semibold text-brand">{index}</span>
-              <span className="h-px w-10 bg-brand" />
-              <ShinyText text={kicker} className="label" speed={5} />
-            </div>
-          </Reveal>
-          <ScrambleReveal
-            as="h2"
-            radius={150}
-            className="text-3xl font-semibold leading-[1.1] tracking-tight text-text sm:text-4xl lg:text-5xl"
-          >
-            {title}
-          </ScrambleReveal>
-          {lead && (
-            <Reveal delay={0.1}>
-              <p className="mt-5 text-base leading-relaxed text-text-muted">{lead}</p>
-            </Reveal>
-          )}
-        </aside>
-        <div className="min-w-0">{children}</div>
+    <section id={id} className="relative py-6 md:py-8">
+      <div className="bento mx-auto grid max-w-wide grid-cols-12 gap-3.5 px-4 sm:px-8">
+        <Tile tone={tone} className={`flex flex-col justify-between gap-10 ${headClass}`}>
+          <div className="flex items-center justify-between font-mono text-sm font-semibold text-text-muted">
+            <span>{kicker}</span>
+            <span>[ {index} ]</span>
+          </div>
+          <div>
+            <h2 className="display text-6xl sm:text-7xl lg:text-8xl">{title}</h2>
+            {lead && (
+              <ScrambleReveal radius={170} className="mt-6 max-w-2xl text-sm text-text-muted md:text-base">
+                {lead}
+              </ScrambleReveal>
+            )}
+          </div>
+        </Tile>
+        {children}
       </div>
     </section>
   );
 }
 
-/** One open row: a hairline on top, lights up blue on hover. */
-export function Row({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
+export type Tone = "cream" | "green" | "red" | "mint" | "ink";
+
+/** One rounded bento tile. Full width on mobile; pass lg:col-span-* for desktop. */
+export function Tile({
+  tone = "cream",
+  className = "",
+  delay = 0,
+  children,
+}: {
+  tone?: Tone;
+  className?: string;
+  delay?: number;
+  children: ReactNode;
+}) {
   return (
-    <Reveal
-      delay={delay}
-      className={`group relative border-t border-border py-7 transition-colors duration-300 hover:border-brand md:py-9 ${className}`}
-    >
+    <Reveal delay={delay} className={`tile tile-${tone} col-span-12 ${className}`}>
       {children}
     </Reveal>
   );
