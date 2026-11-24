@@ -12,11 +12,11 @@
 /* SYNC BENTO — near-black ground, cream / deep-green / signal-red tiles */
 :root,
 :root[data-theme="dark"] {
-  --bg: #141414;
-  --bg-2: #1c1c1c;
-  --bg-3: #232323;
-  --card: #1c1c1c;
-  --card-2: #232323;
+  --bg: #0d0d14;
+  --bg-2: #16161f;
+  --bg-3: #1e1e2a;
+  --card: #16161f;
+  --card-2: #1e1e2a;
 
   --grid-line: rgba(244, 239, 230, 0.1);
   --border: rgba(244, 239, 230, 0.12);
@@ -63,26 +63,26 @@
   --bg-3: #f4efe6;
   --card: #f4efe6;
   --card-2: #ddd5c6;
-  --grid-line: rgba(20, 20, 20, 0.14);
-  --border: rgba(20, 20, 20, 0.14);
-  --border-strong: rgba(20, 20, 20, 0.28);
-  --hairline: rgba(20, 20, 20, 0.08);
-  --text: #141414;
+  --grid-line: rgba(13, 13, 20, 0.14);
+  --border: rgba(13, 13, 20, 0.14);
+  --border-strong: rgba(13, 13, 20, 0.28);
+  --hairline: rgba(13, 13, 20, 0.08);
+  --text: #0d0d14;
   --text-muted: #55514a;
   --text-faint: #8a857c;
   --brand: #0f4d3a;
   --brand-2: #d40000;
-  --brand-3: #141414;
+  --brand-3: #0d0d14;
   --brand-soft: rgba(15, 77, 58, 0.1);
   --brand-line: rgba(15, 77, 58, 0.5);
   --on-brand: #f4efe6;
   --aura-1: rgba(15, 77, 58, 0.16);
   --aura-2: rgba(212, 0, 0, 0.14);
-  --aura-3: rgba(20, 20, 20, 0.1);
+  --aura-3: rgba(13, 13, 20, 0.1);
   --glow: 0 0 40px rgba(15, 77, 58, 0.16);
-  --e1: 0 1px 3px rgba(20, 20, 20, 0.08);
-  --e2: 0 20px 44px -20px rgba(20, 20, 20, 0.2);
-  --e3: 0 40px 90px -35px rgba(20, 20, 20, 0.26), 0 0 0 1px var(--border);
+  --e1: 0 1px 3px rgba(13, 13, 20, 0.08);
+  --e2: 0 20px 44px -20px rgba(13, 13, 20, 0.2);
+  --e3: 0 40px 90px -35px rgba(13, 13, 20, 0.26), 0 0 0 1px var(--border);
   --noise-opacity: 0.015;
   --grain-blend: multiply;
 }
@@ -171,10 +171,10 @@
   --on-brand: #8ee07a;
 }
 .tile-ink {
-  --tile-bg: #0c0c0c;
-  --bg-2: #161616;
-  --bg-3: #1c1c1c;
-  --card: #161616;
+  --tile-bg: #08080d;
+  --bg-2: #12121a;
+  --bg-3: #16161f;
+  --card: #12121a;
   --text: #f4efe6;
   --text-muted: #b5afa4;
   --text-faint: #7a756c;
@@ -213,7 +213,7 @@
 }
 .bubble-ink {
   position: relative;
-  background: #141414;
+  background: #0d0d14;
   color: #f4efe6;
 }
 .bubble-ink::after {
@@ -223,7 +223,7 @@
   bottom: -7px;
   border: 7px solid transparent;
   border-bottom: 0;
-  border-top-color: #141414;
+  border-top-color: #0d0d14;
   transform: translateX(-50%);
 }
 .avatar {
