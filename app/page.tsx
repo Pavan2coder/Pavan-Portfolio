@@ -94,7 +94,7 @@ export default function Page() {
                 italic={false}
                 alpha={false}
                 minFontSize={28}
-                textColor="#0f4d3a"
+                textColor="#2a1b5c"
               />
             </div>
           </div>
