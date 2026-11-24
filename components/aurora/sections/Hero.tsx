@@ -9,7 +9,9 @@ import { CountUp } from "../bits/CountUp";
 import { Magnet } from "../bits/Magnet";
 import { InteractiveTerminal } from "../bits/InteractiveTerminal";
 import { Tile } from "../SectionHeading";
-import { profile, socials, stats } from "@/lib/data";
+import { GradientText } from "../bits/GradientText";
+import { CircularText } from "../bits/CircularText";
+import { profile, stats } from "@/lib/data";
 
 export function Hero() {
   const [roleIdx, setRoleIdx] = useState(0);
@@ -44,12 +46,12 @@ export function Hero() {
             <SplitText text="Athava Sri" as="span" className="block" delay={0.15} />
             <span className="block overflow-hidden">
               <motion.span
-                className="block text-brand"
+                className="block"
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, ease }}
               >
-                Pavan
+                <GradientText colors={["#2a1b5c", "#3b5bff", "#6a4cff", "#2a1b5c"]}>Pavan</GradientText>
               </motion.span>
             </span>
           </h1>
@@ -93,20 +95,7 @@ export function Hero() {
           <p className="display text-5xl lg:text-6xl">
             Internships &amp; <span className="text-brand">freelance</span>
           </p>
-          <div className="flex gap-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="grid h-12 w-12 place-items-center rounded-full border border-border-strong transition-colors hover:bg-[#c6ff3d] hover:text-[#2a1b5c]"
-              >
-                <Icon name={s.icon} className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
+          <CircularText text="AI • FULL-STACK • BUILDER • " className="text-brand" />
         </Tile>
 
         {/* C — card-in-card, red */}
