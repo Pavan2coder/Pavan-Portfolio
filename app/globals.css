@@ -28,14 +28,14 @@
   --text-faint: #6f6c85;
 
   --brand: #8ee07a;
-  --brand-2: #ff4a3d;
+  --brand-2: #8b7bff;
   --brand-3: #ece9ff;
   --brand-soft: rgba(142, 224, 122, 0.14);
   --brand-line: rgba(142, 224, 122, 0.6);
   --on-brand: #2a1b5c;
 
   --aura-1: rgba(142, 224, 122, 0.2);
-  --aura-2: rgba(212, 0, 0, 0.2);
+  --aura-2: rgba(59, 91, 255, 0.2);
   --aura-3: rgba(236, 233, 255, 0.16);
 
   --glow: 0 0 50px rgba(142, 224, 122, 0.2);
@@ -71,13 +71,13 @@
   --text-muted: #4f4c66;
   --text-faint: #7f7c99;
   --brand: #2a1b5c;
-  --brand-2: #d40000;
+  --brand-2: #3b5bff;
   --brand-3: #0d0d14;
   --brand-soft: rgba(42, 27, 92, 0.1);
   --brand-line: rgba(42, 27, 92, 0.5);
   --on-brand: #ece9ff;
   --aura-1: rgba(42, 27, 92, 0.16);
-  --aura-2: rgba(212, 0, 0, 0.14);
+  --aura-2: rgba(59, 91, 255, 0.14);
   --aura-3: rgba(13, 13, 20, 0.1);
   --glow: 0 0 40px rgba(42, 27, 92, 0.16);
   --e1: 0 1px 3px rgba(13, 13, 20, 0.08);
@@ -116,11 +116,11 @@
   --border: rgba(42, 27, 92, 0.16);
   --border-strong: rgba(42, 27, 92, 0.32);
   --hairline: rgba(42, 27, 92, 0.1);
-  --brand: #d40000;
+  --brand: #3b5bff;
   --brand-2: #2a1b5c;
   --brand-3: #2a1b5c;
-  --brand-soft: rgba(212, 0, 0, 0.08);
-  --brand-line: rgba(212, 0, 0, 0.5);
+  --brand-soft: rgba(59, 91, 255, 0.08);
+  --brand-line: rgba(59, 91, 255, 0.5);
   --on-brand: #ece9ff;
 }
 .tile-green {
@@ -142,10 +142,10 @@
   --on-brand: #2a1b5c;
 }
 .tile-red {
-  --tile-bg: #d40000;
-  --bg-2: #b80000;
-  --bg-3: #e01a1a;
-  --card: #bd0000;
+  --tile-bg: #3b5bff;
+  --bg-2: #2f4ae0;
+  --bg-3: #5574ff;
+  --card: #3350eb;
   --text: #ece9ff;
   --text-muted: rgba(236, 233, 255, 0.82);
   --text-faint: rgba(236, 233, 255, 0.58);
@@ -157,7 +157,7 @@
   --brand-3: #ece9ff;
   --brand-soft: rgba(236, 233, 255, 0.14);
   --brand-line: rgba(236, 233, 255, 0.6);
-  --on-brand: #d40000;
+  --on-brand: #3b5bff;
 }
 .tile-mint {
   --tile-bg: #8ee07a;
@@ -181,7 +181,7 @@
   --border: rgba(236, 233, 255, 0.12);
   --border-strong: rgba(236, 233, 255, 0.24);
   --brand: #8ee07a;
-  --brand-2: #ff4a3d;
+  --brand-2: #8b7bff;
   --brand-3: #ece9ff;
   --on-brand: #2a1b5c;
 }
