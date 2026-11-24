@@ -38,12 +38,12 @@ export function Experience() {
         <h3 className="display mb-6 text-5xl md:text-6xl">Certifications</h3>
         <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
           {achievements.map((a) => (
-            <div key={a.title} className="tile-cream rounded-[22px] bg-[#f4efe6] p-5 text-[#0f4d3a]">
-              <div className="flex justify-between font-mono text-xs font-semibold text-[#d40000]">
+            <div key={a.title} className="tile-cream rounded-[22px] bg-[#ece9ff] p-5 text-[#2a1b5c]">
+              <div className="flex justify-between font-mono text-xs font-semibold text-[#3b5bff]">
                 <span>{a.org}</span>
                 <Icon name={a.icon} className="h-4 w-4" />
               </div>
-              <h4 className="display mt-6 text-3xl italic text-[#d40000]">{a.title}</h4>
+              <h4 className="display mt-6 text-3xl italic text-[#3b5bff]">{a.title}</h4>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">{a.description}</p>
             </div>
           ))}
