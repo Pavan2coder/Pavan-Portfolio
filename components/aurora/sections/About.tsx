@@ -15,7 +15,7 @@ export function About() {
         <ScrambleReveal radius={200} className="display !font-display text-5xl !leading-[0.9]">
           {profile.tagline}
         </ScrambleReveal>
-        <span className="font-mono text-sm font-semibold">[ {profile.github.replace("https://", "")} ]</span>
+        <span className="font-mono text-sm font-semibold">[ {profile.location} ]</span>
       </Tile>
 
       <Tile delay={0.05} className="space-y-5 lg:col-span-7">
@@ -28,7 +28,7 @@ export function About() {
       </Tile>
 
       <Tile tone="green" delay={0.1} className="lg:col-span-5">
-        <dl className="divide-y divide-[rgba(244,239,230,0.14)]">
+        <dl className="divide-y divide-[rgba(236, 233, 255,0.14)]">
           {about.facts.map((f, i) => (
             <div key={f.label} className="flex gap-4 py-4 first:pt-0 last:pb-0">
               <Icon name={factIcons[i] ?? "Sparkles"} className="mt-1 h-5 w-5 shrink-0 text-brand" />
@@ -39,14 +39,6 @@ export function About() {
             </div>
           ))}
         </dl>
-        <div className="mt-6 flex flex-wrap gap-2">
-          <a href={profile.github} target="_blank" rel="noreferrer" className="bubble bubble-mint text-sm">
-            <Icon name="Github" className="h-4 w-4" /> GitHub
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="bubble bubble-mint text-sm">
-            <Icon name="Linkedin" className="h-4 w-4" /> LinkedIn
-          </a>
-        </div>
       </Tile>
     </SectionLayout>
   );
