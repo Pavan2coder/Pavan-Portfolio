@@ -18,25 +18,25 @@
   --card: #16161f;
   --card-2: #1e1e2a;
 
-  --grid-line: rgba(244, 239, 230, 0.1);
-  --border: rgba(244, 239, 230, 0.12);
-  --border-strong: rgba(244, 239, 230, 0.24);
-  --hairline: rgba(244, 239, 230, 0.08);
+  --grid-line: rgba(236, 233, 255, 0.1);
+  --border: rgba(236, 233, 255, 0.12);
+  --border-strong: rgba(236, 233, 255, 0.24);
+  --hairline: rgba(236, 233, 255, 0.08);
 
-  --text: #f4efe6;
+  --text: #ece9ff;
   --text-muted: #aaa7bf;
   --text-faint: #6f6c85;
 
   --brand: #8ee07a;
   --brand-2: #ff4a3d;
-  --brand-3: #f4efe6;
+  --brand-3: #ece9ff;
   --brand-soft: rgba(142, 224, 122, 0.14);
   --brand-line: rgba(142, 224, 122, 0.6);
   --on-brand: #0f4d3a;
 
   --aura-1: rgba(142, 224, 122, 0.2);
   --aura-2: rgba(212, 0, 0, 0.2);
-  --aura-3: rgba(244, 239, 230, 0.16);
+  --aura-3: rgba(236, 233, 255, 0.16);
 
   --glow: 0 0 50px rgba(142, 224, 122, 0.2);
   --e1: 0 2px 5px rgba(0, 0, 0, 0.6);
@@ -59,10 +59,10 @@
 /* Light alt — sand ground, same tiles */
 :root[data-theme="light"] {
   --bg: #e4e1f5;
-  --bg-2: #ddd5c6;
-  --bg-3: #f4efe6;
-  --card: #f4efe6;
-  --card-2: #ddd5c6;
+  --bg-2: #d3cdf5;
+  --bg-3: #ece9ff;
+  --card: #ece9ff;
+  --card-2: #d3cdf5;
   --grid-line: rgba(13, 13, 20, 0.14);
   --border: rgba(13, 13, 20, 0.14);
   --border-strong: rgba(13, 13, 20, 0.28);
@@ -75,7 +75,7 @@
   --brand-3: #0d0d14;
   --brand-soft: rgba(15, 77, 58, 0.1);
   --brand-line: rgba(15, 77, 58, 0.5);
-  --on-brand: #f4efe6;
+  --on-brand: #ece9ff;
   --aura-1: rgba(15, 77, 58, 0.16);
   --aura-2: rgba(212, 0, 0, 0.14);
   --aura-3: rgba(13, 13, 20, 0.1);
@@ -106,10 +106,10 @@
   }
 }
 .tile-cream {
-  --tile-bg: #f4efe6;
-  --bg-2: #ebe4d7;
-  --bg-3: #fffaf2;
-  --card: #ebe4d7;
+  --tile-bg: #ece9ff;
+  --bg-2: #dcd7fb;
+  --bg-3: #f7f5ff;
+  --card: #dcd7fb;
   --text: #0f4d3a;
   --text-muted: rgba(15, 77, 58, 0.74);
   --text-faint: rgba(15, 77, 58, 0.5);
@@ -121,22 +121,22 @@
   --brand-3: #0f4d3a;
   --brand-soft: rgba(212, 0, 0, 0.08);
   --brand-line: rgba(212, 0, 0, 0.5);
-  --on-brand: #f4efe6;
+  --on-brand: #ece9ff;
 }
 .tile-green {
   --tile-bg: #0f4d3a;
   --bg-2: #0b3e2f;
   --bg-3: #145a45;
   --card: #145a45;
-  --text: #f4efe6;
-  --text-muted: rgba(244, 239, 230, 0.76);
-  --text-faint: rgba(244, 239, 230, 0.5);
-  --border: rgba(244, 239, 230, 0.16);
-  --border-strong: rgba(244, 239, 230, 0.3);
-  --hairline: rgba(244, 239, 230, 0.1);
+  --text: #ece9ff;
+  --text-muted: rgba(236, 233, 255, 0.76);
+  --text-faint: rgba(236, 233, 255, 0.5);
+  --border: rgba(236, 233, 255, 0.16);
+  --border-strong: rgba(236, 233, 255, 0.3);
+  --hairline: rgba(236, 233, 255, 0.1);
   --brand: #8ee07a;
   --brand-2: #8ee07a;
-  --brand-3: #f4efe6;
+  --brand-3: #ece9ff;
   --brand-soft: rgba(142, 224, 122, 0.14);
   --brand-line: rgba(142, 224, 122, 0.6);
   --on-brand: #0f4d3a;
@@ -146,17 +146,17 @@
   --bg-2: #b80000;
   --bg-3: #e01a1a;
   --card: #bd0000;
-  --text: #f4efe6;
-  --text-muted: rgba(244, 239, 230, 0.82);
-  --text-faint: rgba(244, 239, 230, 0.58);
-  --border: rgba(244, 239, 230, 0.22);
-  --border-strong: rgba(244, 239, 230, 0.4);
-  --hairline: rgba(244, 239, 230, 0.14);
-  --brand: #f4efe6;
-  --brand-2: #f4efe6;
-  --brand-3: #f4efe6;
-  --brand-soft: rgba(244, 239, 230, 0.14);
-  --brand-line: rgba(244, 239, 230, 0.6);
+  --text: #ece9ff;
+  --text-muted: rgba(236, 233, 255, 0.82);
+  --text-faint: rgba(236, 233, 255, 0.58);
+  --border: rgba(236, 233, 255, 0.22);
+  --border-strong: rgba(236, 233, 255, 0.4);
+  --hairline: rgba(236, 233, 255, 0.14);
+  --brand: #ece9ff;
+  --brand-2: #ece9ff;
+  --brand-3: #ece9ff;
+  --brand-soft: rgba(236, 233, 255, 0.14);
+  --brand-line: rgba(236, 233, 255, 0.6);
   --on-brand: #d40000;
 }
 .tile-mint {
@@ -175,14 +175,14 @@
   --bg-2: #12121a;
   --bg-3: #16161f;
   --card: #12121a;
-  --text: #f4efe6;
+  --text: #ece9ff;
   --text-muted: #aaa7bf;
   --text-faint: #6f6c85;
-  --border: rgba(244, 239, 230, 0.12);
-  --border-strong: rgba(244, 239, 230, 0.24);
+  --border: rgba(236, 233, 255, 0.12);
+  --border-strong: rgba(236, 233, 255, 0.24);
   --brand: #8ee07a;
   --brand-2: #ff4a3d;
-  --brand-3: #f4efe6;
+  --brand-3: #ece9ff;
   --on-brand: #0f4d3a;
 }
 
@@ -205,7 +205,7 @@
   font-weight: 600;
   font-size: 0.95rem;
   background: #0f4d3a;
-  color: #f4efe6;
+  color: #ece9ff;
 }
 .bubble-mint {
   background: #8ee07a;
@@ -214,7 +214,7 @@
 .bubble-ink {
   position: relative;
   background: #0d0d14;
-  color: #f4efe6;
+  color: #ece9ff;
 }
 .bubble-ink::after {
   content: "";
