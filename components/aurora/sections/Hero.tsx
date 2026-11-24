@@ -84,8 +84,8 @@ export function Hero() {
           <span className="bubble bubble-mint self-start">
             {profile.available && (
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0f4d3a] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0f4d3a]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2a1b5c] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2a1b5c]" />
               </span>
             )}
             open to work
@@ -101,7 +101,7 @@ export function Hero() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.label}
-                className="grid h-12 w-12 place-items-center rounded-full border border-border-strong transition-colors hover:bg-[#8ee07a] hover:text-[#0f4d3a]"
+                className="grid h-12 w-12 place-items-center rounded-full border border-border-strong transition-colors hover:bg-[#c6ff3d] hover:text-[#2a1b5c]"
               >
                 <Icon name={s.icon} className="h-5 w-5" />
               </a>
@@ -111,15 +111,15 @@ export function Hero() {
 
         {/* C — card-in-card, red */}
         <Tile tone="red" delay={0.15} className="grid place-items-center md:col-span-6 lg:col-span-4">
-          <div className="tile-cream w-full max-w-sm rounded-[24px] bg-[#f4efe6] p-6">
-            <div className="flex justify-between font-mono text-sm font-semibold text-[#d40000]">
+          <div className="tile-cream w-full max-w-sm rounded-[24px] bg-[#ece9ff] p-6">
+            <div className="flex justify-between font-mono text-sm font-semibold text-[#3b5bff]">
               <span>Hyderabad</span>
               <span>{time ?? "--:--"} IST</span>
             </div>
-            <p className="display my-8 text-6xl italic text-[#d40000]">
+            <p className="display my-8 text-6xl italic text-[#3b5bff]">
               AI &amp; Full&#8209;Stack Engineer
             </p>
-            <p className="font-mono text-sm font-semibold text-[#d40000]">B.Tech CSE · MLRIT</p>
+            <p className="font-mono text-sm font-semibold text-[#3b5bff]">B.Tech CSE · MLRIT</p>
           </div>
         </Tile>
 
@@ -136,10 +136,10 @@ export function Hero() {
         <Tile delay={0.1} className="flex flex-col justify-center gap-4 md:col-span-6 lg:col-span-4">
           <div className="flex items-center gap-3">
             <span className="bubble">Hi! What are you building?</span>
-            <span className="avatar h-11 w-11 shrink-0 bg-[#d40000] text-[#f4efe6]">?</span>
+            <span className="avatar h-11 w-11 shrink-0 bg-[#3b5bff] text-[#ece9ff]">?</span>
           </div>
           <div className="flex items-center gap-3 self-end">
-            <span className="avatar h-11 w-11 shrink-0 bg-[#0f4d3a] text-[#8ee07a]">P</span>
+            <span className="avatar h-11 w-11 shrink-0 bg-[#2a1b5c] text-[#c6ff3d]">P</span>
             <span className="bubble bubble-mint">Stuff that ships.</span>
           </div>
         </Tile>
@@ -166,7 +166,7 @@ function Squiggle() {
     <svg viewBox="0 0 240 70" className="pointer-events-none absolute -right-4 bottom-0 w-56 opacity-90" fill="none" aria-hidden>
       <path
         d="M4 60c30-6 40-40 70-38 26 2 14 34 36 34 26 0 22-44 56-44 30 0 26 40 70 42"
-        stroke="#8ee07a"
+        stroke="#c6ff3d"
         strokeWidth="3.5"
         strokeLinecap="round"
       />
