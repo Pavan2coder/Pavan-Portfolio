@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "./Icon";
+import { Dock } from "./bits/Dock";
 import { navItems, profile, socials } from "@/lib/data";
 
 export function Footer() {
@@ -34,20 +35,13 @@ export function Footer() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-text-muted transition-all hover:border-brand-line hover:text-text"
-              >
-                <Icon name={s.icon} className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
+          <Dock
+            items={socials.map((s) => ({
+              label: s.label,
+              href: s.href,
+              icon: <Icon name={s.icon} className="h-1/2 w-1/2" />,
+            }))}
+          />
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-hairline pt-6 text-center sm:flex-row">
