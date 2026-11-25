@@ -1,6 +1,6 @@
-# Jarvis  Portfolio
+# Pavan Portfolio
 
-A premium black portfolio built with Next.js and Framer Motion. It opens with a "live build": three AI agents type the site's code in a fake editor, then a swarm of cursors assembles the page in front of you. After that you get a real typeable terminal, cursor-reactive cards and scroll-driven reveals.
+A bento-style portfolio built with Next.js and Framer Motion, in a **midnight + violet** palette. Every section is laid out as rounded tiles with big condensed type. It opens with a "live build": three AI agents type the site's code in a fake editor, then a swarm of cursors assembles the page in front of you. After that you get a real typeable terminal, cursor-reactive effects and scroll-driven reveals.
 
 ## Features
 
