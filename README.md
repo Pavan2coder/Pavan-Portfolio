@@ -11,15 +11,17 @@ A bento-style portfolio built with Next.js and Framer Motion, in a **midnight + 
 
 ## Features
 
+- **Gradient name + circular badge**: the hero "Pavan" has an animated gradient fill, next to a spinning circular-text badge
+- **Magnifying Dock**: social links live in a macOS-style dock in the footer that magnifies on hover
 - **Code Intro**: a full-screen editor where 3 agents type `Hero.tsx`, `theme.css` and `data.ts` while a live preview builds itself. Skip with the button or `Esc`
 - **Cursor Swarm**: 18 coloured agent cursors draw a frame for each section and fill it in as the page tours itself. You can replay it from the footer ("↻ Replay build intro")
 - **Interactive Terminal**: a real shell in the hero (`help`, `whoami`, `projects`, `sudo hire-me`, and more) that pulls live data from the site
 - **Tech Universe**: a drag-to-rotate 3D wireframe sphere (canvas) ringed by orbiting tech logos, with a live HUD readout
 - **Text Pressure**: a variable-font "PAVAN" band whose letters deform toward your cursor
-- **Scramble, Decrypt & Split Text**: headings decode from dots near the cursor, and the role rotator decrypts
-- **Spotlight & Tilt Cards**: cards that light up and tilt toward the cursor
+- **Scramble, Decrypt & Split Text**: section leads decode from dots near the cursor, and the role rotator decrypts
+- **Count Up & Scroll Velocity**: stats roll up on view, and the tech marquee speeds up with scroll
 - **Custom Cursor & Click Spark**: a mix-blend cursor ring with bursts on click
-- **Theme Toggle**: black by default, with an optional light theme and no flash on load
+- **Theme Toggle**: midnight by default, with an optional light theme and no flash on load
 - **Accessible motion**: `prefers-reduced-motion` skips the intro and swarm
 - **Responsive**: works on desktop, tablet and mobile
 
