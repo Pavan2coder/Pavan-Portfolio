@@ -2,6 +2,13 @@
 
 A bento-style portfolio built with Next.js and Framer Motion, in a **midnight + violet** palette. Every section is laid out as rounded tiles with big condensed type. It opens with a "live build": three AI agents type the site's code in a fake editor, then a swarm of cursors assembles the page in front of you. After that you get a real typeable terminal, cursor-reactive effects and scroll-driven reveals.
 
+## Design
+
+- **Bento tiles**: Hero, About, Skills, Projects, Experience and Contact are all built from rounded tiles on a 12-column grid (`Tile` + `SectionLayout` in `SectionHeading.tsx`)
+- **Midnight + Violet palette**: page `#0d0d14`, tiles in lavender `#ece9ff`, deep violet `#2a1b5c`, electric blue `#3b5bff`, ink `#08080d`, with a lime `#c6ff3d` accent
+- **Tile tones re-scope theme vars**: `.tile-{tone}` classes override `--text`, `--brand`, `--border`... so the same utilities retint inside each tile
+- **Typography**: Barlow Condensed (display), Plus Jakarta Sans (body), JetBrains Mono (labels)
+
 ## Features
 
 - **Code Intro**: a full-screen editor where 3 agents type `Hero.tsx`, `theme.css` and `data.ts` while a live preview builds itself. Skip with the button or `Esc`
