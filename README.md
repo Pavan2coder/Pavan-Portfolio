@@ -136,7 +136,7 @@ All content is managed in `lib/data.ts`. Update the exported objects:
 
 ### Colors & Theme
 
-Aurora's design tokens (colors, glow, borders) live as CSS variables in `app/globals.css` under `data-theme`, with matching values wired into `tailwind.config.ts`.
+Design tokens (colors, borders, radii) live as CSS variables in `app/globals.css` under `data-theme`, with matching values wired into `tailwind.config.ts`. Tile colors come from the `.tile-{tone}` classes in the same file. To recolor the site, change the hex values there (tile tones are safelisted in the Tailwind config).
 
 ## Browser Support
 
