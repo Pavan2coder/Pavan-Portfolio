@@ -96,13 +96,14 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 
 ```
 ├── app/                        # Next.js app directory
-│   ├── globals.css            # Global styles + Aurora design tokens
+│   ├── globals.css            # Global styles, palette tokens, .tile tones
 │   ├── layout.tsx             # Root layout, fonts, theme init
 │   └── page.tsx               # Page composition + scroll progress bar
 ├── components/
 │   └── aurora/                 # Current design system
+│       ├── SectionHeading.tsx  # Tile + SectionLayout (bento grid primitives)
 │       ├── bits/               # Effects: CodeIntro, CursorSwarm, terminal,
-│       │                       #   tech universe, tilt, cursor, text FX...
+│       │                       #   GradientText, CircularText, Dock, text FX...
 │       └── sections/           # Hero, About, Skills, Projects, Experience, Contact
 ├── hooks/                      # Custom React hooks
 ├── lib/                        # Content (data.ts) and utilities
